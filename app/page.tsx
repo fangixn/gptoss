@@ -160,7 +160,7 @@ export default function Home() {
                 <Brain className="h-7 w-7 text-white" />
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-slate-800">EconAI</h1>
+                <h1 className="text-2xl font-bold text-slate-800">AI 博客</h1>
               </div>
             </div>
             <div className="flex items-center space-x-3">
@@ -169,34 +169,34 @@ export default function Home() {
                 className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium"
                 onClick={() => scrollToSection('features')}
               >
-                Features
+                功能特性
               </Button>
               <Button 
                 variant="ghost" 
                 className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium"
-                onClick={() => scrollToSection('how-it-works')}
+                onClick={() => router.push('/blog')}
               >
-                AI Chat
+                博客
               </Button>
               <Button 
                 variant="ghost" 
                 className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium"
-                onClick={() => scrollToSection('try-now')}
+                onClick={() => router.push('/chat')}
               >
-                Best Practices
+                AI 聊天
               </Button>
               <Button 
                 variant="ghost" 
                 className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium"
                 onClick={() => scrollToSection('resources')}
               >
-                Resources
+                资源
               </Button>
               <Button 
                 className="econai-button-primary px-6"
                 onClick={handleGetStarted}
               >
-                Get Started
+                开始使用
               </Button>
             </div>
           </div>

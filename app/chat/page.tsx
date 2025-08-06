@@ -376,11 +376,18 @@ export default function ChatPage() {
         {/* Header */}
         <div className="p-4 border-b">
           <div className="flex items-center justify-between mb-4">
-            <Button variant="ghost" size="sm" onClick={() => router.push('/')}>
-              <ArrowLeft className="h-4 w-4 mr-2" />
-              <span className="hidden sm:inline">Back to Home</span>
-              <span className="sm:hidden">Back</span>
-            </Button>
+            <div className="flex items-center space-x-2">
+              <Button variant="ghost" size="sm" onClick={() => router.push('/')}>
+                <ArrowLeft className="h-4 w-4 mr-2" />
+                <span className="hidden sm:inline">首页</span>
+                <span className="sm:hidden">首页</span>
+              </Button>
+              <Button variant="ghost" size="sm" onClick={() => router.push('/blog')}>
+                <MessageSquare className="h-4 w-4 mr-2" />
+                <span className="hidden sm:inline">博客</span>
+                <span className="sm:hidden">博客</span>
+              </Button>
+            </div>
             <Dialog open={settingsOpen} onOpenChange={setSettingsOpen}>
               <DialogTrigger asChild>
                 <Button variant="ghost" size="sm" onClick={handleOpenSettings}>

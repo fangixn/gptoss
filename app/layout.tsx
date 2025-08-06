@@ -5,36 +5,36 @@ import { Inter } from 'next/font/google';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'EconAI Experts - AI Economics Analysis Platform',
-  description: 'Professional economics analysis platform powered by five AI experts including ChatGPT, Claude, Gemini, DeepSeek, and Qwen. Get expert insights on macroeconomics, microeconomics, monetary policy, and econometrics.',
-  keywords: 'economics, AI, macroeconomics, microeconomics, monetary policy, econometrics, research, analysis, ChatGPT, Claude, Gemini, DeepSeek, Qwen',
-  authors: [{ name: 'fangxin', url: 'mailto:fangin1230@gmail.com' }],
-  creator: 'fangxin',
-  metadataBase: new URL('https://econai.vercel.app'),
+  title: 'AI 博客模板 - 现代化的AI聊天平台',
+  description: '现代化的AI博客模板，支持多个AI模型集成，包含聊天功能、博客系统和响应式设计。基于Next.js构建的完整解决方案。',
+  keywords: 'AI, 博客, 模板, Next.js, React, TypeScript, 聊天机器人, AI模型, 现代化设计',
+  authors: [{ name: 'AI Blog Template', url: '#' }],
+  creator: 'AI Blog Template',
+  metadataBase: new URL('https://localhost:3000'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: 'EconAI Experts - AI Economics Analysis Platform',
-    description: 'Get expert economics insights from 5 leading AI models - ChatGPT, Claude, Gemini, DeepSeek, and Qwen',
-    url: 'https://econai.vercel.app',
-    siteName: 'EconAI Experts',
+    title: 'AI 博客模板 - 现代化的AI聊天平台',
+    description: '现代化的AI博客模板，支持多个AI模型集成，包含聊天功能、博客系统和响应式设计',
+    url: 'https://localhost:3000',
+    siteName: 'AI 博客模板',
     images: [
       {
-        url: '/icon-512.png',
+        url: '/icon.svg',
         width: 512,
         height: 512,
-        alt: 'EconAI Experts Logo',
+        alt: 'AI 博客模板 Logo',
       },
     ],
-    locale: 'en_US',
+    locale: 'zh_CN',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'EconAI Experts - AI Economics Analysis Platform',
-    description: 'Professional economics analysis with 5 AI experts',
-    images: ['/icon-512.png'],
+    title: 'AI 博客模板 - 现代化的AI聊天平台',
+    description: '现代化的AI博客模板，完整的AI聊天解决方案',
+    images: ['/icon.svg'],
   },
   robots: {
     index: true,
