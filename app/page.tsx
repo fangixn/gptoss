@@ -69,8 +69,8 @@ export default function Home() {
     },
     {
       id: 8,
-      slug: 'what-is-gpt-oss-complete-guide-open-source-gpt',
-      title: 'What is GPT-OSS? Everything You Need to Know About Open Source GPT',
+      slug: 'what-is-gpt-oss',
+      title: 'What is GPT-OSS?',
       description: 'Complete guide to GPT-OSS open-source GPT models, from basic concepts to practical applications, providing deep insights into the advantages, features, and usage methods of open-source GPT models.',
       author: 'AI Technology Evangelist',
       date: '2025-08-06',
@@ -491,55 +491,53 @@ export default function Home() {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
             {featuredBlogPosts.map((post) => (
-              <Card key={post.id} className="econai-card border-0 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                <CardHeader>
-                  <div className="flex items-center justify-between mb-3">
-                    <Badge variant="outline" className="text-xs text-slate-700 border-slate-300">{post.category}</Badge>
-                    <div className="flex items-center text-sm text-slate-600">
-                      <Clock className="h-3 w-3 mr-1" />
-                      {post.readTime}
+              <Link key={post.id} href={`/blog/${post.slug}`} className="block">
+                <Card className="econai-card border-0 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer h-full">
+                  <CardHeader>
+                    <div className="flex items-center justify-between mb-3">
+                      <Badge variant="outline" className="text-xs text-slate-700 border-slate-300">{post.category}</Badge>
+                      <div className="flex items-center text-sm text-slate-600">
+                        <Clock className="h-3 w-3 mr-1" />
+                        {post.readTime}
+                      </div>
                     </div>
-                  </div>
-                  <CardTitle className="text-lg hover:text-blue-600 transition-colors line-clamp-2">
-                    <Link href={`/blog/${post.slug}`}>
+                    <CardTitle className="text-lg hover:text-blue-600 transition-colors line-clamp-2">
                       {post.title}
-                    </Link>
-                  </CardTitle>
-                  <CardDescription className="line-clamp-3 text-sm leading-relaxed text-slate-800">
-                    {post.description}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center text-sm text-gray-500">
-                      <CalendarDays className="h-3 w-3 mr-1" />
-                      {new Date(post.date).toLocaleDateString('en-US', {
-                        year: 'numeric',
-                        month: 'short',
-                        day: 'numeric'
-                      })}
+                    </CardTitle>
+                    <CardDescription className="line-clamp-3 text-sm leading-relaxed text-slate-800">
+                      {post.description}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex items-center text-sm text-gray-500">
+                        <CalendarDays className="h-3 w-3 mr-1" />
+                        {new Date(post.date).toLocaleDateString('en-US', {
+                          year: 'numeric',
+                          month: 'short',
+                          day: 'numeric'
+                        })}
+                      </div>
+                      <span className="text-sm text-gray-600">{post.author}</span>
                     </div>
-                    <span className="text-sm text-gray-600">{post.author}</span>
-                  </div>
-                  
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-1 mb-4">
-                    {post.tags.slice(0, 3).map((tag) => (
-                      <Badge key={tag} variant="secondary" className="text-xs">
-                        <Tag className="h-2 w-2 mr-1" />
-                        {tag}
-                      </Badge>
-                    ))}
-                  </div>
+                    
+                    {/* Tags */}
+                    <div className="flex flex-wrap gap-1 mb-4">
+                      {post.tags.slice(0, 3).map((tag) => (
+                        <Badge key={tag} variant="secondary" className="text-xs">
+                          <Tag className="h-2 w-2 mr-1" />
+                          {tag}
+                        </Badge>
+                      ))}
+                    </div>
 
-                  <Button asChild className="w-full">
-                    <Link href={`/blog/${post.slug}`}>
-                      Read Article
-                      <ArrowRight className="h-4 w-4 ml-2" />
-                    </Link>
-                  </Button>
-                </CardContent>
-              </Card>
+                    <div className="flex items-center justify-between text-sm font-medium hover:text-blue-600 transition-colors">
+                      <span>Read Article</span>
+                      <ArrowRight className="h-4 w-4" />
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
             ))}
           </div>
           

@@ -18,6 +18,7 @@
   </url>
   
   <!-- 博客文章页面 -->
+  <!-- GPT-OSS-120B ≈ o4-mini? Why Open-Source Models Are Catching Up with OpenAI -->
   <url>
     <loc>https://gptoss.blog/blog/gpt-oss-120b-vs-openai-o4-mini-comparison</loc>
     <changefreq>monthly</changefreq>
@@ -25,6 +26,7 @@
     <lastmod>2025-08-06</lastmod>
   </url>
   
+  <!-- GPT-OSS-120B vs GPT-OSS-20B: Which One Should You Use? -->
   <url>
     <loc>https://gptoss.blog/blog/gpt-oss-120b-vs-20b-which-model-to-choose</loc>
     <changefreq>monthly</changefreq>
@@ -32,8 +34,9 @@
     <lastmod>2025-08-06</lastmod>
   </url>
   
+  <!-- What is GPT-OSS? -->
   <url>
-    <loc>https://gptoss.blog/blog/what-is-gpt-oss-complete-guide-open-source-gpt</loc>
+    <loc>https://gptoss.blog/blog/what-is-gpt-oss</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2025-08-06</lastmod>
