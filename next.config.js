@@ -3,13 +3,12 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  // For static export (GitHub Pages)
+  output: 'export',
+  trailingSlash: true,
   images: { 
-    unoptimized: false // Enable Next.js Image Optimization for Vercel
+    unoptimized: true // Required for static export
   },
-  // For static export (GitHub Pages), uncomment the following lines:
-  // output: 'export',
-  // trailingSlash: true,
-  // images: { unoptimized: true },
 };
 
 module.exports = nextConfig;
