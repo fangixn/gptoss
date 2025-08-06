@@ -1,0 +1,21 @@
+{
+  "name": "GPT-OSS Blog",
+  "short_name": "GPT-OSS Blog",
+  "description": "A modern AI-powered blog platform with integrated multi-model AI chat functionality, focused on open-source GPT models.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3b82f6",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "categories": ["technology", "artificial-intelligence", "open-source"],
+  "lang": "en",
+  "scope": "/",
+  "screenshots": []
+}

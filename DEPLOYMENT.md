@@ -1,146 +1,155 @@
-# AI 博客模板 - 部署指南
+# Deployment Guide
 
-## ✅ 部署前检查清单
+This guide covers deploying the GPT-OSS Blog to various platforms.
 
-### 代码质量
-- [ ] 代码编译无错误
-- [ ] TypeScript 类型检查通过
-- [ ] 构建过程成功完成
-- [ ] 所有依赖正确安装
+## 🚀 Quick Deploy to Vercel (Recommended)
 
-### 配置文件
-- [ ] `package.json` - 项目配置正确
-- [ ] `next.config.js` - 生产环境优化
-- [ ] `vercel.json` - Vercel 部署配置
-- [ ] `.gitignore` - 正确的文件排除
-- [ ] `tsconfig.json` - TypeScript 配置
+Vercel is the easiest way to deploy this Next.js application:
 
-### 应用结构
-- [ ] 首页 (`/`) - 功能展示和介绍
-- [ ] 聊天页面 (`/chat`) - AI 对话界面
-- [ ] API 配置 - AI 模型正确配置
-- [ ] 响应式设计 - 多设备适配
-
-### UI 组件
-- [ ] Radix UI 组件正确导入
-- [ ] Tailwind CSS 样式正确应用
-- [ ] 图标 (Lucide React) 正常工作
-- [ ] 主题切换功能正常
-
-### 功能性
-- [ ] AI 模型选择功能
-- [ ] 聊天历史持久化 (localStorage)
-- [ ] API 密钥配置界面
-- [ ] 实时消息界面
-- [ ] 错误处理机制
-
-## 🚀 部署步骤
-
-### 方案 1: Vercel (推荐)
-
-1. **准备 GitHub 仓库**
+1. **Push to GitHub**:
    ```bash
    git add .
-   git commit -m "初始化 AI 博客模板"
+   git commit -m "Ready for deployment"
    git push origin main
    ```
 
-2. **Vercel 部署**
-   - 访问 [vercel.com](https://vercel.com)
-   - 连接 GitHub 账户
-   - 导入你的仓库
-   - 自动部署
+2. **Deploy to Vercel**:
+   - Visit [vercel.com](https://vercel.com)
+   - Sign in with your GitHub account
+   - Click "New Project"
+   - Import your repository
+   - Click "Deploy"
 
-### 方案 2: 手动构建
+3. **Done!** Your site will be live at `your-project.vercel.app`
 
-1. **本地测试**
-   ```bash
-   npm run build
-   npm run start
-   ```
+## 🔧 Environment Setup
 
-2. **生产构建**
-   ```bash
-   npm run build
-   npm run export  # 如需静态导出
-   ```
+### No Environment Variables Required
+This application stores API keys in browser localStorage, so no server-side environment variables are needed for basic deployment.
 
-## 🔧 环境配置
+### Optional Environment Variables
+If you want to add server-side features later:
 
-### API 密钥设置 (部署后配置)
-用户需要在浏览器中配置以下 API 密钥：
+```bash
+# For analytics
+NEXT_PUBLIC_GA_ID=your-google-analytics-id
 
-- **OpenAI API 密钥**: [platform.openai.com](https://platform.openai.com)
-- **Anthropic API 密钥**: [console.anthropic.com](https://console.anthropic.com)  
-- **Google API 密钥**: [aistudio.google.com](https://aistudio.google.com)
-- **DeepSeek API 密钥**: [platform.deepseek.com](https://platform.deepseek.com)
-- **阿里云 API 密钥**: [dashscope.aliyuncs.com](https://dashscope.aliyuncs.com)
+# For error monitoring  
+SENTRY_DSN=your-sentry-dsn
 
-### 性能优化
-- [ ] 静态页面生成
-- [ ] 组件懒加载
-- [ ] 图片优化处理
-- [ ] 打包大小最小化
+# For database (if adding dynamic content)
+DATABASE_URL=your-database-url
+```
 
-## 📊 部署后验证
+## 🏗️ Build Process
 
-### 功能测试
-- [ ] 首页正确加载
-- [ ] 所有 AI 模型按钮功能正常
-- [ ] 聊天页面导航正常
-- [ ] API 密钥配置对话框功能正常
-- [ ] 聊天历史持久化正常
-- [ ] 移动端响应式设计验证
+### Production Build
+```bash
+npm run build
+npm run start
+```
 
-### 性能测试
-- [ ] 页面加载时间可接受
-- [ ] 打包大小优化
-- [ ] 无控制台错误
-- [ ] SEO 元数据正确
+### Static Export (Optional)
+For static hosting platforms:
 
-## 🐛 故障排除
+```bash
+npm run build
+npm run export
+```
 
-### 常见问题
+This generates a `out/` folder with static files.
 
-1. **构建失败**
-   - 检查 TypeScript 错误: `npm run type-check`
-   - 验证所有导入正确
-   - 确保所有依赖已安装
+## 🌐 Alternative Deployment Platforms
 
-2. **运行时错误**  
-   - 检查浏览器控制台错误
-   - 验证 API 配置
-   - 测试 localStorage 功能
+### Netlify
+1. Connect your GitHub repository to Netlify
+2. Set build command: `npm run build`
+3. Set publish directory: `.next`
+4. Deploy
 
-3. **性能问题**
-   - 检查打包分析器输出
-   - 检查大型依赖
-   - 优化图片和资源
+### Railway
+1. Connect your GitHub repository
+2. Railway will auto-detect Next.js
+3. Deploy automatically
 
-## 📚 文档链接
+### Docker
+```dockerfile
+FROM node:18-alpine
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --only=production
+COPY . .
+RUN npm run build
+EXPOSE 3000
+CMD ["npm", "start"]
+```
 
-- [Next.js 部署](https://nextjs.org/docs/deployment)
-- [Vercel 文档](https://vercel.com/docs)
-- [Radix UI 组件](https://www.radix-ui.com/)
-- [Tailwind CSS](https://tailwindcss.com/docs)
+```bash
+docker build -t gptoss-blog .
+docker run -p 3000:3000 gptoss-blog
+```
 
-## 🎯 自定义开发建议
+## ✅ Post-Deployment Checklist
 
-### 添加新功能
-1. 在 `app/` 目录下创建新页面
-2. 在 `components/` 中添加新组件
-3. 使用 `hooks/` 目录管理状态逻辑
+- [ ] Site loads correctly at your domain
+- [ ] All pages are accessible (/, /blog, /chat)
+- [ ] AI chat interface works (after adding API keys)
+- [ ] Blog posts load individually
+- [ ] Mobile responsive design works
+- [ ] SEO meta tags are present
+- [ ] PWA manifest loads correctly
 
-### 样式自定义
-1. 编辑 `app/globals.css` 修改全局样式
-2. 在 `tailwind.config.ts` 中自定义主题
-3. 修改 `components/ui/` 中的组件样式
+## 🔍 Troubleshooting
 
-### AI 模型集成
-1. 在 `lib/apiConfig.ts` 中添加新模型配置
-2. 更新 `hooks/useApiSettings.ts` 包含新模型
-3. 在聊天界面添加模型选择选项
+### Build Errors
+- Check TypeScript errors: `npm run type-check`
+- Check ESLint errors: `npm run lint`
+- Ensure all dependencies are installed: `npm install`
+
+### Runtime Errors
+- Check browser console for JavaScript errors
+- Verify API keys are properly configured (if using chat)
+- Check network requests in browser dev tools
+
+### Performance Issues
+- Enable Next.js Image Optimization
+- Consider adding a CDN for static assets
+- Monitor Core Web Vitals
+
+## 📊 Monitoring & Analytics
+
+### Performance Monitoring
+- Use Vercel Analytics (built-in with Vercel deployments)
+- Add Google Analytics or Plausible for traffic insights
+- Monitor Core Web Vitals with web-vitals library
+
+### Error Tracking
+- Consider adding Sentry for error monitoring
+- Use Vercel's built-in error reporting
+- Monitor logs in your deployment platform
+
+## 🚀 Advanced Deployment
+
+### Custom Domain
+1. Purchase a domain from your preferred registrar
+2. In Vercel dashboard, go to your project
+3. Go to Settings > Domains
+4. Add your custom domain
+5. Update DNS records as instructed
+
+### Multiple Environments
+Set up staging and production environments:
+
+```bash
+# Staging
+git push origin staging
+
+# Production  
+git push origin main
+```
+
+Configure different domains for each environment in your deployment platform.
 
 ---
 
-**状态**: ✅ 模板准备就绪，可用于生产部署
+**Need help?** Check the platform-specific documentation or open an issue in the repository.
