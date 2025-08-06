@@ -379,13 +379,13 @@ export default function ChatPage() {
             <div className="flex items-center space-x-2">
               <Button variant="ghost" size="sm" onClick={() => router.push('/')}>
                 <ArrowLeft className="h-4 w-4 mr-2" />
-                <span className="hidden sm:inline">首页</span>
-                <span className="sm:hidden">首页</span>
+                <span className="hidden sm:inline">Home</span>
+                <span className="sm:hidden">Home</span>
               </Button>
               <Button variant="ghost" size="sm" onClick={() => router.push('/blog')}>
                 <MessageSquare className="h-4 w-4 mr-2" />
-                <span className="hidden sm:inline">博客</span>
-                <span className="sm:hidden">博客</span>
+                <span className="hidden sm:inline">Blog</span>
+                <span className="sm:hidden">Blog</span>
               </Button>
             </div>
             <Dialog open={settingsOpen} onOpenChange={setSettingsOpen}>
@@ -473,7 +473,7 @@ export default function ChatPage() {
           {/* Model Selection - Changed to single column layout for full display */}
           <div className="space-y-3">
             <div className="flex items-center justify-between">
-              <h3 className="text-base font-semibold text-slate-900">EconAI</h3>
+                              <h3 className="text-base font-semibold text-slate-900">GPT-OSS Blog</h3>
               <ApiStatusIndicator 
                 configuredCount={getConfiguredModelsCount()} 
                 totalCount={Object.keys(API_CONFIGS).length}
@@ -565,9 +565,9 @@ export default function ChatPage() {
             <Brain className="h-6 w-6 text-blue-600" />
             <div>
               <h1 className="text-lg font-semibold text-gray-900">
-                EconAI
+                GPT-OSS Chat
               </h1>
-              <p className="text-sm text-gray-600">Professional Economics Research Platform</p>
+              <p className="text-sm text-gray-600">Open Source GPT Models AI Chat Platform</p>
             </div>
           </div>
         </div>
@@ -580,8 +580,8 @@ export default function ChatPage() {
                 {/* Welcome Header */}
                 <div className="text-center py-6">
                   <Brain className="h-10 w-10 text-blue-600 mx-auto mb-3" />
-                  <h3 className="text-xl font-bold text-slate-800 mb-2">EconAI Research Chat</h3>
-                  <p className="text-slate-600">Start your economics analysis journey</p>
+                  <h3 className="text-xl font-bold text-slate-800 mb-2">GPT-OSS AI Chat</h3>
+                  <p className="text-slate-600">Start your AI model exploration journey</p>
                 </div>
 
                 {/* Best Practices Section */}
@@ -739,7 +739,7 @@ export default function ChatPage() {
         <div className="econai-chat-input-container p-6">
           <div className="relative">
             <Textarea
-              placeholder="Ask your economics questions here..."
+                              placeholder="Ask your GPT-OSS questions here..."
               value={currentMessage}
               onChange={(e) => setCurrentMessage(e.target.value)}
               onKeyPress={handleKeyPress}

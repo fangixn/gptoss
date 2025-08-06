@@ -5,35 +5,35 @@ import { Inter } from 'next/font/google';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'AI 博客模板 - 现代化的AI聊天平台',
-  description: '现代化的AI博客模板，支持多个AI模型集成，包含聊天功能、博客系统和响应式设计。基于Next.js构建的完整解决方案。',
-  keywords: 'AI, 博客, 模板, Next.js, React, TypeScript, 聊天机器人, AI模型, 现代化设计',
-  authors: [{ name: 'AI Blog Template', url: '#' }],
-  creator: 'AI Blog Template',
-  metadataBase: new URL('https://localhost:3000'),
+  title: 'GPT-OSS Blog - Open Source GPT Models Technical Blog',
+  description: 'GPT-OSS Blog is a technical blog focused on open-source GPT models, providing model comparisons, usage guides, technical analysis, and AI chat functionality.',
+  keywords: 'GPT-OSS, Open Source GPT, AI Models, Technical Blog, ChatGPT Alternative, Model Comparison, AI Technology',
+  authors: [{ name: 'GPT-OSS Blog', url: 'https://gptoss.blog' }],
+  creator: 'GPT-OSS Blog',
+  metadataBase: new URL('https://gptoss.blog'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: 'AI 博客模板 - 现代化的AI聊天平台',
-    description: '现代化的AI博客模板，支持多个AI模型集成，包含聊天功能、博客系统和响应式设计',
-    url: 'https://localhost:3000',
-    siteName: 'AI 博客模板',
+    title: 'GPT-OSS Blog - Open Source GPT Models Technical Blog',
+    description: 'GPT-OSS Blog focuses on open-source GPT model technology sharing, providing model comparisons, usage guides, and AI chat functionality',
+    url: 'https://gptoss.blog',
+    siteName: 'GPT-OSS Blog',
     images: [
       {
         url: '/icon.svg',
         width: 512,
         height: 512,
-        alt: 'AI 博客模板 Logo',
+        alt: 'GPT-OSS Blog Logo',
       },
     ],
-    locale: 'zh_CN',
+    locale: 'en_US',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'AI 博客模板 - 现代化的AI聊天平台',
-    description: '现代化的AI博客模板，完整的AI聊天解决方案',
+    title: 'GPT-OSS Blog - Open Source GPT Models Technical Blog',
+    description: 'GPT-OSS Blog focuses on open-source GPT model technology sharing and AI chat solutions',
     images: ['/icon.svg'],
   },
   robots: {
@@ -68,23 +68,11 @@ export default function RootLayout({
         <meta name="theme-color" content="#667eea" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content="EconAI" />
+        <meta name="apple-mobile-web-app-title" content="GPT-OSS Blog" />
         
         {/* Viewport for mobile */}
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-        
-        {/* Google tag (gtag.js) */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-WTG8PRNPZQ"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-WTG8PRNPZQ');
-            `,
-          }}
-        />
+
       </head>
       <body className={inter.className}>{children}</body>
     </html>

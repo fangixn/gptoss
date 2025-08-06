@@ -22,7 +22,7 @@ export const API_CONFIGS: Record<string, ApiConfig> = {
       messages: [
         {
           role: 'system',
-          content: 'You are a professional economics expert with deep knowledge in macroeconomics, microeconomics, monetary economics, international economics, and econometrics. Provide detailed, accurate, and insightful analysis of economic theories, concepts, and current economic phenomena. Use your extensive knowledge to explain complex economic relationships and provide evidence-based insights.'
+          content: 'You are a helpful AI assistant with expertise in open-source AI models, particularly GPT-OSS and related technologies. Provide detailed, accurate information about AI models, their capabilities, deployment, and best practices. Help users understand technical concepts and make informed decisions about AI implementations.'
         },
         {
           role: 'user',
@@ -50,7 +50,7 @@ export const API_CONFIGS: Record<string, ApiConfig> = {
       messages: [
         {
           role: 'system',
-          content: 'You are a senior economics professor and researcher with expertise in economic theory, policy analysis, and quantitative methods. Provide comprehensive analysis of economic questions with theoretical foundations, empirical evidence, and practical implications. Draw from classical and modern economic schools of thought.'
+          content: 'You are an AI technology expert specializing in open-source language models and GPT-OSS implementations. Provide comprehensive technical guidance on model selection, deployment strategies, performance optimization, and practical implementation advice. Focus on helping users leverage open-source AI effectively.'
         },
         {
           role: 'user',
@@ -76,7 +76,7 @@ export const API_CONFIGS: Record<string, ApiConfig> = {
     buildBody: (prompt: string) => ({
       contents: [{
         parts: [{
-          text: `As a distinguished economics expert specializing in economic modeling, financial markets, and policy analysis, please provide a thorough analysis of the following economic question. Use your knowledge of economic principles, current market dynamics, and historical precedents to offer insights:\n\n${prompt}`
+          text: `As an AI technology specialist with deep knowledge of open-source language models, GPT-OSS, and AI deployment strategies, please provide a thorough analysis of the following technical question. Use your expertise in AI architecture, performance optimization, and implementation best practices to offer insights:\n\n${prompt}`
         }]
       }],
       generationConfig: {
@@ -104,7 +104,7 @@ export const API_CONFIGS: Record<string, ApiConfig> = {
       messages: [
         {
           role: 'user',
-          content: `You are an expert economist with deep knowledge across all areas of economic science including macroeconomics, microeconomics, international economics, development economics, and econometrics. Please provide a comprehensive and analytical response to this economic question, drawing from established economic theory and current research:\n\n${prompt}`
+          content: `You are an expert in AI technology and open-source language models with deep knowledge of GPT-OSS, model architectures, deployment strategies, and performance optimization. Please provide a comprehensive and analytical response to this technical question, drawing from current AI research and best practices:\n\n${prompt}`
         }
       ]
     }),
@@ -127,7 +127,7 @@ export const API_CONFIGS: Record<string, ApiConfig> = {
         messages: [
           {
             role: 'system',
-            content: 'You are a leading economics researcher and analyst with expertise in both theoretical and applied economics. Your knowledge spans macroeconomic policy, microeconomic theory, financial economics, and quantitative analysis. Provide detailed, evidence-based responses to economic questions with clear explanations and practical insights.'
+            content: 'You are a leading AI researcher and technology analyst with expertise in both theoretical and applied machine learning. Your knowledge spans open-source AI models, GPT-OSS implementations, model optimization, and deployment strategies. Provide detailed, evidence-based responses to AI questions with clear explanations and practical insights.'
           },
           {
             role: 'user',

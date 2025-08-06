@@ -1,18 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
   <!-- 主页 - 最高优先级 -->
   <url>
-    <loc>https://economicsai.org/</loc>
-    <changefreq>weekly</changefreq>
+    <loc>https://gptoss.blog/</loc>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-08-06</lastmod>
   </url>
   
-  <!-- AI聊天页面 - 核心功能页面 -->
+  <!-- 博客页面 - 核心内容页面 -->
   <url>
-    <loc>https://economicsai.org/chat</loc>
-    <changefreq>monthly</changefreq>
+    <loc>https://gptoss.blog/blog</loc>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-08-06</lastmod>
+  </url>
+  
+  <!-- 博客文章页面 -->
+  <url>
+    <loc>https://gptoss.blog/blog/gpt-oss-120b-vs-openai-o4-mini-comparison</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2025-08-06</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gptoss.blog/blog/gpt-oss-120b-vs-20b-which-model-to-choose</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2025-08-06</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gptoss.blog/blog/what-is-gpt-oss-complete-guide-open-source-gpt</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2025-08-06</lastmod>
   </url>
 </urlset> 

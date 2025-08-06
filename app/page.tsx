@@ -1,14 +1,15 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Badge } from '@/components/ui/badge';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { Settings, MessageCircle, Brain, TrendingUp, DollarSign, BarChart3, PieChart, ExternalLink, BookOpen, Building, Globe, ArrowRight, Sparkles, Upload, CheckCircle, XCircle, FileText, MessageSquare, Shield } from 'lucide-react';
+import { Settings, MessageCircle, Brain, TrendingUp, DollarSign, BarChart3, PieChart, ExternalLink, BookOpen, Building, Globe, ArrowRight, Sparkles, Upload, CheckCircle, XCircle, FileText, MessageSquare, Shield, Clock, CalendarDays, Tag } from 'lucide-react';
 import { API_CONFIGS } from '@/lib/apiConfig';
 import { useApiSettings } from '@/hooks/useApiSettings';
 import { ApiStatusIndicator } from '@/components/ApiStatusIndicator';
@@ -24,37 +25,7 @@ export default function Home() {
   const [question, setQuestion] = useState<string>('');
   const [settingsOpen, setSettingsOpen] = useState(false);
 
-  // 在主页加载 Google AdSense 脚本
-  useEffect(() => {
-    // 检查脚本是否已经存在，避免重复加载
-    if (document.querySelector('script[src*="adsbygoogle.js"]')) {
-      return;
-    }
 
-    const script = document.createElement('script');
-    script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8773372379395342';
-    script.async = true;
-    script.crossOrigin = 'anonymous';
-    
-    script.onload = () => {
-      console.log('Google AdSense script loaded successfully');
-    };
-    
-    script.onerror = () => {
-      console.error('Failed to load Google AdSense script');
-    };
-
-    document.head.appendChild(script);
-
-    // 清理函数：组件卸载时移除脚本
-    return () => {
-      const existingScript = document.querySelector('script[src*="adsbygoogle.js"]');
-      if (existingScript) {
-        existingScript.remove();
-      }
-    };
-  }, []);
-  
   // Use custom hook to manage API settings
   const { 
     apiSettings, 
@@ -65,34 +36,71 @@ export default function Home() {
     getConfiguredModelsCount 
   } = useApiSettings();
 
-  const economicsAreas = [
-    { icon: TrendingUp, title: 'Macroeconomics', desc: 'National economic policy, inflation, GDP analysis' },
-    { icon: DollarSign, title: 'Monetary Economics', desc: 'Central bank policy, exchange rates, financial markets' },
-    { icon: BarChart3, title: 'Microeconomics', desc: 'Supply and demand, market structure, consumer behavior' },
-    { icon: PieChart, title: 'Econometrics', desc: 'Data analysis, economic modeling, statistical inference' },
+  const gptOssAreas = [
+    { icon: TrendingUp, title: 'Model Comparison', desc: 'In-depth comparison of different open-source GPT models' },
+    { icon: DollarSign, title: 'Cost Analysis', desc: 'Cost-benefit analysis of open-source vs commercial models' },
+    { icon: BarChart3, title: 'Performance Benchmarks', desc: 'Benchmark tests and real-world application evaluations' },
+    { icon: PieChart, title: 'Technical Guides', desc: 'Practical tutorials for model deployment and optimization' },
+  ];
+
+  // Featured blog posts for homepage
+  const featuredBlogPosts = [
+    {
+      id: 6,
+      slug: 'gpt-oss-120b-vs-openai-o4-mini-comparison',
+      title: 'GPT-OSS-120B ≈ o4-mini? Why Open-Source Models Are Catching Up with OpenAI',
+      description: 'Performance comparison analysis between GPT-OSS-120B and OpenAI o4-mini, open-source models are rapidly catching up with closed-source models, achieving similar levels in multiple key metrics.',
+      author: 'AI Technology Analyst',
+      date: '2025-08-06',
+      readTime: '15 min read',
+      tags: ['GPT-OSS', 'OpenAI', 'Open Source AI', 'Model Comparison', 'Technical Analysis'],
+      category: 'Technical Analysis'
+    },
+    {
+      id: 7,
+      slug: 'gpt-oss-120b-vs-20b-which-model-to-choose',
+      title: 'GPT-OSS-120B vs GPT-OSS-20B: Which One Should You Use?',
+      description: 'Detailed comparison analysis of GPT-OSS-120B and GPT-OSS-20B, helping developers choose the most suitable open-source language model based on specific requirements, including comprehensive evaluation of performance, cost, and hardware requirements.',
+      author: 'AI Product Manager',
+      date: '2025-08-06',
+      readTime: '12 min read',
+      tags: ['GPT-OSS', 'Model Selection', 'Performance Comparison', 'Cost Analysis'],
+      category: 'Usage Guide'
+    },
+    {
+      id: 8,
+      slug: 'what-is-gpt-oss-complete-guide-open-source-gpt',
+      title: 'What is GPT-OSS? Everything You Need to Know About Open Source GPT',
+      description: 'Complete guide to GPT-OSS open-source GPT models, from basic concepts to practical applications, providing deep insights into the advantages, features, and usage methods of open-source GPT models.',
+      author: 'AI Technology Evangelist',
+      date: '2025-08-06',
+      readTime: '10 min read',
+      tags: ['GPT-OSS', 'Open Source AI', 'Technical Guide', 'AI Basics'],
+      category: 'Technical Tutorial'
+    }
   ];
 
   const resourceCategories = [
     {
-      title: 'Government & International Reports',
+      title: 'Open Source AI Platforms',
       icon: Building,
       iconColor: 'text-blue-600',
       resources: [
-        { name: 'Federal Reserve Reports', url: 'https://www.federalreserve.gov/publications/', desc: 'Economic research and monetary policy insights' },
-        { name: 'World Bank Open Knowledge', url: 'https://openknowledge.worldbank.org/', desc: 'Global development and economic data' },
-        { name: 'IMF Publications', url: 'https://www.imf.org/en/Publications', desc: 'International monetary and financial analysis' },
-        { name: 'OECD Economic Outlook', url: 'https://www.oecd.org/economic-outlook/', desc: 'Economic forecasts and policy analysis' }
+        { name: 'Hugging Face', url: 'https://huggingface.co/', desc: 'Open-source AI models and datasets hub' },
+        { name: 'GitHub AI', url: 'https://github.com/topics/artificial-intelligence', desc: 'Open-source AI projects and repositories' },
+        { name: 'Papers with Code', url: 'https://paperswithcode.com/', desc: 'Machine learning research papers with code implementations' },
+        { name: 'ModelScope', url: 'https://modelscope.cn/', desc: 'Community-driven platform for AI model sharing' }
       ]
     },
     {
-      title: 'Academic & Open Access Resources',
+      title: 'Academic & Research Resources',
       icon: BookOpen,
       iconColor: 'text-green-600', 
       resources: [
-        { name: 'SSRN Economics', url: 'https://www.ssrn.com/', desc: 'Social Science Research Network papers' },
-        { name: 'arXiv Economics', url: 'https://arxiv.org/list/econ/recent', desc: 'Open-access preprints in economics' },
-        { name: 'The Quarterly Journal of Economics', url: 'https://academic.oup.com/qje', desc: 'Premier economics journal published by Oxford University Press' },
-        { name: 'American Economic Association', url: 'https://www.aeaweb.org/journals', desc: 'Leading economics journals and research resources' }
+        { name: 'arXiv AI/ML', url: 'https://arxiv.org/list/cs.AI/recent', desc: 'Latest AI and machine learning research papers' },
+        { name: 'Google AI Research', url: 'https://ai.google/research/', desc: 'Cutting-edge AI research and publications' },
+        { name: 'OpenAI Research', url: 'https://openai.com/research/', desc: 'Advanced AI research and model developments' },
+        { name: 'Meta AI Research', url: 'https://ai.meta.com/research/', desc: 'Open research in AI and machine learning' }
       ]
     }
   ];
@@ -160,7 +168,7 @@ export default function Home() {
                 <Brain className="h-7 w-7 text-white" />
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-slate-800">AI 博客</h1>
+                <span className="text-lg font-semibold text-slate-800">GPT-OSS Blog</span>
               </div>
             </div>
             <div className="flex items-center space-x-3">
@@ -169,34 +177,41 @@ export default function Home() {
                 className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium"
                 onClick={() => scrollToSection('features')}
               >
-                功能特性
+                Features
               </Button>
               <Button 
                 variant="ghost" 
                 className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium"
                 onClick={() => router.push('/blog')}
               >
-                博客
+                Blog
+              </Button>
+              <Button 
+                variant="ghost" 
+                className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium"
+                onClick={() => scrollToSection('blog-posts')}
+              >
+                Articles
               </Button>
               <Button 
                 variant="ghost" 
                 className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium"
                 onClick={() => router.push('/chat')}
               >
-                AI 聊天
+                AI Chat
               </Button>
               <Button 
                 variant="ghost" 
                 className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium"
                 onClick={() => scrollToSection('resources')}
               >
-                资源
+                Resources
               </Button>
               <Button 
                 className="econai-button-primary px-6"
                 onClick={handleGetStarted}
               >
-                开始使用
+                Get Started
               </Button>
             </div>
           </div>
@@ -209,21 +224,23 @@ export default function Home() {
           <div className="mb-4">
             <div className="inline-flex items-center px-3 py-1.5 bg-blue-50 text-blue-700 rounded-full text-sm font-medium mb-6">
               <Sparkles className="h-3 w-3 mr-2" />
-              Professional Economics AI
+              Open Source GPT Models Tech Blog
             </div>
           </div>
           
-          <h1 className="text-4xl md:text-5xl font-bold mb-8 leading-tight">
-            Your AI-Powered<br />
-            <span className="econai-gradient-text">Economics</span> Knowledge Base
+          <h1 className="text-5xl md:text-6xl font-bold mb-4 leading-tight">
+            <span className="econai-gradient-text">GPT-OSS Blog</span>
           </h1>
+          <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-slate-700 leading-tight">
+            Explore Open Source GPT Models Unlimited Potential
+          </h2>
           
-          {/* Economics Specialization Areas */}
+          {/* GPT-OSS Specialization Areas */}
           <div className="mb-8">
-            <h2 className="text-2xl font-bold text-slate-800 mb-4">Economics Specialization Areas</h2>
-            <p className="text-base text-slate-600 mb-6">Comprehensive coverage across all major economics disciplines</p>
+            <h3 className="text-2xl font-bold text-slate-800 mb-4">GPT-OSS Core Areas</h3>
+            <p className="text-base text-slate-600 mb-6">Comprehensive coverage of all important aspects of open-source GPT models</p>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
-              {economicsAreas.map((area, index) => (
+              {gptOssAreas.map((area, index) => (
                 <Card key={index} className="econai-card text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-0">
                   <CardHeader className="pb-2 pt-4">
                     <div className="w-12 h-12 mx-auto bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mb-3">
@@ -261,14 +278,14 @@ export default function Home() {
         <section id="how-it-works" className="mb-16">
           <Card className="econai-card border-0 max-w-4xl mx-auto p-6">
             <div className="text-center mb-6">
-              <h2 className="text-2xl font-bold text-slate-800 mb-3">Choose Your AI Economics Expert & Start Chatting</h2>
-              <p className="text-base text-slate-600">Select your preferred AI model and begin your economics analysis</p>
+              <h2 className="text-2xl font-bold text-slate-800 mb-3">Choose Your AI Assistant & Start Chatting</h2>
+              <p className="text-base text-slate-600">Select your preferred AI model and begin your GPT-OSS exploration</p>
             </div>
 
             {/* AI Model Selection */}
             <div className="mb-6">
               <div className="flex items-center justify-center mb-3 space-x-3">
-                <h3 className="text-base font-semibold text-slate-800">Available AI Experts</h3>
+                <h3 className="text-base font-semibold text-slate-800">Available AI Models</h3>
                 <ApiStatusIndicator 
                   configuredCount={getConfiguredModelsCount()} 
                   totalCount={Object.keys(API_CONFIGS).length}
@@ -327,10 +344,10 @@ export default function Home() {
             <div id="get-started" className="space-y-4">
               <div>
                 <label className="text-sm font-medium mb-2 block text-slate-700">
-                  Your Economics Question (Optional)
+                  Your GPT-OSS Question (Optional)
                 </label>
                 <Textarea
-                  placeholder="e.g., Explain the mechanisms of inflation's impact on the economy..."
+                  placeholder="e.g., Compare GPT-OSS-120B vs OpenAI GPT-4 performance..."
                   value={question}
                   onChange={(e) => setQuestion(e.target.value)}
                   rows={3}
@@ -370,7 +387,7 @@ export default function Home() {
           </Card>
         </section>
 
-        {/* Best Practices for Economics Research */}
+        {/* Best Practices for GPT-OSS Research */}
         <section id="try-now" className="mb-20">
           <Card className="econai-card border-0 max-w-6xl mx-auto p-8">
             <div className="mb-8">
@@ -378,7 +395,7 @@ export default function Home() {
                 <div className="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center mr-3">
                   <TrendingUp className="h-5 w-5 text-purple-600" />
                 </div>
-                <h2 className="text-2xl font-bold text-slate-800">Best Practices for Economics Research</h2>
+                <h2 className="text-2xl font-bold text-slate-800">Best Practices for GPT-OSS Research</h2>
               </div>
             </div>
 
@@ -463,12 +480,88 @@ export default function Home() {
           </Card>
         </section>
 
-        {/* Economics Knowledge Resources */}
+        {/* Featured Blog Posts */}
+        <section id="blog-posts" className="mb-20">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-slate-800 mb-4">Featured Articles</h2>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              Explore our latest insights on open-source GPT models, performance comparisons, and technical guides
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+            {featuredBlogPosts.map((post) => (
+              <Card key={post.id} className="econai-card border-0 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                <CardHeader>
+                  <div className="flex items-center justify-between mb-3">
+                    <Badge variant="outline" className="text-xs text-slate-700 border-slate-300">{post.category}</Badge>
+                    <div className="flex items-center text-sm text-slate-600">
+                      <Clock className="h-3 w-3 mr-1" />
+                      {post.readTime}
+                    </div>
+                  </div>
+                  <CardTitle className="text-lg hover:text-blue-600 transition-colors line-clamp-2">
+                    <Link href={`/blog/${post.slug}`}>
+                      {post.title}
+                    </Link>
+                  </CardTitle>
+                  <CardDescription className="line-clamp-3 text-sm leading-relaxed text-slate-800">
+                    {post.description}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center text-sm text-gray-500">
+                      <CalendarDays className="h-3 w-3 mr-1" />
+                      {new Date(post.date).toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'short',
+                        day: 'numeric'
+                      })}
+                    </div>
+                    <span className="text-sm text-gray-600">{post.author}</span>
+                  </div>
+                  
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-1 mb-4">
+                    {post.tags.slice(0, 3).map((tag) => (
+                      <Badge key={tag} variant="secondary" className="text-xs">
+                        <Tag className="h-2 w-2 mr-1" />
+                        {tag}
+                      </Badge>
+                    ))}
+                  </div>
+
+                  <Button asChild className="w-full">
+                    <Link href={`/blog/${post.slug}`}>
+                      Read Article
+                      <ArrowRight className="h-4 w-4 ml-2" />
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+          
+          {/* View All Blog Posts Button */}
+          <div className="text-center mt-12">
+            <Button
+              onClick={() => router.push('/blog')}
+              variant="outline"
+              className="px-8 py-3 text-base h-auto group"
+            >
+              View All Articles
+              <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
+            </Button>
+          </div>
+        </section>
+
+        {/* AI Knowledge Resources */}
         <section id="resources" className="mb-20">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-slate-800 mb-4">Economics Knowledge Resources</h2>
+            <h2 className="text-4xl font-bold text-slate-800 mb-4">AI Knowledge Resources</h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              Curated collection of free, high-quality economics resources to enhance your 
+              Curated collection of free, high-quality AI resources to enhance your 
               research and understanding
             </p>
           </div>
@@ -511,17 +604,7 @@ export default function Home() {
               </Card>
             ))}
           </div>
-          
-          {/* More Resources Button */}
-          <div className="text-center mt-12">
-            <Button
-              onClick={() => window.open('https://www.economicsweb.org/', '_blank')}
-              className="econai-button-primary px-8 py-3 text-base h-auto group"
-            >
-              More
-              <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
-            </Button>
-          </div>
+
         </section>
 
         {/* Settings Dialog */}
@@ -605,55 +688,49 @@ export default function Home() {
       {/* Footer */}
       <footer className="mt-20 bg-slate-900 text-white">
         <div className="max-w-7xl mx-auto px-6 py-12">
-          <div className="grid md:grid-cols-3 gap-8 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-8">
             {/* Brand Section */}
-            <div className="md:col-span-1">
+            <div className="md:col-span-5 flex flex-col">
               <div className="flex items-center mb-4">
                 <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center mr-3">
                   <Brain className="h-5 w-5 text-white" />
                 </div>
-                <span className="text-xl font-bold">EconAI</span>
+                <span className="text-xl font-bold">GPT-OSS Blog</span>
               </div>
               <p className="text-slate-300 text-sm leading-relaxed mb-4">
-                Advanced AI-powered economics research platform combining multiple AI models with curated academic resources.
+                Technical blog focused on open-source GPT models, providing in-depth comparative analysis, usage guides, and AI chat functionality.
               </p>
               <div className="flex items-center text-sm text-slate-400">
                 <Globe className="h-4 w-4 mr-2" />
-                <span>Global Economics Research</span>
+                <span>Open Source AI Technology Sharing</span>
               </div>
             </div>
 
-            {/* Platform Links */}
-            <div>
-              <h4 className="font-semibold mb-4 text-slate-200">Platform</h4>
-              <ul className="space-y-2 text-sm text-slate-300">
-                <li><a href="#features" className="hover:text-blue-400 transition-colors">Features</a></li>
-                <li><a href="#how-it-works" className="hover:text-blue-400 transition-colors">AI Chat</a></li>
-                <li><a href="#get-started" className="hover:text-blue-400 transition-colors">Get Started</a></li>
-                <li><a href="/chat" className="hover:text-blue-400 transition-colors">Chat Interface</a></li>
-              </ul>
-            </div>
+            {/* Platform and Resources Container */}
+            <div className="md:col-span-7 grid md:grid-cols-2 gap-8">
+              {/* Platform Links */}
+              <div className="flex flex-col">
+                <h4 className="font-semibold mb-4 text-slate-200">Platform</h4>
+                <ul className="space-y-3 text-sm">
+                  <li><a href="/" className="text-slate-300 hover:text-blue-400 transition-colors block">Home</a></li>
+                  <li><a href="/blog" className="text-slate-300 hover:text-blue-400 transition-colors block">Blog</a></li>
+                  <li><a href="/chat" className="text-slate-300 hover:text-blue-400 transition-colors block">AI Chat</a></li>
+                  <li><a href="#blog-posts" className="text-slate-300 hover:text-blue-400 transition-colors block">Featured Articles</a></li>
+                </ul>
+              </div>
 
-            {/* Resources */}
-            <div>
-              <h4 className="font-semibold mb-4 text-slate-200">Resources</h4>
-              <ul className="space-y-2 text-sm text-slate-300">
-                <li><a href="#resources" className="hover:text-blue-400 transition-colors">Academic Resources</a></li>
-                <li><a href="#try-now" className="hover:text-blue-400 transition-colors">Best Practices</a></li>
-                <li><a href="https://www.federalreserve.gov/publications/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors">Federal Reserve</a></li>
-                <li><a href="https://www.worldbank.org/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors">World Bank</a></li>
-              </ul>
-            </div>
-
-            {/* Contact */}
-            <div>
-              <h4 className="font-semibold mb-4 text-slate-200">Contact</h4>
-                <div className="space-y-1 text-sm text-slate-300">
-                  <div className="flex items-center">
-                    <MessageCircle className="h-4 w-4 mr-2 text-slate-400" />
-                    <a href="mailto:fangin1230@gmail.com" className="hover:text-blue-400 transition-colors">
-                      fangin1230@gmail.com
-                    </a>
+              {/* Resources Links */}
+              <div className="flex flex-col">
+                <h4 className="font-semibold mb-4 text-slate-200">Resources</h4>
+                <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm text-slate-300">
+                  <a href="https://huggingface.co/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors">Hugging Face</a>
+                  <a href="https://github.com/topics/artificial-intelligence" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors">GitHub AI</a>
+                  <a href="https://paperswithcode.com/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors">Papers with Code</a>
+                  <a href="https://modelscope.cn/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors">ModelScope</a>
+                  <a href="https://arxiv.org/list/cs.AI/recent" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors">arXiv AI/ML</a>
+                  <a href="https://ai.google/research/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors">Google AI Research</a>
+                  <a href="https://openai.com/research/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors">OpenAI Research</a>
+                  <a href="https://ai.meta.com/research/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors">Meta AI Research</a>
                 </div>
               </div>
             </div>
@@ -664,7 +741,7 @@ export default function Home() {
             <div className="flex flex-col md:flex-row justify-between items-center">
               <div className="mb-4 md:mb-0">
                 <p className="text-sm text-slate-400">
-                  © 2025 EconAI. All rights reserved. Created by <span className="text-slate-300 font-medium">fangxin</span>.
+                  © 2025 GPT-OSS Blog. All rights reserved.
                 </p>
               </div>
               
@@ -683,7 +760,7 @@ export default function Home() {
             {/* Disclaimer */}
             <div className="mt-6 pt-4 border-t border-slate-800">
               <p className="text-xs text-slate-500 leading-relaxed">
-                <strong>Disclaimer:</strong> EconAI provides AI-assisted economic analysis and research tools. The information generated should be verified with original sources before making important decisions. This platform is designed for educational and research purposes. Users are responsible for ensuring compliance with their institution's academic integrity policies and relevant copyright laws.
+                <strong>Disclaimer:</strong> GPT-OSS Blog provides technical analysis and research tools for open-source AI models. Generated information should be verified with original sources before making important decisions. This platform is for educational and research purposes only. Users are responsible for ensuring compliance with relevant copyright laws and academic integrity policies.
               </p>
             </div>
           </div>

@@ -1,140 +1,165 @@
-# AI 博客模板
+# GPT-OSS Blog
 
-一个现代化的 AI 聊天博客平台模板，支持多个 AI 模型集成。
+A modern AI-powered blog platform template with integrated multi-model AI chat functionality, focused on open-source GPT models.
 
-## 功能特性
+## Features
 
-### 🤖 多 AI 模型支持
-- 支持集成多个主流 AI 模型
-- 实时 AI 对话功能
-- 灵活的模型切换
-- 专业的聊天界面
+### 🤖 Multi-AI Model Support
+- Integration with multiple mainstream AI models
+- Real-time AI conversation functionality
+- Flexible model switching
+- Professional chat interface
 
-### 🎨 现代化设计
-- 基于 Next.js 13+ 和 App Router
-- Radix UI + Tailwind CSS 组件库
-- 响应式设计，支持多设备
-- 优雅的用户界面
+### 🎨 Modern Design
+- Built with Next.js 13+ and App Router
+- Radix UI + Tailwind CSS component library
+- Responsive design for all devices
+- Elegant user interface
 
-### 📱 核心功能
-- 聊天历史管理
-- API 设置配置
-- 实时状态指示器
-- 主题切换支持
+### 📱 Core Functionality
+- Blog content management
+- Chat history management
+- API settings configuration
+- Real-time status indicators
+- SEO optimization
 
-## 快速开始
+## Quick Start
 
-### 环境要求
+### System Requirements
 - Node.js 18+ 
-- npm 或 yarn
+- npm or yarn
 
-### 安装步骤
+### Installation Steps
 
-1. 下载或克隆此模板：
+1. Clone this repository:
 ```bash
-git clone <your-repository-url>
-cd ai-blog-template
+git clone https://github.com/your-username/gptoss-blog
+cd gptoss-blog
 ```
 
-2. 安装依赖：
+2. Install dependencies:
 ```bash
 npm install
 ```
 
-3. 配置 API 密钥：
-   - 启动应用
-   - 点击头部的 "API 设置"
-   - 输入你要使用的 AI 模型的 API 密钥
+3. Configure API keys:
+   - Start the application
+   - Click "API Settings" in the header
+   - Enter API keys for the AI models you want to use
 
-4. 启动开发服务器：
+4. Start development server:
 ```bash
 npm run dev
 ```
 
-访问 `http://localhost:3000` 查看你的应用。
+Visit `http://localhost:3000` to view your application.
 
-## API 密钥配置
+## API Key Configuration
 
-根据需要获取以下 AI 模型的 API 密钥：
+Get API keys for the following AI models as needed:
 
-- **OpenAI (ChatGPT)**: [OpenAI Platform](https://platform.openai.com)
+- **OpenAI (GPT-4, GPT-3.5)**: [OpenAI Platform](https://platform.openai.com)
 - **Anthropic (Claude)**: [Anthropic Console](https://console.anthropic.com)
 - **Google (Gemini)**: [Google AI Studio](https://aistudio.google.com)
 - **DeepSeek**: [DeepSeek Platform](https://platform.deepseek.com)
-- **阿里云 (通义千问)**: [DashScope](https://dashscope.aliyuncs.com)
+- **Alibaba Cloud (Qwen)**: [DashScope](https://dashscope.aliyuncs.com)
 
-## 部署
+## Deployment
 
-### 部署到 Vercel
+### Deploy to Vercel
 
-1. Fork 此仓库到你的 GitHub 账户
-2. 在 Vercel 中连接你的 GitHub 账户
-3. 导入你的 Fork 仓库
-4. 部署（Vercel 会自动检测 Next.js 项目）
+1. Fork this repository to your GitHub account
+2. Connect your GitHub account in Vercel
+3. Import your forked repository
+4. Deploy (Vercel will automatically detect the Next.js project)
 
-### 环境变量
-基础部署无需环境变量。API 密钥在浏览器中配置并本地存储。
+### Environment Variables
+No environment variables required for basic deployment. API keys are configured in the browser and stored locally.
 
-## 技术栈
+## Tech Stack
 
-- **框架**: Next.js 13+ with App Router
-- **UI 组件**: Radix UI + Tailwind CSS
-- **图标**: Lucide React
-- **部署**: Vercel
-- **语言**: TypeScript
+- **Framework**: Next.js 13+ with App Router
+- **UI Components**: Radix UI + Tailwind CSS
+- **Icons**: Lucide React
+- **Deployment**: Vercel
+- **Language**: TypeScript
 
-## 项目结构
+## Project Structure
 
 ```
 ├── app/
-│   ├── page.tsx          # 首页
+│   ├── page.tsx              # Homepage
+│   ├── blog/
+│   │   ├── page.tsx          # Blog listing page
+│   │   └── [slug]/
+│   │       └── page.tsx      # Individual blog posts
 │   ├── chat/
-│   │   └── page.tsx      # 聊天界面
-│   ├── layout.tsx        # 根布局
-│   └── globals.css       # 全局样式
+│   │   ├── page.tsx          # Chat interface
+│   │   └── layout.tsx        # Chat-specific layout
+│   ├── layout.tsx            # Root layout
+│   └── globals.css           # Global styles
 ├── components/
-│   ├── ApiStatusIndicator.tsx  # API状态指示器
-│   └── ui/               # 可复用 UI 组件
-├── hooks/                # 自定义 React Hooks
+│   ├── ApiStatusIndicator.tsx # API status indicator
+│   └── ui/                   # Reusable UI components
+├── hooks/                    # Custom React Hooks
 ├── lib/
-│   ├── apiConfig.ts      # AI 模型配置
-│   └── utils.ts          # 工具函数
-└── public/               # 静态资源
+│   ├── apiConfig.ts          # AI model configurations
+│   └── utils.ts              # Utility functions
+└── public/                   # Static assets
+    ├── robots.txt            # Search engine crawling rules
+    └── sitemap.xml           # Site structure for SEO
 ```
 
-## 自定义开发
+## Custom Development
 
-### 添加新的 AI 模型
-1. 在 `lib/apiConfig.ts` 中添加模型配置
-2. 更新 `hooks/useApiSettings.ts` 以包含新模型
-3. 在聊天界面中添加模型选择选项
+### Adding New AI Models
+1. Add model configuration in `lib/apiConfig.ts`
+2. Update `hooks/useApiSettings.ts` to include the new model
+3. Add model selection options in the chat interface
 
-### 自定义样式
-- 编辑 `app/globals.css` 修改全局样式
-- 在 `tailwind.config.ts` 中自定义主题
-- 修改 `components/ui/` 中的组件样式
+### Customizing Styles
+- Edit `app/globals.css` to modify global styles
+- Customize themes in `tailwind.config.ts`
+- Modify component styles in `components/ui/`
 
-### 添加新功能
-- 在 `app/` 目录下创建新页面
-- 在 `components/` 中添加新组件
-- 使用 `hooks/` 目录管理状态逻辑
+### Adding New Features
+- Create new pages in the `app/` directory
+- Add new components in `components/`
+- Manage state logic using `hooks/` directory
 
-## 贡献指南
+## Blog Content
 
-1. Fork 这个仓库
-2. 创建你的功能分支 (`git checkout -b feature/amazing-feature`)
-3. 提交你的更改 (`git commit -m 'Add amazing feature'`)
-4. 推送到分支 (`git push origin feature/amazing-feature`)
-5. 打开一个 Pull Request
+The blog includes sample articles about:
+- GPT-OSS model comparisons with OpenAI models
+- Performance benchmarks and analysis
+- Usage guides for open-source GPT models
+- Technical tutorials and implementation guides
 
-## 许可证
+## SEO & Performance
 
-此项目基于 MIT 许可证 - 查看 [LICENSE](LICENSE) 文件了解详情。
+- Optimized robots.txt for search engine crawling
+- Comprehensive sitemap.xml for better indexing
+- Mobile-responsive design
+- Fast loading times with Next.js optimizations
 
-## 支持
+## Contributing
 
-如有问题或需要支持，请在 GitHub 仓库中创建 issue。
+1. Fork this repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Support
+
+For questions or support, please create an issue in the GitHub repository.
 
 ---
 
-**AI 博客模板** - 现代化的 AI 聊天平台解决方案
+**GPT-OSS Blog** - A modern AI chat and blog platform solution
+
+*Last updated: August 6, 2025*
