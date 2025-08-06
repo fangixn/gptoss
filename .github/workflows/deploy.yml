@@ -23,7 +23,7 @@ jobs:
     - name: Install dependencies
       run: npm ci
       
-    - name: Build
+    - name: Build and Export
       run: npm run build
       
     - name: Deploy to GitHub Pages
@@ -32,4 +32,4 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./out
-        cname: econai.fangxin.dev 
+        cname: gptoss.blog 

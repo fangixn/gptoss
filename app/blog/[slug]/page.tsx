@@ -1,14 +1,10 @@
-'use client'
-
-import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { useParams } from 'next/navigation'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
-import { ArrowLeft, CalendarDays, Clock, Tag, Share2, BookOpen } from 'lucide-react'
+import { ArrowLeft, CalendarDays, Clock, Tag, BookOpen } from 'lucide-react'
 
 // Sample blog data (in real applications, this should be fetched from API or database)
 const blogPosts = [
@@ -393,38 +389,21 @@ The world of open-source AI is vast and growing—GPT-OSS is your gateway to exp
   }
 ]
 
-export default function BlogPostPage() {
-  const params = useParams()
-  const [post, setPost] = useState<any>(null)
-  const [loading, setLoading] = useState(true)
+// Generate static params for all blog posts
+export async function generateStaticParams() {
+  return blogPosts.map((post) => ({
+    slug: post.slug,
+  }))
+}
 
-  useEffect(() => {
-    // Simulate API call
-    const postSlug = params.slug as string
-    const foundPost = blogPosts.find(p => p.slug === postSlug)
-    
-    setTimeout(() => {
-      setPost(foundPost)
-      setLoading(false)
-    }, 500)
-  }, [params.slug])
-
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
-        <div className="container mx-auto px-4 py-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="animate-pulse">
-              <div className="h-8 bg-gray-200 rounded mb-4"></div>
-              <div className="h-4 bg-gray-200 rounded mb-2"></div>
-              <div className="h-4 bg-gray-200 rounded mb-8"></div>
-              <div className="h-64 bg-gray-200 rounded"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    )
+interface BlogPostPageProps {
+  params: {
+    slug: string
   }
+}
+
+export default function BlogPostPage({ params }: BlogPostPageProps) {
+  const post = blogPosts.find(p => p.slug === params.slug)
 
   if (!post) {
     return (
@@ -443,24 +422,6 @@ export default function BlogPostPage() {
         </Card>
       </div>
     )
-  }
-
-  const handleShare = async () => {
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          title: post.title,
-          text: post.description,
-          url: window.location.href,
-        })
-      } catch (err) {
-        console.log('Share failed:', err)
-      }
-    } else {
-      // fallback: copy link to clipboard
-      await navigator.clipboard.writeText(window.location.href)
-      alert('Link copied to clipboard')
-    }
   }
 
   return (
@@ -521,10 +482,7 @@ export default function BlogPostPage() {
                   </div>
                 </div>
 
-                <Button variant="outline" onClick={handleShare}>
-                  <Share2 className="mr-2 h-4 w-4" />
-                  Share
-                </Button>
+
               </div>
 
               <Separator className="mt-6" />
@@ -564,18 +522,12 @@ export default function BlogPostPage() {
               </Link>
             </Button>
             
-            <div className="flex gap-2">
-              <Button variant="outline" onClick={handleShare}>
-                <Share2 className="mr-2 h-4 w-4" />
-                Share Article
-              </Button>
-              <Button asChild>
-                <Link href="/chat">
-                  <BookOpen className="mr-2 h-4 w-4" />
-                  Discuss with AI
-                </Link>
-              </Button>
-            </div>
+            <Button asChild>
+              <Link href="/chat">
+                <BookOpen className="mr-2 h-4 w-4" />
+                Discuss with AI
+              </Link>
+            </Button>
           </div>
 
           {/* Related Articles */}
