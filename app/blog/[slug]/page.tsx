@@ -411,7 +411,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
         <Card className="text-center p-8">
           <CardContent>
             <h1 className="text-2xl font-bold text-gray-900 mb-4">Article Not Found</h1>
-            <p className="text-gray-600 mb-6">Sorry, the article you're looking for doesn't exist.</p>
+            <p className="text-gray-600 mb-6">Sorry, the article you{"'"}re looking for doesn{"'"}t exist.</p>
             <Button asChild>
               <Link href="/blog">
                 <ArrowLeft className="mr-2 h-4 w-4" />

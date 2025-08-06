@@ -380,7 +380,7 @@ export default function Home() {
                   <p className="text-xs text-slate-600 mb-1">
                     <strong>Preview:</strong> You will ask {API_CONFIGS[selectedModel].name}:
                   </p>
-                  <p className="text-sm text-slate-700 italic">"{question}"</p>
+                  <p className="text-sm text-slate-700 italic">&ldquo;{question}&rdquo;</p>
                 </div>
               )}
             </div>
@@ -409,17 +409,17 @@ export default function Home() {
                 <div className="space-y-4">
                   <div className="border-l-4 border-green-500 bg-green-50 p-4 rounded-r-lg">
                     <p className="text-slate-700 italic">
-                      "What are the key findings in the latest Fed monetary policy report?"
+                      &ldquo;What are the key findings in the latest Fed monetary policy report?&rdquo;
                     </p>
                   </div>
                   <div className="border-l-4 border-green-500 bg-green-50 p-4 rounded-r-lg">
                     <p className="text-slate-700 italic">
-                      "How does Adam Smith explain the role of specialization in The Wealth of Nations?"
+                      &ldquo;How does Adam Smith explain the role of specialization in The Wealth of Nations?&rdquo;
                     </p>
                   </div>
                   <div className="border-l-4 border-green-500 bg-green-50 p-4 rounded-r-lg">
                     <p className="text-slate-700 italic">
-                      "What is the World Bank's 2024 global growth forecast?"
+                      &ldquo;What is the World Bank&apos;s 2024 global growth forecast?&rdquo;
                     </p>
                   </div>
                 </div>
@@ -434,12 +434,12 @@ export default function Home() {
                 <div className="space-y-4">
                   <div className="border-l-4 border-red-500 bg-red-50 p-4 rounded-r-lg">
                     <p className="text-slate-700 italic">
-                      "What does Chapter 3 of Mankiw's textbook say?" (Copyright protected)
+                      &ldquo;What does Chapter 3 of Mankiw&apos;s textbook say?&rdquo; (Copyright protected)
                     </p>
                   </div>
                   <div className="border-l-4 border-red-500 bg-red-50 p-4 rounded-r-lg">
                     <p className="text-slate-700 italic">
-                      "Help me do my homework" (Focus on understanding concepts)
+                      &ldquo;Help me do my homework&rdquo; (Focus on understanding concepts)
                     </p>
                   </div>
                   <div className="border-l-4 border-red-500 bg-red-50 p-4 rounded-r-lg">

@@ -605,17 +605,17 @@ export default function ChatPage() {
                       <div className="space-y-2">
                         <div className="border-l-3 border-green-500 bg-green-50 p-2 rounded-r-lg">
                           <p className="text-slate-700 text-xs italic">
-                            "Latest Fed monetary policy insights?"
+                            {"Latest Fed monetary policy insights?"}
                           </p>
                         </div>
                         <div className="border-l-3 border-green-500 bg-green-50 p-2 rounded-r-lg">
                           <p className="text-slate-700 text-xs italic">
-                            "Adam Smith on specialization theory?"
+                            {"Adam Smith on specialization theory?"}
                           </p>
                         </div>
                         <div className="border-l-3 border-green-500 bg-green-50 p-2 rounded-r-lg">
                           <p className="text-slate-700 text-xs italic">
-                            "World Bank 2024 growth forecast?"
+                            {"World Bank 2024 growth forecast?"}
                           </p>
                         </div>
                       </div>

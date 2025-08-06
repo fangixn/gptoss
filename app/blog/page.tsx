@@ -411,7 +411,7 @@ export default function BlogPage() {
   }
 
   // Filter blog posts
-  const filterPosts = () => {
+  const filterPosts = React.useCallback(() => {
     let filtered = blogPosts
 
     // Filter by category
@@ -429,12 +429,12 @@ export default function BlogPage() {
     }
 
     setFilteredPosts(filtered)
-  }
+  }, [searchTerm, selectedCategory])
 
   // Listen for search and category changes
   React.useEffect(() => {
     filterPosts()
-  }, [searchTerm, selectedCategory])
+  }, [filterPosts])
 
   return (
     <div className="min-h-screen">
