@@ -161,48 +161,48 @@ export default function Home() {
     <div className="min-h-screen">
       {/* Header */}
       <header className="border-b bg-white/95 backdrop-blur-md sticky top-0 z-50 shadow-sm transition-all duration-200">
-        <div className="max-w-7xl mx-auto px-6 py-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
-                <Brain className="h-7 w-7 text-white" />
+            <div className="flex items-center space-x-2 sm:space-x-3 min-w-0">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center">
+                <img src="/extension_icon.png" alt="GPT-OSS Blog" className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl" />
               </div>
-              <div>
-                <span className="text-lg font-semibold text-slate-800">GPT-OSS Blog</span>
+              <div className="min-w-0">
+                <span className="text-base sm:text-lg font-semibold text-slate-800">GPT-OSS Blog</span>
               </div>
             </div>
-            <div className="flex items-center space-x-3">
+            <div className="flex items-center space-x-1 sm:space-x-3">
               <Button 
                 variant="ghost" 
-                className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium"
+                className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium text-xs sm:text-sm px-2 sm:px-3"
                 onClick={() => scrollToSection('features')}
               >
                 Features
               </Button>
               <Button 
                 variant="ghost" 
-                className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium"
+                className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium text-xs sm:text-sm px-2 sm:px-3"
                 onClick={() => router.push('/blog')}
               >
                 Blog
               </Button>
               <Button 
                 variant="ghost" 
-                className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium"
+                className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium text-xs sm:text-sm px-2 sm:px-3 hidden sm:inline-flex"
                 onClick={() => scrollToSection('blog-posts')}
               >
                 Articles
               </Button>
               <Button 
                 variant="ghost" 
-                className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium"
+                className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium text-xs sm:text-sm px-2 sm:px-3"
                 onClick={() => router.push('/chat')}
               >
-                AI Chat
+                Chat
               </Button>
               <Button 
                 variant="ghost" 
-                className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium"
+                className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium text-xs sm:text-sm px-2 sm:px-3"
                 onClick={() => scrollToSection('resources')}
               >
                 Resources
@@ -218,28 +218,28 @@ export default function Home() {
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto px-6">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Hero Section */}
-        <section id="features" className="text-center py-12">
+        <section id="features" className="text-center py-8 sm:py-12">
           <div className="mb-4">
-            <div className="inline-flex items-center px-3 py-1.5 bg-blue-50 text-blue-700 rounded-full text-sm font-medium mb-6">
+            <div className="inline-flex items-center px-3 py-1.5 bg-blue-50 text-blue-700 rounded-full text-xs sm:text-sm font-medium mb-6">
               <Sparkles className="h-3 w-3 mr-2" />
               Open Source GPT Models Tech Blog
             </div>
           </div>
           
-          <h1 className="text-5xl md:text-6xl font-bold mb-4 leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight px-4">
             <span className="econai-gradient-text">GPT-OSS Blog</span>
           </h1>
-          <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-slate-700 leading-tight">
+          <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold mb-6 sm:mb-8 text-slate-700 leading-tight px-4">
             Explore Open Source GPT Models Unlimited Potential
           </h2>
           
           {/* GPT-OSS Specialization Areas */}
-          <div className="mb-8">
-            <h3 className="text-2xl font-bold text-slate-800 mb-4">GPT-OSS Core Areas</h3>
-            <p className="text-base text-slate-600 mb-6">Comprehensive coverage of all important aspects of open-source GPT models</p>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
+          <div className="mb-6 sm:mb-8">
+            <h3 className="text-xl sm:text-2xl font-bold text-slate-800 mb-3 sm:mb-4 px-4">GPT-OSS Core Areas</h3>
+            <p className="text-sm sm:text-base text-slate-600 mb-4 sm:mb-6 px-4">Comprehensive coverage of all important aspects of open-source GPT models</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
               {gptOssAreas.map((area, index) => (
                 <Card key={index} className="econai-card text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-0">
                   <CardHeader className="pb-2 pt-4">
@@ -275,24 +275,24 @@ export default function Home() {
         </section>
 
         {/* AI Expert Selection & Quick Start Chat */}
-        <section id="how-it-works" className="mb-16">
-          <Card className="econai-card border-0 max-w-4xl mx-auto p-6">
-            <div className="text-center mb-6">
-              <h2 className="text-2xl font-bold text-slate-800 mb-3">Choose Your AI Assistant & Start Chatting</h2>
-              <p className="text-base text-slate-600">Select your preferred AI model and begin your GPT-OSS exploration</p>
+        <section id="how-it-works" className="mb-12 sm:mb-16">
+          <Card className="econai-card border-0 max-w-4xl mx-auto p-4 sm:p-6">
+            <div className="text-center mb-4 sm:mb-6">
+              <h2 className="text-xl sm:text-2xl font-bold text-slate-800 mb-2 sm:mb-3 px-2">Choose Your AI Assistant & Start Chatting</h2>
+              <p className="text-sm sm:text-base text-slate-600 px-2">Select your preferred AI model and begin your GPT-OSS exploration</p>
             </div>
 
             {/* AI Model Selection */}
             <div className="mb-6">
-              <div className="flex items-center justify-center mb-3 space-x-3">
-                <h3 className="text-base font-semibold text-slate-800">Available AI Models</h3>
+              <div className="flex items-center justify-center mb-3 space-x-2 sm:space-x-3">
+                <h3 className="text-sm sm:text-base font-semibold text-slate-800">Available AI Models</h3>
                 <ApiStatusIndicator 
                   configuredCount={getConfiguredModelsCount()} 
                   totalCount={Object.keys(API_CONFIGS).length}
                 />
               </div>
               <div className="flex justify-center">
-                <div className="flex flex-wrap gap-2 bg-slate-50 p-2.5 rounded-2xl border">
+                <div className="flex flex-wrap gap-1 sm:gap-2 bg-slate-50 p-2 sm:p-2.5 rounded-2xl border">
                   {Object.entries(API_CONFIGS).map(([key, config]) => (
                     <Button
                       key={key}
@@ -492,25 +492,39 @@ export default function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
             {featuredBlogPosts.map((post) => (
               <Link key={post.id} href={`/blog/${post.slug}`} className="block">
-                <Card className="econai-card border-0 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer h-full">
-                  <CardHeader>
+                <Card className="econai-card border-0 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer h-full flex flex-col">
+                  <CardHeader className="flex-shrink-0 pb-4">
                     <div className="flex items-center justify-between mb-3">
-                      <Badge variant="outline" className="text-xs text-slate-700 border-slate-300">{post.category}</Badge>
-                      <div className="flex items-center text-sm text-slate-600">
+                      <Badge variant="outline" className="px-2 py-1 text-xs text-slate-700 border-slate-300">{post.category}</Badge>
+                      <div className="flex items-center text-xs text-slate-600">
                         <Clock className="h-3 w-3 mr-1" />
                         {post.readTime}
                       </div>
                     </div>
-                    <CardTitle className="text-lg hover:text-blue-600 transition-colors line-clamp-2">
+                    <CardTitle className="text-lg hover:text-amber-700 transition-colors line-clamp-2 mb-3 leading-snug font-semibold h-14 flex items-start">
                       {post.title}
                     </CardTitle>
-                    <CardDescription className="line-clamp-3 text-sm leading-relaxed text-slate-800">
+                    <CardDescription className="line-clamp-3 text-slate-600 text-sm leading-relaxed h-16 flex items-start">
                       {post.description}
                     </CardDescription>
                   </CardHeader>
-                  <CardContent>
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="flex items-center text-sm text-gray-500">
+                  <CardContent className="flex-grow flex flex-col pt-0 pb-4">
+                    {/* Tags */}
+                    <div className="flex flex-wrap gap-1.5 mb-4">
+                      {post.tags.slice(0, 4).map((tag) => (
+                        <Badge key={tag} variant="secondary" className="text-xs px-2 py-0.5">
+                          {tag}
+                        </Badge>
+                      ))}
+                      {post.tags.length > 4 && (
+                        <Badge variant="secondary" className="text-xs px-2 py-0.5">
+                          +{post.tags.length - 4}
+                        </Badge>
+                      )}
+                    </div>
+                    
+                    <div className="flex items-center justify-between mt-auto">
+                      <div className="flex items-center text-xs text-gray-500">
                         <CalendarDays className="h-3 w-3 mr-1" />
                         {new Date(post.date).toLocaleDateString('en-US', {
                           year: 'numeric',
@@ -518,22 +532,9 @@ export default function Home() {
                           day: 'numeric'
                         })}
                       </div>
-                      <span className="text-sm text-gray-600">{post.author}</span>
-                    </div>
-                    
-                    {/* Tags */}
-                    <div className="flex flex-wrap gap-1 mb-4">
-                      {post.tags.slice(0, 3).map((tag) => (
-                        <Badge key={tag} variant="secondary" className="text-xs">
-                          <Tag className="h-2 w-2 mr-1" />
-                          {tag}
-                        </Badge>
-                      ))}
-                    </div>
-
-                    <div className="flex items-center justify-between text-sm font-medium hover:text-blue-600 transition-colors">
-                      <span>Read Article</span>
-                      <ArrowRight className="h-4 w-4" />
+                      <span className="text-sm font-medium transition-colors hover:opacity-80">
+                        Read Article →
+                      </span>
                     </div>
                   </CardContent>
                 </Card>
@@ -690,8 +691,8 @@ export default function Home() {
             {/* Brand Section */}
             <div className="md:col-span-5 flex flex-col">
               <div className="flex items-center mb-4">
-                <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center mr-3">
-                  <Brain className="h-5 w-5 text-white" />
+                <div className="w-8 h-8 rounded-lg flex items-center justify-center mr-3">
+                  <img src="/extension_icon.png" alt="GPT-OSS Blog" className="w-8 h-8 rounded-lg" />
                 </div>
                 <span className="text-xl font-bold">GPT-OSS Blog</span>
               </div>

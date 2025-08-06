@@ -14,7 +14,7 @@ export interface BlogPost {
   category: string
 }
 
-// 从文件名映射到博客文章数据
+// Map from filename to blog post data
 const blogPostsMap: Record<string, Omit<BlogPost, 'content'>> = {
   '20250806_GPT-OSS-120B ≈ o4-mini Why Open-Source Models Are Catching Up with OpenAI.md': {
     id: 6,
@@ -71,7 +71,7 @@ export function getAllBlogPosts(): BlogPost[] {
     }
   })
   
-  // 按ID倒序排列（最新的在前面）
+  // Sort by ID in descending order (newest first)
   return posts.sort((a, b) => b.id - a.id)
 }
 
@@ -81,6 +81,6 @@ export function getBlogPostBySlug(slug: string): BlogPost | null {
 }
 
 export function getFeaturedBlogPosts(): BlogPost[] {
-  // 返回所有文章作为精选文章
+  // Return all articles as featured articles
   return getAllBlogPosts()
 }

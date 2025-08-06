@@ -14,7 +14,7 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  // 确保不被社交媒体抓取
+  // Ensure not scraped by social media
   openGraph: {
     title: 'AI Chat - GPT-OSS Blog',
     description: 'AI Chat functionality',

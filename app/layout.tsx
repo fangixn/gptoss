@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     siteName: 'GPT-OSS Blog',
     images: [
       {
-        url: '/icon.svg',
+        url: '/extension_icon.png',
         width: 512,
         height: 512,
         alt: 'GPT-OSS Blog Logo',
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'GPT-OSS Blog - Open Source GPT Models Technical Blog',
     description: 'GPT-OSS Blog focuses on open-source GPT model technology sharing and AI chat solutions',
-    images: ['/icon.svg'],
+    images: ['/extension_icon.png'],
   },
   robots: {
     index: true,
@@ -82,9 +82,9 @@ export default function RootLayout({
         />
         
         {/* Favicon */}
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="icon" href="/extension_icon.png?v=2" sizes="any" />
+        <link rel="icon" href="/extension_icon.png?v=2" type="image/png" />
+        <link rel="apple-touch-icon" href="/extension_icon.png?v=2" />
         
         {/* PWA */}
         <link rel="manifest" href="/manifest.json" />

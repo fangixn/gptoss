@@ -62,41 +62,41 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
     <div className="min-h-screen bg-white">
       {/* Header */}
       <header className="border-b bg-white/95 backdrop-blur-md sticky top-0 z-50 shadow-sm transition-all duration-200">
-        <div className="max-w-7xl mx-auto px-6 py-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
-                <Brain className="h-7 w-7 text-white" />
+            <div className="flex items-center space-x-2 sm:space-x-3 min-w-0">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center">
+                <img src="/extension_icon.png" alt="GPT-OSS Blog" className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl" />
               </div>
-              <div>
-                <span className="text-lg font-semibold">GPT-OSS Blog</span>
+              <div className="min-w-0">
+                <span className="text-base sm:text-lg font-semibold">GPT-OSS Blog</span>
               </div>
             </div>
-            <div className="flex items-center space-x-3">
+            <div className="flex items-center space-x-1 sm:space-x-3">
               <Button 
                 variant="ghost" 
-                className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium"
+                className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium text-xs sm:text-sm px-2 sm:px-3"
                 asChild
               >
                 <Link href="/">Home</Link>
               </Button>
               <Button 
                 variant="ghost" 
-                className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium"
+                className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium text-xs sm:text-sm px-2 sm:px-3"
                 asChild
               >
                 <Link href="/blog">Blog</Link>
               </Button>
               <Button 
                 variant="ghost" 
-                className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium"
+                className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium text-xs sm:text-sm px-2 sm:px-3"
                 asChild
               >
                 <Link href="/#resources">Resources</Link>
               </Button>
               <Button 
                 variant="ghost" 
-                className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium"
+                className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium text-xs sm:text-sm px-2 sm:px-3"
                 asChild
               >
                 <Link href="/chat">AI Chat</Link>
@@ -107,40 +107,40 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
       </header>
 
       <main>
-        <div className="max-w-4xl mx-auto px-6 py-12">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
           <div className="max-w-3xl mx-auto">
           {/* Navigation */}
-          <div className="mb-12">
-            <Link href="/blog" className="inline-flex items-center text-slate-600 hover:text-amber-700 transition-colors text-sm font-medium">
-                <ArrowLeft className="mr-2 h-4 w-4" />
+          <div className="mb-8 sm:mb-12">
+            <Link href="/blog" className="inline-flex items-center text-slate-600 hover:text-amber-700 transition-colors text-xs sm:text-sm font-medium">
+                <ArrowLeft className="mr-2 h-3 w-3 sm:h-4 sm:w-4" />
               Back
               </Link>
           </div>
 
           {/* Article Header */}
-          <header className="mb-16">
-            <div className="flex items-center gap-3 mb-6">
+          <header className="mb-12 sm:mb-16">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
               <Badge variant="outline" className="text-xs text-amber-700 border-amber-200 bg-amber-50">
                 {post.category}
               </Badge>
-              <div className="flex items-center text-sm text-slate-500">
+              <div className="flex items-center text-xs sm:text-sm text-slate-500">
                   <Clock className="h-3 w-3 mr-1" />
                   {post.readTime}
                 </div>
               </div>
               
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight tracking-tight">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 leading-tight tracking-tight">
                 {post.title}
               </h1>
               
-            <p className="text-xl text-slate-600 mb-8 leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-slate-600 mb-6 sm:mb-8 leading-relaxed">
                 {post.description}
               </p>
 
             <div className="flex items-center gap-4 mb-8">
               <div className="flex items-center text-sm text-slate-500">
                 <CalendarDays className="h-4 w-4 mr-2" />
-                      {new Date(post.date).toLocaleDateString('zh-CN', {
+                      {new Date(post.date).toLocaleDateString('en-US', {
                         year: 'numeric',
                         month: 'long',
                         day: 'numeric'
@@ -229,8 +229,8 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
             {/* Brand Section */}
             <div className="md:col-span-5 flex flex-col">
               <div className="flex items-center mb-4">
-                <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center mr-3">
-                  <Brain className="h-5 w-5 text-white" />
+                <div className="w-8 h-8 rounded-lg flex items-center justify-center mr-3">
+                  <img src="/extension_icon.png" alt="GPT-OSS Blog" className="w-8 h-8 rounded-lg" />
                 </div>
                 <span className="text-xl font-bold">GPT-OSS Blog</span>
               </div>
@@ -304,7 +304,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
         </div>
       </footer>
 
-      {/* 悬浮回到顶部按钮 */}
+      {/* Floating back to top button */}
       <ScrollToTop />
     </div>
   )

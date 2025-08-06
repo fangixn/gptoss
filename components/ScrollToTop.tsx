@@ -9,7 +9,7 @@ export default function ScrollToTop() {
 
   useEffect(() => {
     const toggleVisibility = () => {
-      // 滚动超过 300px 时显示按钮
+      // Show button when scrolled more than 300px
       if (window.pageYOffset > 300) {
         setIsVisible(true)
       } else {
@@ -17,10 +17,10 @@ export default function ScrollToTop() {
       }
     }
 
-    // 添加滚动事件监听器
+    // Add scroll event listener
     window.addEventListener('scroll', toggleVisibility)
 
-    // 清理事件监听器
+    // Cleanup event listener
     return () => {
       window.removeEventListener('scroll', toggleVisibility)
     }
@@ -36,14 +36,14 @@ export default function ScrollToTop() {
   return (
     <>
       {isVisible && (
-        <div className="fixed bottom-8 right-8 z-50 animate-in fade-in slide-in-from-bottom-4 duration-300">
+        <div className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 z-50 animate-in fade-in slide-in-from-bottom-4 duration-300">
           <Button
             onClick={scrollToTop}
             size="icon"
-            className="h-12 w-12 rounded-full bg-amber-600 hover:bg-amber-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
-            aria-label="回到顶部"
+            className="h-10 w-10 sm:h-12 sm:w-12 rounded-full bg-amber-600 hover:bg-amber-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
+            aria-label="Back to top"
           >
-            <ChevronUp className="h-5 w-5" />
+            <ChevronUp className="h-4 w-4 sm:h-5 sm:w-5" />
           </Button>
         </div>
       )}

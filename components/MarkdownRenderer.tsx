@@ -13,34 +13,34 @@ export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         components={{
-          // 自定义段落 - 参考方馨博客的间距
+          // Custom paragraph - responsive spacing
           p: ({ children }) => (
-            <p className="text-slate-700 leading-[1.8] mb-6 text-[17px] font-normal tracking-normal">
+            <p className="text-slate-700 leading-[1.8] mb-4 sm:mb-6 text-sm sm:text-base md:text-[17px] font-normal tracking-normal">
               {children}
             </p>
           ),
-          // 自定义标题样式 - 参考方馨博客的颜色和间距
+          // Custom heading styles - improved typography
           h1: ({ children }) => (
-            <h1 className="text-3xl font-bold mt-0 mb-8 leading-tight">
+            <h1 className="text-2xl sm:text-3xl font-bold mt-0 mb-6 sm:mb-8 leading-tight">
               {children}
             </h1>
           ),
           h2: ({ children }) => (
-            <h2 className="text-2xl font-bold mt-16 mb-6 leading-tight">
+            <h2 className="text-xl sm:text-2xl font-bold mt-12 sm:mt-16 mb-4 sm:mb-6 leading-tight">
               {children}
             </h2>
           ),
           h3: ({ children }) => (
-            <h3 className="text-xl font-semibold mt-12 mb-4 leading-tight">
+            <h3 className="text-lg sm:text-xl font-semibold mt-8 sm:mt-12 mb-3 sm:mb-4 leading-tight">
               {children}
             </h3>
           ),
           h4: ({ children }) => (
-            <h4 className="text-lg font-semibold mt-8 mb-3 leading-tight">
+            <h4 className="text-base sm:text-lg font-semibold mt-6 sm:mt-8 mb-2 sm:mb-3 leading-tight">
               {children}
             </h4>
           ),
-          // 自定义列表样式 - 更清晰的层次
+          // Custom list styles - clear hierarchy
           ul: ({ children }) => (
             <ul className="my-6 space-y-2 pl-0 text-slate-700">
               {children}
@@ -56,10 +56,10 @@ export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
               {children}
             </li>
           ),
-          // 自定义表格样式 - 更现代的设计
+          // Custom table styles - modern design
           table: ({ children }) => (
-            <div className="overflow-x-auto my-10 rounded-xl border border-slate-200 shadow-lg bg-white">
-              <table className="min-w-full border-collapse">
+            <div className="overflow-x-auto my-6 sm:my-10 rounded-xl border border-slate-200 shadow-lg bg-white">
+              <table className="min-w-full border-collapse text-sm sm:text-base">
                 {children}
               </table>
             </div>
@@ -84,7 +84,7 @@ export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
               {children}
             </tr>
           ),
-          // 自定义代码块样式 - 更精致的设计
+          // Custom code styles - refined design
           code: ({ children, className }) => {
             const isInline = !className
             if (isInline) {
@@ -100,7 +100,7 @@ export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
               </pre>
             )
           },
-          // 自定义引用样式 - 更优雅的设计
+          // Custom blockquote styles - elegant design
           blockquote: ({ children }) => (
             <blockquote className="border-l-4 border-slate-400 bg-gradient-to-r from-slate-50 via-slate-100 to-transparent pl-8 pr-6 py-6 my-8 text-slate-700 rounded-r-xl relative">
               <div className="text-[17px] leading-[1.8] font-medium italic">
@@ -108,13 +108,13 @@ export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
               </div>
             </blockquote>
           ),
-          // 自定义强调文本
+          // Custom emphasis text
           strong: ({ children }) => (
             <strong className="font-semibold">
               {children}
             </strong>
           ),
-          // 自定义链接 - 与主题色保持一致
+          // Custom links - consistent with theme
           a: ({ children, href }) => (
             <a 
               href={href} 
@@ -125,11 +125,11 @@ export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
               {children}
             </a>
           ),
-          // 自定义分隔线
+          // Custom horizontal rule
           hr: ({ }) => (
             <hr className="border-0 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent my-12" />
           ),
-          // 自定义斜体
+          // Custom italic text
           em: ({ children }) => (
             <em className="italic text-slate-600 font-medium">
               {children}

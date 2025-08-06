@@ -198,4 +198,4 @@ With **GPT-OSS-120B and 20B**, the open-source community now has powerful models
 
 Whether you’re building AI-native apps, agents, copilots, or domain-specific assistants—these models offer **serious value without vendor lock-in**.
 
-> 🧠 *GPT-OSS is not just catching up to OpenAI—it’s redefining what open-source AI can do.*
+> *GPT-OSS is not just catching up to OpenAI—it’s redefining what open-source AI can do.*

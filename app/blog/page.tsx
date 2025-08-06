@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { ArrowLeft, CalendarDays, Clock, Search, Tag, Brain, Globe, Shield, MessageCircle } from 'lucide-react'
-// 简单的博客数据定义
+// Simple blog data definition
 interface BlogPost {
   id: number
   slug: string
@@ -24,7 +24,7 @@ interface BlogPost {
 
 const categories = ['All', 'Technical Analysis', 'Usage Guide', 'Technical Tutorial']
 
-// 简单的博客数据
+// Simple blog data
 const allPosts: BlogPost[] = [
   {
     id: 6,
@@ -106,20 +106,20 @@ export default function BlogPage() {
     <div className="min-h-screen">
       {/* Header */}
       <header className="border-b bg-white/95 backdrop-blur-md sticky top-0 z-50 shadow-sm transition-all duration-200">
-        <div className="max-w-7xl mx-auto px-6 py-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
-                <Brain className="h-7 w-7 text-white" />
+            <div className="flex items-center space-x-2 sm:space-x-3 min-w-0">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center">
+                <img src="/extension_icon.png" alt="GPT-OSS Blog" className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl" />
               </div>
-              <div>
-                <span className="text-lg font-semibold text-slate-800">GPT-OSS Blog</span>
+              <div className="min-w-0">
+                <span className="text-base sm:text-lg font-semibold text-slate-800">GPT-OSS Blog</span>
               </div>
             </div>
-            <div className="flex items-center space-x-3">
+            <div className="flex items-center space-x-1 sm:space-x-3">
               <Button 
                 variant="ghost" 
-                className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium"
+                className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium text-xs sm:text-sm px-2 sm:px-3"
                 onClick={() => handleNavigation('/#features')}
               >
                 Features
@@ -132,21 +132,21 @@ export default function BlogPage() {
               </Button>
               <Button 
                 variant="ghost" 
-                className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium"
+                className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium text-xs sm:text-sm px-2 sm:px-3"
                 onClick={() => handleNavigation('/#blog-posts')}
               >
                 Articles
               </Button>
               <Button 
                 variant="ghost" 
-                className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium"
+                className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium text-xs sm:text-sm px-2 sm:px-3"
                 onClick={() => handleNavigation('/chat')}
               >
                 AI Chat
               </Button>
               <Button 
                 variant="ghost" 
-                className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium"
+                className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium text-xs sm:text-sm px-2 sm:px-3"
                 onClick={() => handleNavigation('/')}
               >
                 Home
@@ -157,30 +157,44 @@ export default function BlogPage() {
       </header>
 
       <main className="bg-gradient-to-br from-slate-50 to-blue-50">
-        <div className="container mx-auto px-4 py-8">
+        <div className="container mx-auto px-4 py-6 sm:py-8">
+        {/* Back to Home Button */}
+        <div className="mb-4 sm:mb-6">
+          <Button 
+            variant="outline" 
+            size="sm"
+            onClick={() => handleNavigation('/')}
+            className="flex items-center gap-2 hover:bg-slate-100 transition-colors text-xs sm:text-sm"
+          >
+            <ArrowLeft className="h-3 w-3 sm:h-4 sm:w-4" />
+            <span className="hidden sm:inline">Back to Home</span>
+            <span className="sm:hidden">Home</span>
+          </Button>
+        </div>
+
         {/* Page Title */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+        <div className="text-center mb-8 sm:mb-12">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4 px-4">
             GPT-OSS Blog
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto px-4">
             Explore the latest technology, performance comparisons, and practical guides for open-source GPT models
           </p>
         </div>
 
         {/* Search and Filters */}
-        <div className="flex flex-col md:flex-row gap-4 mb-8">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8">
           <div className="relative flex-1">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
             <Input
               placeholder="Search articles..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-10"
+              className="pl-10 text-sm sm:text-base"
             />
           </div>
           <Select value={selectedCategory} onValueChange={setSelectedCategory}>
-            <SelectTrigger className="w-full md:w-48">
+            <SelectTrigger className="w-full sm:w-48 text-sm sm:text-base">
               <SelectValue placeholder="Select Category" />
             </SelectTrigger>
             <SelectContent>
@@ -194,52 +208,52 @@ export default function BlogPage() {
         </div>
 
         {/* Blog Posts Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {filteredPosts.map((post) => (
-            <Card key={post.id} className="hover:shadow-lg transition-shadow duration-300">
-              <CardHeader>
-                <div className="flex items-center justify-between mb-2">
-                  <Badge variant="outline">{post.category}</Badge>
-                  <div className="flex items-center text-sm text-gray-500">
-                    <Clock className="h-3 w-3 mr-1" />
-                    {post.readTime}
+            <Link key={post.id} href={`/blog/${post.slug}`} className="block">
+              <Card className="hover:shadow-lg transition-shadow duration-300 h-full flex flex-col cursor-pointer">
+                <CardHeader className="flex-shrink-0 pb-4">
+                  <div className="flex items-center justify-between mb-3">
+                    <Badge variant="outline" className="px-2 py-1 text-xs">{post.category}</Badge>
+                    <div className="flex items-center text-xs text-gray-500">
+                      <Clock className="h-3 w-3 mr-1" />
+                      {post.readTime}
+                    </div>
                   </div>
-                </div>
-                <CardTitle className="text-xl hover:text-blue-600 transition-colors">
-                  <Link href={`/blog/${post.slug}`}>
+                  <CardTitle className="text-lg hover:opacity-80 transition-colors line-clamp-2 mb-3 leading-snug font-semibold h-14 flex items-start">
                     {post.title}
-                  </Link>
-                </CardTitle>
-                <CardDescription className="line-clamp-3 text-slate-800">
-                  {post.description}
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center text-sm text-gray-500">
-                    <CalendarDays className="h-3 w-3 mr-1" />
-                    {new Date(post.date).toLocaleDateString('zh-CN')}
+                  </CardTitle>
+                  <CardDescription className="line-clamp-3 text-slate-600 text-sm leading-relaxed h-16 flex items-start">
+                    {post.description}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="flex-grow flex flex-col pt-0 pb-4">
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-1.5 mb-4">
+                    {post.tags.slice(0, 4).map((tag) => (
+                      <Badge key={tag} variant="secondary" className="text-xs px-2 py-0.5">
+                        {tag}
+                      </Badge>
+                    ))}
+                    {post.tags.length > 4 && (
+                      <Badge variant="secondary" className="text-xs px-2 py-0.5">
+                        +{post.tags.length - 4}
+                      </Badge>
+                    )}
                   </div>
-                  <span className="text-sm text-gray-600">{post.author}</span>
-                </div>
-                
-                {/* Tags */}
-                <div className="flex flex-wrap gap-1 mb-4">
-                  {post.tags.map((tag) => (
-                    <Badge key={tag} variant="secondary" className="text-xs">
-                      <Tag className="h-2 w-2 mr-1" />
-                      {tag}
-                    </Badge>
-                  ))}
-                </div>
-
-                <Button asChild className="w-full">
-                  <Link href={`/blog/${post.slug}`}>
-                    Read More
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
+                  
+                  <div className="flex items-center justify-between mt-auto">
+                    <div className="flex items-center text-xs text-gray-500">
+                      <CalendarDays className="h-3 w-3 mr-1" />
+                      {new Date(post.date).toLocaleDateString('en-US')}
+                    </div>
+                    <span className="text-sm font-medium transition-colors hover:opacity-80">
+                      Read More →
+                    </span>
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
           ))}
         </div>
 
@@ -270,8 +284,8 @@ export default function BlogPage() {
             {/* Brand Section */}
             <div className="md:col-span-5 flex flex-col">
               <div className="flex items-center mb-4">
-                <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center mr-3">
-                  <Brain className="h-5 w-5 text-white" />
+                <div className="w-8 h-8 rounded-lg flex items-center justify-center mr-3">
+                  <img src="/extension_icon.png" alt="GPT-OSS Blog" className="w-8 h-8 rounded-lg" />
                 </div>
                 <span className="text-xl font-bold">GPT-OSS Blog</span>
               </div>
