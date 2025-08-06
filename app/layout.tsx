@@ -58,6 +58,29 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Google tag (gtag.js) - Exclude chat pages */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              // Only load Google Analytics if not on chat page
+              if (!window.location.pathname.startsWith('/chat')) {
+                (function() {
+                  var script = document.createElement('script');
+                  script.async = true;
+                  script.src = 'https://www.googletagmanager.com/gtag/js?id=G-W67X9XGTLV';
+                  document.head.appendChild(script);
+                  
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', 'G-W67X9XGTLV');
+                  window.gtag = gtag;
+                })();
+              }
+            `,
+          }}
+        />
+        
         {/* Favicon */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
