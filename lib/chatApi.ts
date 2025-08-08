@@ -8,10 +8,42 @@ interface ChatApiRequest {
   userApiKey?: string;
 }
 
+interface UsageInfo {
+  remainingDaily: number;
+  remainingHourly: number;
+  dailyLimit: number;
+  hourlyLimit: number;
+  cooldownMinutes: number;
+}
+
 interface ChatApiResponse {
   success: boolean;
   response?: string;
   model?: string;
+  error?: string;
+  message?: string;
+  resetTime?: number;
+  limits?: {
+    dailyLimit: number;
+    hourlyLimit: number;
+    cooldownMinutes: number;
+  };
+  usage?: UsageInfo;
+}
+
+interface UsageStatusResponse {
+  success: boolean;
+  usage?: {
+    dailyUsed: number;
+    hourlyUsed: number;
+    remainingDaily: number;
+    remainingHourly: number;
+    dailyLimit: number;
+    hourlyLimit: number;
+    cooldownMinutes: number;
+    remainingCooldown: number;
+    canSendMessage: boolean;
+  };
   error?: string;
 }
 
@@ -50,6 +82,18 @@ export async function callChatApi({
 
       if (!response.ok) {
         const errorData = await response.json();
+        
+        // 特殊处理使用限制错误 (429状态码)
+        if (response.status === 429) {
+          return {
+            success: false,
+            error: errorData.error || 'Usage limit exceeded',
+            message: errorData.message,
+            resetTime: errorData.resetTime,
+            limits: errorData.limits
+          };
+        }
+        
         throw new Error(errorData.error || `API request failed: ${response.status}`);
       }
 
@@ -57,7 +101,8 @@ export async function callChatApi({
       return {
         success: data.success,
         response: data.response,
-        model: data.model
+        model: data.model,
+        usage: data.usage
       };
     } else {
       // 使用前端直调模式（现有逻辑）
@@ -100,6 +145,48 @@ export async function callChatApi({
     }
   } catch (error) {
     console.error('Chat API error:', error);
+    return {
+      success: false,
+      error: error instanceof Error ? error.message : 'Unknown error occurred'
+    };
+  }
+}
+
+/**
+ * 获取用户当前的使用状态
+ */
+export async function getUserUsageStatus(): Promise<UsageStatusResponse> {
+  try {
+    // 检查是否为静态导出模式
+    if (isStaticExport()) {
+      return {
+        success: true,
+        usage: {
+          dailyUsed: 0,
+          hourlyUsed: 0,
+          remainingDaily: 10,
+          remainingHourly: 5,
+          dailyLimit: 10,
+          hourlyLimit: 5,
+          cooldownMinutes: 2,
+          remainingCooldown: 0,
+          canSendMessage: true
+        }
+      };
+    }
+
+    const response = await fetch('/api/chat?action=usage', {
+      method: 'GET',
+    });
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch usage status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching usage status:', error);
     return {
       success: false,
       error: error instanceof Error ? error.message : 'Unknown error occurred'

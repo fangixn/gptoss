@@ -17,6 +17,8 @@ import { useChatSessions } from '@/hooks/useChatSessions';
 import { callChatApi } from '@/lib/chatApi';
 import MarkdownRenderer from '@/components/MarkdownRenderer';
 import { ImageGenerator } from '@/components/ImageGenerator';
+import { UsageLimitIndicator } from '@/components/UsageLimitIndicator';
+import { UsageLimitError } from '@/components/UsageLimitError';
 
 
 interface ApiSettings {
@@ -36,6 +38,16 @@ export default function Home() {
     assistantResponse: string;
     timestamp: string;
   } | null>(null);
+  const [usageLimitError, setUsageLimitError] = useState<{
+    message: string;
+    resetTime?: number;
+    limits?: {
+      dailyLimit: number;
+      hourlyLimit: number;
+      cooldownMinutes: number;
+    };
+  } | null>(null);
+  const [canSendMessage, setCanSendMessage] = useState(true);
 
   // Use custom hook to manage API settings
   const { 
@@ -151,8 +163,10 @@ export default function Home() {
   };
 
   const sendMessage = async (messageContent: string) => {
-    if (!messageContent.trim() || isLoading) return;
+    if (!messageContent.trim() || isLoading || !canSendMessage) return;
 
+    // Clear any previous usage limit errors
+    setUsageLimitError(null);
     setIsLoading(true);
     
     // Add user message
@@ -188,6 +202,25 @@ export default function Home() {
           model: selectedModel
         };
         addMessage(aiMessage);
+      } else if (result.error === 'Usage limit exceeded') {
+        // Handle usage limit error
+        setUsageLimitError({
+          message: result.message || '使用限制已达到',
+          resetTime: result.resetTime,
+          limits: result.limits
+        });
+        setCanSendMessage(false);
+        
+        // Set a timer to re-enable sending if there's a reset time
+        if (result.resetTime) {
+          const timeUntilReset = result.resetTime - Date.now();
+          if (timeUntilReset > 0) {
+            setTimeout(() => {
+              setUsageLimitError(null);
+              setCanSendMessage(true);
+            }, timeUntilReset);
+          }
+        }
       } else {
         // Add error message
         const errorMessage = {
@@ -212,6 +245,11 @@ export default function Home() {
     } finally {
       setIsLoading(false);
     }
+  };
+
+  const handleUsageLimitRetry = () => {
+    setUsageLimitError(null);
+    setCanSendMessage(true);
   };
 
   // Home page doesn't need temporary API settings, save directly
@@ -577,6 +615,28 @@ export default function Home() {
               </div>
             )}
 
+            {/* Usage Limit Error - Show when there's a usage limit error */}
+            {usageLimitError && (
+              <div className="mb-4">
+                <UsageLimitError
+                  message={usageLimitError.message}
+                  resetTime={usageLimitError.resetTime}
+                  limits={usageLimitError.limits}
+                  onRetry={handleUsageLimitRetry}
+                />
+              </div>
+            )}
+
+            {/* Usage Limit Indicator - Show when using backend models */}
+            {isBackendModel(selectedModel) && showChat && (
+              <div className="mb-4">
+                <UsageLimitIndicator
+                  onUsageUpdate={(canSend) => setCanSendMessage(canSend)}
+                  className="max-w-md mx-auto"
+                />
+              </div>
+            )}
+
             {/* Input Area - Always visible */}
             <div id="get-started" className="space-y-4">
               <div>
@@ -617,7 +677,7 @@ export default function Home() {
                       handleStartChat();
                     }
                   }}
-                  disabled={!question.trim() || isLoading}
+                  disabled={!question.trim() || isLoading || (!canSendMessage && isBackendModel(selectedModel))}
                   className="econai-button-primary py-4 text-lg h-auto px-12 min-w-[200px]"
                 >
                   <MessageCircle className="h-5 w-5 mr-3" />
