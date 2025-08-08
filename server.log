@@ -1,0 +1,3349 @@
+
+> ai-blog-template@0.1.0 dev
+> next dev
+
+  ▲ Next.js 13.5.1
+  - Local:        http://localhost:3000
+  - Environments: .env.local
+
+ ✓ Ready in 2.2s
+ ✓ Compiled /api/chat/route in 135ms (33 modules)
+ X Error: export const dynamic = "force-dynamic" on page "/api/chat" cannot be used with "output: export". See more info here: https://nextjs.org/docs/advanced-features/static-html-export
+    at new Ae (/Users/xf/Downloads/gptoss_Blog/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:1:63238)
+    at eval (webpack-internal:///(rsc)/./node_modules/next/dist/build/webpack/loaders/next-app-loader.js?name=app%2Fapi%2Fchat%2Froute&page=%2Fapi%2Fchat%2Froute&appPaths=&pagePath=private-next-app-dir%2Fapi%2Fchat%2Froute.ts&appDir=%2FUsers%2Fxf%2FDownloads%2Fgptoss_Blog%2Fapp&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&rootDir=%2FUsers%2Fxf%2FDownloads%2Fgptoss_Blog&isDev=true&tsconfigPath=tsconfig.json&basePath=&assetPrefix=&nextConfigOutput=export&preferredRegion=&middlewareConfig=e30%3D!:27:21)
+    at (rsc)/./node_modules/next/dist/build/webpack/loaders/next-app-loader.js?name=app%2Fapi%2Fchat%2Froute&page=%2Fapi%2Fchat%2Froute&appPaths=&pagePath=private-next-app-dir%2Fapi%2Fchat%2Froute.ts&appDir=%2FUsers%2Fxf%2FDownloads%2Fgptoss_Blog%2Fapp&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&rootDir=%2FUsers%2Fxf%2FDownloads%2Fgptoss_Blog&isDev=true&tsconfigPath=tsconfig.json&basePath=&assetPrefix=&nextConfigOutput=export&preferredRegion=&middlewareConfig=e30%3D! (/Users/xf/Downloads/gptoss_Blog/.next/server/app/api/chat/route.js:32:1)
+    at __webpack_require__ (/Users/xf/Downloads/gptoss_Blog/.next/server/webpack-runtime.js:33:42)
+    at __webpack_exec__ (/Users/xf/Downloads/gptoss_Blog/.next/server/app/api/chat/route.js:62:39)
+    at /Users/xf/Downloads/gptoss_Blog/.next/server/app/api/chat/route.js:63:83
+    at __webpack_require__.X (/Users/xf/Downloads/gptoss_Blog/.next/server/webpack-runtime.js:116:21)
+    at /Users/xf/Downloads/gptoss_Blog/.next/server/app/api/chat/route.js:63:47
+    at Object.<anonymous> (/Users/xf/Downloads/gptoss_Blog/.next/server/app/api/chat/route.js:66:3)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Object..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1449:12)
+    at mod.require (/Users/xf/Downloads/gptoss_Blog/node_modules/next/dist/server/require-hook.js:64:28)
+    at require (node:internal/modules/helpers:135:16)
+    at requirePage (/Users/xf/Downloads/gptoss_Blog/node_modules/next/dist/server/require.js:109:84)
+    at /Users/xf/Downloads/gptoss_Blog/node_modules/next/dist/server/load-components.js:59:84
+    at async loadComponentsImpl (/Users/xf/Downloads/gptoss_Blog/node_modules/next/dist/server/load-components.js:59:26)
+    at async DevServer.findPageComponentsImpl (/Users/xf/Downloads/gptoss_Blog/node_modules/next/dist/server/next-server.js:438:36) {
+  page: '/api/chat'
+}
+ ✓ Compiled /_error in 843ms (373 modules)
+ ✓ Compiled in 74ms (304 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ⚠ Found a change in next.config.js. Restarting the server to apply the changes...
+  ▲ Next.js 13.5.1
+  - Local:        http://localhost:3000
+  - Environments: .env.local
+
+ ✓ Ready in 2.3s
+ ○ compiling /chat/page ...
+ ✓ Compiled /chat/page in 3.8s (623 modules)
+ ✓ Compiled in 222ms (317 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled /api/chat/route in 208ms (622 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+TypeError [ERR_INVALID_ARG_TYPE]: The "code" argument must be of type number. Received type string ('SIGTERM')
+    at process.set [as exitCode] (node:internal/bootstrap/node:119:9)
+    at process.exit (node:internal/process/per_thread:231:24)
+    at process.cleanup (/Users/xf/Downloads/gptoss_Blog/node_modules/next/dist/server/lib/start-server.js:208:29)
+    at process.emit (node:events:519:35) {
+  code: 'ERR_INVALID_ARG_TYPE'
+}
+TypeError [ERR_INVALID_ARG_TYPE]: The "code" argument must be of type number. Received type string ('SIGTERM')
+    at process.set [as exitCode] (node:internal/bootstrap/node:119:9)
+    at process.exit (node:internal/process/per_thread:231:24)
+    at process.cleanup (/Users/xf/Downloads/gptoss_Blog/node_modules/next/dist/server/lib/start-server.js:208:29)
+    at process.emit (node:events:519:35) {
+  code: 'ERR_INVALID_ARG_TYPE'
+}
+ X uncaughtException: TypeError [ERR_INVALID_ARG_TYPE]: The "code" argument must be of type number. Received type string ('SIGTERM')
+    at process.set [as exitCode] (node:internal/bootstrap/node:119:9)
+    at process.exit (node:internal/process/per_thread:231:24)
+    at process.cleanup (/Users/xf/Downloads/gptoss_Blog/node_modules/next/dist/server/lib/start-server.js:208:29)
+    at process.emit (node:events:519:35) {
+  code: 'ERR_INVALID_ARG_TYPE'
+}
+ X uncaughtException: TypeError [ERR_INVALID_ARG_TYPE]: The "code" argument must be of type number. Received type string ('SIGTERM')
+    at process.set [as exitCode] (node:internal/bootstrap/node:119:9)
+    at process.exit (node:internal/process/per_thread:231:24)
+    at process.cleanup (/Users/xf/Downloads/gptoss_Blog/node_modules/next/dist/server/lib/start-server.js:208:29)
+    at process.emit (node:events:519:35) {
+  code: 'ERR_INVALID_ARG_TYPE'
+}
+[?25h
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, lstat '/Users/xf/Downloads/gptoss_Blog/.next/server/app'
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving '../../../../.next/server/app/api/chat/route' in /Users/xf/Downloads/gptoss_Blog/node_modules/next/dist/server for build dependencies doesn't lead to expected result '/Users/xf/Downloads/gptoss_Blog/.next/server/app/api/chat/route.js', but to 'Error: Can't resolve '../../../../.next/server/app/api/chat/route' in '/Users/xf/Downloads/gptoss_Blog/node_modules/next/dist/server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ../../../../.next/server/app/api/chat/route (expected /Users/xf/Downloads/gptoss_Blog/.next/server/app/api/chat/route.js)
+<w>  at file dependencies /Users/xf/Downloads/gptoss_Blog/node_modules/next/dist/server/require.js
+<w>  at file /Users/xf/Downloads/gptoss_Blog/node_modules/next/dist/server/require.js
+<w>  at file dependencies /Users/xf/Downloads/gptoss_Blog/node_modules/next/dist/server/load-components.js
+<w>  at file /Users/xf/Downloads/gptoss_Blog/node_modules/next/dist/server/load-components.js
+<w>  at file dependencies /Users/xf/Downloads/gptoss_Blog/node_modules/next/dist/build/utils.js
+<w>  at file /Users/xf/Downloads/gptoss_Blog/node_modules/next/dist/build/utils.js
+<w>  at file dependencies /Users/xf/Downloads/gptoss_Blog/node_modules/next/dist/build/webpack/loaders/next-app-loader.js
+<w>  at file /Users/xf/Downloads/gptoss_Blog/node_modules/next/dist/build/webpack/loaders/next-app-loader.js
+<w>  at resolve commonjs /Users/xf/Downloads/gptoss_Blog/node_modules/next/dist/build/webpack/loaders/next-app-loader.js
+ ✓ Compiled in 464ms (612 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 148ms (317 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 339ms (598 modules)
+ ✓ Compiled in 160ms (598 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 265ms (598 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 258ms (598 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 139ms (598 modules)
+ ✓ Compiled in 91ms (598 modules)
+ ✓ Compiled in 115ms (598 modules)
+   Reload env: .env.local
+ ✓ Compiled in 55ms (598 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 159ms (598 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+   Reload env: .env.local
+ ✓ Compiled in 205ms (598 modules)
+ ✓ Compiled in 81ms (598 modules)
+   Reload env: .env.local
+ ✓ Compiled in 142ms (598 modules)
+   Reload env: .env.local
+ ✓ Compiled in 79ms (598 modules)
+   Reload env: .env.local
+ ✓ Compiled in 156ms (598 modules)
+ ✓ Compiled in 78ms (598 modules)
+ ✓ Compiled in 195ms (598 modules)
+ ✓ Compiled in 84ms (598 modules)
+ ✓ Compiled in 126ms (598 modules)
+ ✓ Compiled in 113ms (317 modules)
+ ✓ Compiled in 135ms (317 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 262ms (612 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, lstat '/Users/xf/Downloads/gptoss_Blog/.next/server/app'
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving '../../../../.next/server/app/api/chat/route' in /Users/xf/Downloads/gptoss_Blog/node_modules/next/dist/server for build dependencies doesn't lead to expected result '/Users/xf/Downloads/gptoss_Blog/.next/server/app/api/chat/route.js', but to 'Error: Can't resolve '../../../../.next/server/app/api/chat/route' in '/Users/xf/Downloads/gptoss_Blog/node_modules/next/dist/server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ../../../../.next/server/app/api/chat/route (expected /Users/xf/Downloads/gptoss_Blog/.next/server/app/api/chat/route.js)
+<w>  at file dependencies /Users/xf/Downloads/gptoss_Blog/node_modules/next/dist/server/require.js
+<w>  at file /Users/xf/Downloads/gptoss_Blog/node_modules/next/dist/server/require.js
+<w>  at file dependencies /Users/xf/Downloads/gptoss_Blog/node_modules/next/dist/server/load-components.js
+<w>  at file /Users/xf/Downloads/gptoss_Blog/node_modules/next/dist/server/load-components.js
+<w>  at file dependencies /Users/xf/Downloads/gptoss_Blog/node_modules/next/dist/build/utils.js
+<w>  at file /Users/xf/Downloads/gptoss_Blog/node_modules/next/dist/build/utils.js
+<w>  at file dependencies /Users/xf/Downloads/gptoss_Blog/node_modules/next/dist/build/webpack/loaders/next-app-loader.js
+<w>  at file /Users/xf/Downloads/gptoss_Blog/node_modules/next/dist/build/webpack/loaders/next-app-loader.js
+<w>  at resolve commonjs /Users/xf/Downloads/gptoss_Blog/node_modules/next/dist/build/webpack/loaders/next-app-loader.js
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 576ms (317 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 259ms (598 modules)
+ ✓ Compiled in 147ms (317 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 172ms (612 modules)
+ ✓ Compiled in 240ms (612 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 135ms (612 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, lstat '/Users/xf/Downloads/gptoss_Blog/.next/server/app/api'
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving '../../../../.next/server/app/api/chat/route' in /Users/xf/Downloads/gptoss_Blog/node_modules/next/dist/server for build dependencies doesn't lead to expected result '/Users/xf/Downloads/gptoss_Blog/.next/server/app/api/chat/route.js', but to 'Error: Can't resolve '../../../../.next/server/app/api/chat/route' in '/Users/xf/Downloads/gptoss_Blog/node_modules/next/dist/server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ../../../../.next/server/app/api/chat/route (expected /Users/xf/Downloads/gptoss_Blog/.next/server/app/api/chat/route.js)
+<w>  at file dependencies /Users/xf/Downloads/gptoss_Blog/node_modules/next/dist/server/require.js
+<w>  at file /Users/xf/Downloads/gptoss_Blog/node_modules/next/dist/server/require.js
+<w>  at file dependencies /Users/xf/Downloads/gptoss_Blog/node_modules/next/dist/server/load-components.js
+<w>  at file /Users/xf/Downloads/gptoss_Blog/node_modules/next/dist/server/load-components.js
+<w>  at file dependencies /Users/xf/Downloads/gptoss_Blog/node_modules/next/dist/build/utils.js
+<w>  at file /Users/xf/Downloads/gptoss_Blog/node_modules/next/dist/build/utils.js
+<w>  at file dependencies /Users/xf/Downloads/gptoss_Blog/node_modules/next/dist/build/webpack/loaders/next-app-loader.js
+<w>  at file /Users/xf/Downloads/gptoss_Blog/node_modules/next/dist/build/webpack/loaders/next-app-loader.js
+<w>  at resolve commonjs /Users/xf/Downloads/gptoss_Blog/node_modules/next/dist/build/webpack/loaders/next-app-loader.js
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 207ms (317 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 192ms (317 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 270ms (317 modules)
+ ✓ Compiled in 161ms (317 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 193ms (317 modules)
+ ✓ Compiled in 139ms (317 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 263ms (612 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 298ms (612 modules)
+ ✓ Compiled in 433ms (612 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, lstat '/Users/xf/Downloads/gptoss_Blog/.next/server/app/api'
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving '../../../../.next/server/app/api/chat/route' in /Users/xf/Downloads/gptoss_Blog/node_modules/next/dist/server for build dependencies doesn't lead to expected result '/Users/xf/Downloads/gptoss_Blog/.next/server/app/api/chat/route.js', but to 'Error: Can't resolve '../../../../.next/server/app/api/chat/route' in '/Users/xf/Downloads/gptoss_Blog/node_modules/next/dist/server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ../../../../.next/server/app/api/chat/route (expected /Users/xf/Downloads/gptoss_Blog/.next/server/app/api/chat/route.js)
+<w>  at file dependencies /Users/xf/Downloads/gptoss_Blog/node_modules/next/dist/server/require.js
+<w>  at file /Users/xf/Downloads/gptoss_Blog/node_modules/next/dist/server/require.js
+<w>  at file dependencies /Users/xf/Downloads/gptoss_Blog/node_modules/next/dist/server/load-components.js
+<w>  at file /Users/xf/Downloads/gptoss_Blog/node_modules/next/dist/server/load-components.js
+<w>  at file dependencies /Users/xf/Downloads/gptoss_Blog/node_modules/next/dist/build/utils.js
+<w>  at file /Users/xf/Downloads/gptoss_Blog/node_modules/next/dist/build/utils.js
+<w>  at file dependencies /Users/xf/Downloads/gptoss_Blog/node_modules/next/dist/build/webpack/loaders/next-app-loader.js
+<w>  at file /Users/xf/Downloads/gptoss_Blog/node_modules/next/dist/build/webpack/loaders/next-app-loader.js
+<w>  at resolve commonjs /Users/xf/Downloads/gptoss_Blog/node_modules/next/dist/build/webpack/loaders/next-app-loader.js
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 294ms (317 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 118ms (317 modules)
+ ✓ Compiled in 94ms (317 modules)
+ ✓ Compiled in 103ms (317 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 348ms (317 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 426ms (612 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 311ms (612 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 322ms (612 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 326ms (612 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 432ms (612 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 328ms (612 modules)
+ ✓ Compiled in 368ms (612 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ X ./app/chat/page.tsx
+Error: 
+  [31mx[0m Unexpected token `div`. Expected jsx identifier
+     ,-[[36;1;4m/Users/xf/Downloads/gptoss_Blog/app/chat/page.tsx[0m:388:1]
+ [2m388[0m |   };
+ [2m389[0m | 
+ [2m390[0m |   return (
+ [2m391[0m |     <div className="flex h-screen bg-gray-50">
+     : [31;1m     ^^^[0m
+ [2m392[0m |               {/* Left Sidebar - Increased width for full display and added responsive design */}
+ [2m393[0m |       <div className="w-96 lg:w-96 md:w-80 sm:w-72 bg-white border-r flex flex-col h-full">
+ [2m394[0m |         {/* Header */}
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./app/chat/page.tsx
+ ✓ Compiled in 284ms (612 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 396ms (612 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 418ms (612 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 505ms (612 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 289ms (612 modules)
+ ✓ Compiled in 281ms (612 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 446ms (608 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 373ms (608 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 316ms (608 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 400ms (510 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 403ms (510 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 302ms (506 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 260ms (506 modules)
+ ✓ Compiled in 277ms (506 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 341ms (506 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 271ms (506 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 266ms (506 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 295ms (506 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 323ms (506 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ X ./app/chat/page.tsx
+Error: 
+  [31mx[0m Unexpected token `div`. Expected jsx identifier
+     ,-[[36;1;4m/Users/xf/Downloads/gptoss_Blog/app/chat/page.tsx[0m:335:1]
+ [2m335[0m | 
+ [2m336[0m | 
+ [2m337[0m |   return (
+ [2m338[0m |     <div className="flex h-screen bg-gray-50">
+     : [31;1m     ^^^[0m
+ [2m339[0m |               {/* Left Sidebar - Increased width for full display and added responsive design */}
+ [2m340[0m |       <div className="w-96 lg:w-96 md:w-80 sm:w-72 bg-white border-r flex flex-col h-full">
+ [2m341[0m |         {/* Header */}
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./app/chat/page.tsx
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 301ms (504 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 284ms (504 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 198ms (504 modules)
+ ✓ Compiled in 269ms (504 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 351ms (504 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 285ms (504 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 270ms (504 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 241ms (504 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 334ms (504 modules)
+ ⚠ ./app/chat/page.tsx
+Attempted import error: 'MarkdownRenderer' is not exported from '@/components/MarkdownRenderer' (imported as 'MarkdownRenderer').
+
+Import trace for requested module:
+./app/chat/page.tsx
+
+./app/chat/page.tsx
+Attempted import error: 'MarkdownRenderer' is not exported from '@/components/MarkdownRenderer' (imported as 'MarkdownRenderer').
+
+Import trace for requested module:
+./app/chat/page.tsx
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 465ms (1033 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 566ms (1033 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 498ms (1033 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 395ms (1033 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 515ms (1041 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 361ms (1039 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 533ms (1039 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 521ms (1039 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ X ./app/chat/page.tsx:503:32
+Module not found: Can't resolve 'html2canvas'
+[0m [90m 501 | [39m      [0m
+[0m [90m 502 | [39m      [90m// Use html2canvas to convert the div to canvas[39m[0m
+[0m[31m[1m>[22m[39m[90m 503 | [39m      [36mconst[39m html2canvas [33m=[39m [36mawait[39m [36mimport[39m([32m'html2canvas'[39m)[33m;[39m[0m
+[0m [90m     | [39m                               [31m[1m^[22m[39m[0m
+[0m [90m 504 | [39m      [0m
+[0m [90m 505 | [39m      [36mconst[39m canvas [33m=[39m [36mawait[39m html2canvas[33m.[39m[36mdefault[39m(tempDiv[33m,[39m {[0m
+[0m [90m 506 | [39m        backgroundColor[33m:[39m [32m'#ffffff'[39m[33m,[39m[0m
+
+https://nextjs.org/docs/messages/module-not-found
+ X ./app/chat/page.tsx:503:32
+Module not found: Can't resolve 'html2canvas'
+[0m [90m 501 | [39m      [0m
+[0m [90m 502 | [39m      [90m// Use html2canvas to convert the div to canvas[39m[0m
+[0m[31m[1m>[22m[39m[90m 503 | [39m      [36mconst[39m html2canvas [33m=[39m [36mawait[39m [36mimport[39m([32m'html2canvas'[39m)[33m;[39m[0m
+[0m [90m     | [39m                               [31m[1m^[22m[39m[0m
+[0m [90m 504 | [39m      [0m
+[0m [90m 505 | [39m      [36mconst[39m canvas [33m=[39m [36mawait[39m html2canvas[33m.[39m[36mdefault[39m(tempDiv[33m,[39m {[0m
+[0m [90m 506 | [39m        backgroundColor[33m:[39m [32m'#ffffff'[39m[33m,[39m[0m
+
+https://nextjs.org/docs/messages/module-not-found
+ ✓ Compiled in 609ms (1027 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 385ms (1041 modules)
+ ✓ Compiled in 383ms (1041 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 453ms (1041 modules)
+ ✓ Compiled in 338ms (1041 modules)
+ ✓ Compiled in 250ms (1041 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 418ms (1041 modules)
+ ✓ Compiled in 284ms (1041 modules)
+ ✓ Compiled in 329ms (1041 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 304ms (1041 modules)
+ ✓ Compiled in 373ms (1041 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 508ms (1041 modules)
+ X ./app/chat/page.tsx
+Error: 
+  [31mx[0m the name `canvas` is defined multiple times
+     ,-[[36;1;4m/Users/xf/Downloads/gptoss_Blog/app/chat/page.tsx[0m:397:1]
+ [2m397[0m |     const generateImage = async (content: string, messageId: string) => {
+ [2m398[0m |     try {
+ [2m399[0m |       // Create canvas directly for better control
+ [2m400[0m |       const canvas = document.createElement('canvas');
+     : [31;1m            ^^^|^^[0m
+     :                [31;1m`-- [31;1mprevious definition of `canvas` here[0m[0m
+ [2m401[0m |       const ctx = canvas.getContext('2d');
+ [2m402[0m |       if (!ctx) {
+ [2m403[0m |         generateSimpleImage(content);
+ [2m404[0m |         return;
+ [2m405[0m |       }
+ [2m406[0m |       
+ [2m407[0m |       // Create a temporary div that mimics the elegant card style
+ [2m408[0m |       const tempDiv = document.createElement('div');
+ [2m409[0m |       tempDiv.style.position = 'absolute';
+ [2m410[0m |       tempDiv.style.left = '-9999px';
+ [2m411[0m |       tempDiv.style.top = '-9999px';
+ [2m412[0m |       tempDiv.style.width = '800px';
+ [2m413[0m |       tempDiv.style.fontFamily = '-apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif';
+ [2m414[0m |       tempDiv.style.padding = '0';
+ [2m415[0m |       tempDiv.style.margin = '0';
+ [2m416[0m |       
+ [2m417[0m |       // Create card container with paper-like background
+ [2m418[0m |       const cardContainer = document.createElement('div');
+ [2m419[0m |       cardContainer.style.cssText = `
+ [2m420[0m |         background: linear-gradient(145deg, #fefefe 0%, #f8f8f8 50%, #f0f0f0 100%);
+ [2m421[0m |         border: 1px solid #e8e8e8;
+ [2m422[0m |         border-radius: 16px;
+ [2m423[0m |         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+ [2m424[0m |         padding: 40px;
+ [2m425[0m |         position: relative;
+ [2m426[0m |         overflow: hidden;
+ [2m427[0m |       `;
+ [2m428[0m |       
+ [2m429[0m |       // Add subtle paper texture overlay
+ [2m430[0m |       const textureOverlay = document.createElement('div');
+ [2m431[0m |       textureOverlay.style.cssText = `
+ [2m432[0m |         position: absolute;
+ [2m433[0m |         top: 0;
+ [2m434[0m |         left: 0;
+ [2m435[0m |         right: 0;
+ [2m436[0m |         bottom: 0;
+ [2m437[0m |         background: 
+ [2m438[0m |           radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.3) 1px, transparent 1px),
+ [2m439[0m |           radial-gradient(circle at 80% 80%, rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+ [2m440[0m |           radial-gradient(circle at 40% 60%, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+ [2m441[0m |         background-size: 30px 30px, 50px 50px, 70px 70px;
+ [2m442[0m |         pointer-events: none;
+ [2m443[0m |         opacity: 0.6;
+ [2m444[0m |       `;
+ [2m445[0m |       cardContainer.appendChild(textureOverlay);
+ [2m446[0m |       
+ [2m447[0m |       // Add header with title and date
+ [2m448[0m |       const header = document.createElement('div');
+ [2m449[0m |       header.style.cssText = `
+ [2m450[0m |         display: flex;
+ [2m451[0m |         justify-content: space-between;
+ [2m452[0m |         align-items: center;
+ [2m453[0m |         margin-bottom: 30px;
+ [2m454[0m |         padding-bottom: 20px;
+ [2m455[0m |         border-bottom: 2px solid #e0e0e0;
+ [2m456[0m |         position: relative;
+ [2m457[0m |         z-index: 1;
+ [2m458[0m |       `;
+ [2m459[0m |       
+ [2m460[0m |       const title = document.createElement('div');
+ [2m461[0m |       title.style.cssText = `
+ [2m462[0m |         font-size: 32px;
+ [2m463[0m |         font-weight: 300;
+ [2m464[0m |         color: #333;
+ [2m465[0m |         letter-spacing: 2px;
+ [2m466[0m |       `;
+ [2m467[0m |       title.textContent = 'GPT-OSS';
+ [2m468[0m |       
+ [2m469[0m |       const date = document.createElement('div');
+ [2m470[0m |       date.style.cssText = `
+ [2m471[0m |         font-size: 16px;
+ [2m472[0m |         color: #888;
+ [2m473[0m |         font-weight: 300;
+ [2m474[0m |       `;
+ [2m475[0m |       date.textContent = new Date().toLocaleDateString('zh-CN', {
+ [2m476[0m |         year: 'numeric',
+ [2m477[0m |         month: '2-digit',
+ [2m478[0m |         day: '2-digit'
+ [2m479[0m |       }).replace(/\//g, '/');
+ [2m480[0m |       
+ [2m481[0m |       header.appendChild(title);
+ [2m482[0m |       header.appendChild(date);
+ [2m483[0m |       cardContainer.appendChild(header);
+ [2m484[0m |       
+ [2m485[0m |       // Create content area with elegant styling
+ [2m486[0m |       const contentArea = document.createElement('div');
+ [2m487[0m |       contentArea.style.cssText = `
+ [2m488[0m |         position: relative;
+ [2m489[0m |         z-index: 1;
+ [2m490[0m |         line-height: 1.8;
+ [2m491[0m |         color: #333;
+ [2m492[0m |         font-size: 16px;
+ [2m493[0m |       `;
+ [2m494[0m |       
+ [2m495[0m |       // Clone the entire message container to preserve the chat bubble style
+ [2m496[0m |       const clonedMessage = messageContainer.cloneNode(true) as HTMLElement;
+ [2m497[0m |       
+ [2m498[0m |       // Remove action buttons from the cloned content
+ [2m499[0m |       const actionButtons = clonedMessage.querySelector('.flex.items-center.gap-2');
+ [2m500[0m |       if (actionButtons) {
+ [2m501[0m |         actionButtons.remove();
+ [2m502[0m |       }
+ [2m503[0m |       
+ [2m504[0m |       // Ensure the cloned message has proper styling
+ [2m505[0m |       clonedMessage.style.marginBottom = '20px';
+ [2m506[0m |       
+ [2m507[0m |       // Extract clean content from the AI message for elegant display
+ [2m508[0m |       const messageTextElement = clonedMessage.querySelector('.text-sm');
+ [2m509[0m |       let cleanContent = '';
+ [2m510[0m |       
+ [2m511[0m |       if (messageTextElement) {
+ [2m512[0m |         // Get the rendered HTML content and clean it up for elegant display
+ [2m513[0m |         const tempContentDiv = messageTextElement.cloneNode(true) as HTMLElement;
+ [2m514[0m |         
+ [2m515[0m |         // Remove action buttons
+ [2m516[0m |         const actionButtons = tempContentDiv.querySelector('.flex.items-center.gap-2');
+ [2m517[0m |         if (actionButtons) {
+ [2m518[0m |           actionButtons.remove();
+ [2m519[0m |         }
+ [2m520[0m |         
+ [2m521[0m |         // Style the content for elegant card display
+ [2m522[0m |         tempContentDiv.style.cssText = `
+ [2m523[0m |           font-size: 16px;
+ [2m524[0m |           line-height: 1.8;
+ [2m525[0m |           color: #333;
+ [2m526[0m |           margin: 0;
+ [2m527[0m |         `;
+ [2m528[0m |         
+ [2m529[0m |         // Style headers in the content
+ [2m530[0m |         const headers = tempContentDiv.querySelectorAll('h1, h2, h3, h4, h5, h6');
+ [2m531[0m |         headers.forEach(h => {
+ [2m532[0m |           (h as HTMLElement).style.cssText = `
+ [2m533[0m |             color: #222;
+ [2m534[0m |             margin: 24px 0 16px 0;
+ [2m535[0m |             font-weight: 600;
+ [2m536[0m |             line-height: 1.4;
+ [2m537[0m |           `;
+ [2m538[0m |         });
+ [2m539[0m |         
+ [2m540[0m |         // Style tables
+ [2m541[0m |         const tables = tempContentDiv.querySelectorAll('table');
+ [2m542[0m |         tables.forEach(table => {
+ [2m543[0m |           (table as HTMLElement).style.cssText = `
+ [2m544[0m |             border-collapse: collapse;
+ [2m545[0m |             width: 100%;
+ [2m546[0m |             margin: 20px 0;
+ [2m547[0m |             border: 1px solid #ddd;
+ [2m548[0m |             border-radius: 8px;
+ [2m549[0m |             overflow: hidden;
+ [2m550[0m |           `;
+ [2m551[0m |         });
+ [2m552[0m |         
+ [2m553[0m |         const tableCells = tempContentDiv.querySelectorAll('td, th');
+ [2m554[0m |         tableCells.forEach(cell => {
+ [2m555[0m |           (cell as HTMLElement).style.cssText = `
+ [2m556[0m |             border: 1px solid #ddd;
+ [2m557[0m |             padding: 12px 16px;
+ [2m558[0m |             text-align: left;
+ [2m559[0m |           `;
+ [2m560[0m |         });
+ [2m561[0m |         
+ [2m562[0m |         const tableHeaders = tempContentDiv.querySelectorAll('th');
+ [2m563[0m |         tableHeaders.forEach(th => {
+ [2m564[0m |           (th as HTMLElement).style.backgroundColor = '#f8f8f8';
+ [2m565[0m |           (th as HTMLElement).style.fontWeight = '600';
+ [2m566[0m |         });
+ [2m567[0m |         
+ [2m568[0m |         // Style code blocks
+ [2m569[0m |         const codeBlocks = tempContentDiv.querySelectorAll('pre, code');
+ [2m570[0m |         codeBlocks.forEach(code => {
+ [2m571[0m |           (code as HTMLElement).style.cssText = `
+ [2m572[0m |             background-color: #f5f5f5;
+ [2m573[0m |             padding: 8px 12px;
+ [2m574[0m |             border-radius: 6px;
+ [2m575[0m |             font-family: 'SFMono-Regular', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+ [2m576[0m |             font-size: 14px;
+ [2m577[0m |             border: 1px solid #e0e0e0;
+ [2m578[0m |           `;
+ [2m579[0m |         });
+ [2m580[0m |         
+ [2m581[0m |         // Style paragraphs
+ [2m582[0m |         const paragraphs = tempContentDiv.querySelectorAll('p');
+ [2m583[0m |         paragraphs.forEach(p => {
+ [2m584[0m |           (p as HTMLElement).style.cssText = `
+ [2m585[0m |             margin: 16px 0;
+ [2m586[0m |             line-height: 1.8;
+ [2m587[0m |           `;
+ [2m588[0m |         });
+ [2m589[0m |         
+ [2m590[0m |         contentArea.appendChild(tempContentDiv);
+ [2m591[0m |       } else {
+ [2m592[0m |         // Fallback to raw content
+ [2m593[0m |         contentArea.innerHTML = content
+ [2m594[0m |           .replace(/\n/g, '<br>')
+ [2m595[0m |           .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+ [2m596[0m |           .replace(/\*(.*?)\*/g, '<em>$1</em>');
+ [2m597[0m |       }
+ [2m598[0m |       
+ [2m599[0m |       cardContainer.appendChild(contentArea);
+ [2m600[0m |       
+ [2m601[0m |       // Add elegant footer
+ [2m602[0m |       const footer = document.createElement('div');
+ [2m603[0m |       footer.style.cssText = `
+ [2m604[0m |         margin-top: 40px;
+ [2m605[0m |         padding-top: 20px;
+ [2m606[0m |         border-top: 1px solid #e0e0e0;
+ [2m607[0m |         position: relative;
+ [2m608[0m |         z-index: 1;
+ [2m609[0m |       `;
+ [2m610[0m |       
+ [2m611[0m |       // Add reference info in the style of the original card
+ [2m612[0m |       const refInfo = document.createElement('div');
+ [2m613[0m |       refInfo.style.cssText = `
+ [2m614[0m |         font-size: 14px;
+ [2m615[0m |         color: #666;
+ [2m616[0m |         margin-bottom: 12px;
+ [2m617[0m |       `;
+ [2m618[0m |       refInfo.innerHTML = `Ref : GPT-OSS Blog AI对话`;
+ [2m619[0m |       
+ [2m620[0m |       const urlInfo = document.createElement('div');
+ [2m621[0m |       urlInfo.style.cssText = `
+ [2m622[0m |         font-size: 14px;
+ [2m623[0m |         color: #4285f4;
+ [2m624[0m |         margin-bottom: 16px;
+ [2m625[0m |         word-break: break-all;
+ [2m626[0m |       `;
+ [2m627[0m |       urlInfo.textContent = 'https://gptoss.blog/chat';
+ [2m628[0m |       
+ [2m629[0m |       const bottomInfo = document.createElement('div');
+ [2m630[0m |       bottomInfo.style.cssText = `
+ [2m631[0m |         font-size: 12px;
+ [2m632[0m |         color: #999;
+ [2m633[0m |         text-align: center;
+ [2m634[0m |         padding: 16px;
+ [2m635[0m |         background: rgba(255, 255, 255, 0.5);
+ [2m636[0m |         border-radius: 8px;
+ [2m637[0m |         margin-top: 20px;
+ [2m638[0m |       `;
+ [2m639[0m |       bottomInfo.innerHTML = `
+ [2m640[0m |         <div style="margin-bottom: 8px;">🤖 GPT-OSS Blog • AI模型对话平台</div>
+ [2m641[0m |         <div>生成时间：${new Date().toLocaleString()}</div>
+ [2m642[0m |       `;
+ [2m643[0m |       
+ [2m644[0m |       footer.appendChild(refInfo);
+ [2m645[0m |       footer.appendChild(urlInfo);
+ [2m646[0m |       footer.appendChild(bottomInfo);
+ [2m647[0m |       cardContainer.appendChild(footer);
+ [2m648[0m |       
+ [2m649[0m |       tempDiv.appendChild(cardContainer);
+ [2m650[0m |       
+ [2m651[0m |       document.body.appendChild(tempDiv);
+ [2m652[0m |       
+ [2m653[0m |       // Use html2canvas to convert the div to canvas
+ [2m654[0m |       const html2canvas = await import('html2canvas');
+ [2m655[0m |       
+ [2m656[0m |       const canvas = await html2canvas.default(tempDiv, {
+     : [33;1m            ^^^|^^[0m
+     :                [33;1m`-- [33;1m`canvas` redefined here[0m[0m
+ [2m657[0m |         backgroundColor: '#f5f5f5', // Light background to complement the card
+ [2m658[0m |         scale: 2, // Higher quality
+ [2m659[0m |         useCORS: true,
+     `----
+
+Import trace for requested module:
+./app/chat/page.tsx
+ X ./app/chat/page.tsx
+Error: 
+  [31mx[0m the name `canvas` is defined multiple times
+     ,-[[36;1;4m/Users/xf/Downloads/gptoss_Blog/app/chat/page.tsx[0m:397:1]
+ [2m397[0m |     const generateImage = async (content: string, messageId: string) => {
+ [2m398[0m |     try {
+ [2m399[0m |       // Create canvas directly for better control
+ [2m400[0m |       const canvas = document.createElement('canvas');
+     : [31;1m            ^^^|^^[0m
+     :                [31;1m`-- [31;1mprevious definition of `canvas` here[0m[0m
+ [2m401[0m |       const ctx = canvas.getContext('2d');
+ [2m402[0m |       if (!ctx) {
+ [2m403[0m |         generateSimpleImage(content);
+ [2m404[0m |         return;
+ [2m405[0m |       }
+ [2m406[0m |       
+ [2m407[0m |       // Set canvas size for high quality  
+ [2m408[0m |       const width = 800;
+ [2m409[0m |       let height = 1000; // Will adjust based on content
+ [2m410[0m |       canvas.width = width * 2; // High DPI
+ [2m411[0m |       canvas.height = height * 2;
+ [2m412[0m |       ctx.scale(2, 2);
+ [2m413[0m |       
+ [2m414[0m |       // Create card container with paper-like background
+ [2m415[0m |       const cardContainer = document.createElement('div');
+ [2m416[0m |       cardContainer.style.cssText = `
+ [2m417[0m |         background: linear-gradient(145deg, #fefefe 0%, #f8f8f8 50%, #f0f0f0 100%);
+ [2m418[0m |         border: 1px solid #e8e8e8;
+ [2m419[0m |         border-radius: 16px;
+ [2m420[0m |         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+ [2m421[0m |         padding: 40px;
+ [2m422[0m |         position: relative;
+ [2m423[0m |         overflow: hidden;
+ [2m424[0m |       `;
+ [2m425[0m |       
+ [2m426[0m |       // Add subtle paper texture overlay
+ [2m427[0m |       const textureOverlay = document.createElement('div');
+ [2m428[0m |       textureOverlay.style.cssText = `
+ [2m429[0m |         position: absolute;
+ [2m430[0m |         top: 0;
+ [2m431[0m |         left: 0;
+ [2m432[0m |         right: 0;
+ [2m433[0m |         bottom: 0;
+ [2m434[0m |         background: 
+ [2m435[0m |           radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.3) 1px, transparent 1px),
+ [2m436[0m |           radial-gradient(circle at 80% 80%, rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+ [2m437[0m |           radial-gradient(circle at 40% 60%, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+ [2m438[0m |         background-size: 30px 30px, 50px 50px, 70px 70px;
+ [2m439[0m |         pointer-events: none;
+ [2m440[0m |         opacity: 0.6;
+ [2m441[0m |       `;
+ [2m442[0m |       cardContainer.appendChild(textureOverlay);
+ [2m443[0m |       
+ [2m444[0m |       // Add header with title and date
+ [2m445[0m |       const header = document.createElement('div');
+ [2m446[0m |       header.style.cssText = `
+ [2m447[0m |         display: flex;
+ [2m448[0m |         justify-content: space-between;
+ [2m449[0m |         align-items: center;
+ [2m450[0m |         margin-bottom: 30px;
+ [2m451[0m |         padding-bottom: 20px;
+ [2m452[0m |         border-bottom: 2px solid #e0e0e0;
+ [2m453[0m |         position: relative;
+ [2m454[0m |         z-index: 1;
+ [2m455[0m |       `;
+ [2m456[0m |       
+ [2m457[0m |       const title = document.createElement('div');
+ [2m458[0m |       title.style.cssText = `
+ [2m459[0m |         font-size: 32px;
+ [2m460[0m |         font-weight: 300;
+ [2m461[0m |         color: #333;
+ [2m462[0m |         letter-spacing: 2px;
+ [2m463[0m |       `;
+ [2m464[0m |       title.textContent = 'GPT-OSS';
+ [2m465[0m |       
+ [2m466[0m |       const date = document.createElement('div');
+ [2m467[0m |       date.style.cssText = `
+ [2m468[0m |         font-size: 16px;
+ [2m469[0m |         color: #888;
+ [2m470[0m |         font-weight: 300;
+ [2m471[0m |       `;
+ [2m472[0m |       date.textContent = new Date().toLocaleDateString('zh-CN', {
+ [2m473[0m |         year: 'numeric',
+ [2m474[0m |         month: '2-digit',
+ [2m475[0m |         day: '2-digit'
+ [2m476[0m |       }).replace(/\//g, '/');
+ [2m477[0m |       
+ [2m478[0m |       header.appendChild(title);
+ [2m479[0m |       header.appendChild(date);
+ [2m480[0m |       cardContainer.appendChild(header);
+ [2m481[0m |       
+ [2m482[0m |       // Create content area with elegant styling
+ [2m483[0m |       const contentArea = document.createElement('div');
+ [2m484[0m |       contentArea.style.cssText = `
+ [2m485[0m |         position: relative;
+ [2m486[0m |         z-index: 1;
+ [2m487[0m |         line-height: 1.8;
+ [2m488[0m |         color: #333;
+ [2m489[0m |         font-size: 16px;
+ [2m490[0m |       `;
+ [2m491[0m |       
+ [2m492[0m |       // Clone the entire message container to preserve the chat bubble style
+ [2m493[0m |       const clonedMessage = messageContainer.cloneNode(true) as HTMLElement;
+ [2m494[0m |       
+ [2m495[0m |       // Remove action buttons from the cloned content
+ [2m496[0m |       const actionButtons = clonedMessage.querySelector('.flex.items-center.gap-2');
+ [2m497[0m |       if (actionButtons) {
+ [2m498[0m |         actionButtons.remove();
+ [2m499[0m |       }
+ [2m500[0m |       
+ [2m501[0m |       // Ensure the cloned message has proper styling
+ [2m502[0m |       clonedMessage.style.marginBottom = '20px';
+ [2m503[0m |       
+ [2m504[0m |       // Extract clean content from the AI message for elegant display
+ [2m505[0m |       const messageTextElement = clonedMessage.querySelector('.text-sm');
+ [2m506[0m |       let cleanContent = '';
+ [2m507[0m |       
+ [2m508[0m |       if (messageTextElement) {
+ [2m509[0m |         // Get the rendered HTML content and clean it up for elegant display
+ [2m510[0m |         const tempContentDiv = messageTextElement.cloneNode(true) as HTMLElement;
+ [2m511[0m |         
+ [2m512[0m |         // Remove action buttons
+ [2m513[0m |         const actionButtons = tempContentDiv.querySelector('.flex.items-center.gap-2');
+ [2m514[0m |         if (actionButtons) {
+ [2m515[0m |           actionButtons.remove();
+ [2m516[0m |         }
+ [2m517[0m |         
+ [2m518[0m |         // Style the content for elegant card display
+ [2m519[0m |         tempContentDiv.style.cssText = `
+ [2m520[0m |           font-size: 16px;
+ [2m521[0m |           line-height: 1.8;
+ [2m522[0m |           color: #333;
+ [2m523[0m |           margin: 0;
+ [2m524[0m |         `;
+ [2m525[0m |         
+ [2m526[0m |         // Style headers in the content
+ [2m527[0m |         const headers = tempContentDiv.querySelectorAll('h1, h2, h3, h4, h5, h6');
+ [2m528[0m |         headers.forEach(h => {
+ [2m529[0m |           (h as HTMLElement).style.cssText = `
+ [2m530[0m |             color: #222;
+ [2m531[0m |             margin: 24px 0 16px 0;
+ [2m532[0m |             font-weight: 600;
+ [2m533[0m |             line-height: 1.4;
+ [2m534[0m |           `;
+ [2m535[0m |         });
+ [2m536[0m |         
+ [2m537[0m |         // Style tables
+ [2m538[0m |         const tables = tempContentDiv.querySelectorAll('table');
+ [2m539[0m |         tables.forEach(table => {
+ [2m540[0m |           (table as HTMLElement).style.cssText = `
+ [2m541[0m |             border-collapse: collapse;
+ [2m542[0m |             width: 100%;
+ [2m543[0m |             margin: 20px 0;
+ [2m544[0m |             border: 1px solid #ddd;
+ [2m545[0m |             border-radius: 8px;
+ [2m546[0m |             overflow: hidden;
+ [2m547[0m |           `;
+ [2m548[0m |         });
+ [2m549[0m |         
+ [2m550[0m |         const tableCells = tempContentDiv.querySelectorAll('td, th');
+ [2m551[0m |         tableCells.forEach(cell => {
+ [2m552[0m |           (cell as HTMLElement).style.cssText = `
+ [2m553[0m |             border: 1px solid #ddd;
+ [2m554[0m |             padding: 12px 16px;
+ [2m555[0m |             text-align: left;
+ [2m556[0m |           `;
+ [2m557[0m |         });
+ [2m558[0m |         
+ [2m559[0m |         const tableHeaders = tempContentDiv.querySelectorAll('th');
+ [2m560[0m |         tableHeaders.forEach(th => {
+ [2m561[0m |           (th as HTMLElement).style.backgroundColor = '#f8f8f8';
+ [2m562[0m |           (th as HTMLElement).style.fontWeight = '600';
+ [2m563[0m |         });
+ [2m564[0m |         
+ [2m565[0m |         // Style code blocks
+ [2m566[0m |         const codeBlocks = tempContentDiv.querySelectorAll('pre, code');
+ [2m567[0m |         codeBlocks.forEach(code => {
+ [2m568[0m |           (code as HTMLElement).style.cssText = `
+ [2m569[0m |             background-color: #f5f5f5;
+ [2m570[0m |             padding: 8px 12px;
+ [2m571[0m |             border-radius: 6px;
+ [2m572[0m |             font-family: 'SFMono-Regular', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+ [2m573[0m |             font-size: 14px;
+ [2m574[0m |             border: 1px solid #e0e0e0;
+ [2m575[0m |           `;
+ [2m576[0m |         });
+ [2m577[0m |         
+ [2m578[0m |         // Style paragraphs
+ [2m579[0m |         const paragraphs = tempContentDiv.querySelectorAll('p');
+ [2m580[0m |         paragraphs.forEach(p => {
+ [2m581[0m |           (p as HTMLElement).style.cssText = `
+ [2m582[0m |             margin: 16px 0;
+ [2m583[0m |             line-height: 1.8;
+ [2m584[0m |           `;
+ [2m585[0m |         });
+ [2m586[0m |         
+ [2m587[0m |         contentArea.appendChild(tempContentDiv);
+ [2m588[0m |       } else {
+ [2m589[0m |         // Fallback to raw content
+ [2m590[0m |         contentArea.innerHTML = content
+ [2m591[0m |           .replace(/\n/g, '<br>')
+ [2m592[0m |           .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+ [2m593[0m |           .replace(/\*(.*?)\*/g, '<em>$1</em>');
+ [2m594[0m |       }
+ [2m595[0m |       
+ [2m596[0m |       cardContainer.appendChild(contentArea);
+ [2m597[0m |       
+ [2m598[0m |       // Add elegant footer
+ [2m599[0m |       const footer = document.createElement('div');
+ [2m600[0m |       footer.style.cssText = `
+ [2m601[0m |         margin-top: 40px;
+ [2m602[0m |         padding-top: 20px;
+ [2m603[0m |         border-top: 1px solid #e0e0e0;
+ [2m604[0m |         position: relative;
+ [2m605[0m |         z-index: 1;
+ [2m606[0m |       `;
+ [2m607[0m |       
+ [2m608[0m |       // Add reference info in the style of the original card
+ [2m609[0m |       const refInfo = document.createElement('div');
+ [2m610[0m |       refInfo.style.cssText = `
+ [2m611[0m |         font-size: 14px;
+ [2m612[0m |         color: #666;
+ [2m613[0m |         margin-bottom: 12px;
+ [2m614[0m |       `;
+ [2m615[0m |       refInfo.innerHTML = `Ref : GPT-OSS Blog AI对话`;
+ [2m616[0m |       
+ [2m617[0m |       const urlInfo = document.createElement('div');
+ [2m618[0m |       urlInfo.style.cssText = `
+ [2m619[0m |         font-size: 14px;
+ [2m620[0m |         color: #4285f4;
+ [2m621[0m |         margin-bottom: 16px;
+ [2m622[0m |         word-break: break-all;
+ [2m623[0m |       `;
+ [2m624[0m |       urlInfo.textContent = 'https://gptoss.blog/chat';
+ [2m625[0m |       
+ [2m626[0m |       const bottomInfo = document.createElement('div');
+ [2m627[0m |       bottomInfo.style.cssText = `
+ [2m628[0m |         font-size: 12px;
+ [2m629[0m |         color: #999;
+ [2m630[0m |         text-align: center;
+ [2m631[0m |         padding: 16px;
+ [2m632[0m |         background: rgba(255, 255, 255, 0.5);
+ [2m633[0m |         border-radius: 8px;
+ [2m634[0m |         margin-top: 20px;
+ [2m635[0m |       `;
+ [2m636[0m |       bottomInfo.innerHTML = `
+ [2m637[0m |         <div style="margin-bottom: 8px;">🤖 GPT-OSS Blog • AI模型对话平台</div>
+ [2m638[0m |         <div>生成时间：${new Date().toLocaleString()}</div>
+ [2m639[0m |       `;
+ [2m640[0m |       
+ [2m641[0m |       footer.appendChild(refInfo);
+ [2m642[0m |       footer.appendChild(urlInfo);
+ [2m643[0m |       footer.appendChild(bottomInfo);
+ [2m644[0m |       cardContainer.appendChild(footer);
+ [2m645[0m |       
+ [2m646[0m |       tempDiv.appendChild(cardContainer);
+ [2m647[0m |       
+ [2m648[0m |       document.body.appendChild(tempDiv);
+ [2m649[0m |       
+ [2m650[0m |       // Use html2canvas to convert the div to canvas
+ [2m651[0m |       const html2canvas = await import('html2canvas');
+ [2m652[0m |       
+ [2m653[0m |       const canvas = await html2canvas.default(tempDiv, {
+     : [33;1m            ^^^|^^[0m
+     :                [33;1m`-- [33;1m`canvas` redefined here[0m[0m
+ [2m654[0m |         backgroundColor: '#f5f5f5', // Light background to complement the card
+ [2m655[0m |         scale: 2, // Higher quality
+ [2m656[0m |         useCORS: true,
+     `----
+
+Import trace for requested module:
+./app/chat/page.tsx
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ X ./app/chat/page.tsx
+Error: 
+  [31mx[0m the name `header` is defined multiple times
+     ,-[[36;1;4m/Users/xf/Downloads/gptoss_Blog/app/chat/page.tsx[0m:431:1]
+ [2m431[0m |         container.appendChild(texture);
+ [2m432[0m |         
+ [2m433[0m |         // Header
+ [2m434[0m |         const header = document.createElement('div');
+     : [31;1m              ^^^|^^[0m
+     :                  [31;1m`-- [31;1mprevious definition of `header` here[0m[0m
+ [2m435[0m |         header.style.cssText = `
+ [2m436[0m |           display: flex;
+ [2m437[0m |           justify-content: space-between;
+ [2m438[0m |           align-items: center;
+ [2m439[0m |           margin-bottom: 40px;
+ [2m440[0m |           padding-bottom: 25px;
+ [2m441[0m |           border-bottom: 3px solid #e0e0e0;
+ [2m442[0m |           position: relative;
+ [2m443[0m |           z-index: 1;
+ [2m444[0m |         `;
+ [2m445[0m |         
+ [2m446[0m |         const title = document.createElement('h1');
+ [2m447[0m |         title.style.cssText = `
+ [2m448[0m |           font-size: 42px;
+ [2m449[0m |           font-weight: 200;
+ [2m450[0m |           color: #2c3e50;
+ [2m451[0m |           margin: 0;
+ [2m452[0m |           letter-spacing: 3px;
+ [2m453[0m |         `;
+ [2m454[0m |         title.textContent = 'GPT-OSS';
+ [2m455[0m |         
+ [2m456[0m |         const date = document.createElement('div');
+ [2m457[0m |         date.style.cssText = `
+ [2m458[0m |           font-size: 18px;
+ [2m459[0m |           color: #7f8c8d;
+ [2m460[0m |           font-weight: 300;
+ [2m461[0m |         `;
+ [2m462[0m |         date.textContent = new Date().toLocaleDateString('zh-CN', {
+ [2m463[0m |           year: 'numeric',
+ [2m464[0m |           month: '2-digit', 
+ [2m465[0m |           day: '2-digit'
+ [2m466[0m |         }).replace(/\//g, '/');
+ [2m467[0m |         
+ [2m468[0m |         header.appendChild(title);
+ [2m469[0m |         header.appendChild(date);
+ [2m470[0m |         container.appendChild(header);
+ [2m471[0m |       
+ [2m472[0m |       // Create card container with paper-like background
+ [2m473[0m |       const cardContainer = document.createElement('div');
+ [2m474[0m |       cardContainer.style.cssText = `
+ [2m475[0m |         background: linear-gradient(145deg, #fefefe 0%, #f8f8f8 50%, #f0f0f0 100%);
+ [2m476[0m |         border: 1px solid #e8e8e8;
+ [2m477[0m |         border-radius: 16px;
+ [2m478[0m |         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+ [2m479[0m |         padding: 40px;
+ [2m480[0m |         position: relative;
+ [2m481[0m |         overflow: hidden;
+ [2m482[0m |       `;
+ [2m483[0m |       
+ [2m484[0m |       // Add subtle paper texture overlay
+ [2m485[0m |       const textureOverlay = document.createElement('div');
+ [2m486[0m |       textureOverlay.style.cssText = `
+ [2m487[0m |         position: absolute;
+ [2m488[0m |         top: 0;
+ [2m489[0m |         left: 0;
+ [2m490[0m |         right: 0;
+ [2m491[0m |         bottom: 0;
+ [2m492[0m |         background: 
+ [2m493[0m |           radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.3) 1px, transparent 1px),
+ [2m494[0m |           radial-gradient(circle at 80% 80%, rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+ [2m495[0m |           radial-gradient(circle at 40% 60%, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+ [2m496[0m |         background-size: 30px 30px, 50px 50px, 70px 70px;
+ [2m497[0m |         pointer-events: none;
+ [2m498[0m |         opacity: 0.6;
+ [2m499[0m |       `;
+ [2m500[0m |       cardContainer.appendChild(textureOverlay);
+ [2m501[0m |       
+ [2m502[0m |       // Add header with title and date
+ [2m503[0m |       const header = document.createElement('div');
+     : [33;1m            ^^^|^^[0m
+     :                [33;1m`-- [33;1m`header` redefined here[0m[0m
+ [2m504[0m |       header.style.cssText = `
+ [2m505[0m |         display: flex;
+ [2m506[0m |         justify-content: space-between;
+     `----
+
+  [31mx[0m the name `title` is defined multiple times
+     ,-[[36;1;4m/Users/xf/Downloads/gptoss_Blog/app/chat/page.tsx[0m:443:1]
+ [2m443[0m |           z-index: 1;
+ [2m444[0m |         `;
+ [2m445[0m |         
+ [2m446[0m |         const title = document.createElement('h1');
+     : [31;1m              ^^|^^[0m
+     :                 [31;1m`-- [31;1mprevious definition of `title` here[0m[0m
+ [2m447[0m |         title.style.cssText = `
+ [2m448[0m |           font-size: 42px;
+ [2m449[0m |           font-weight: 200;
+ [2m450[0m |           color: #2c3e50;
+ [2m451[0m |           margin: 0;
+ [2m452[0m |           letter-spacing: 3px;
+ [2m453[0m |         `;
+ [2m454[0m |         title.textContent = 'GPT-OSS';
+ [2m455[0m |         
+ [2m456[0m |         const date = document.createElement('div');
+ [2m457[0m |         date.style.cssText = `
+ [2m458[0m |           font-size: 18px;
+ [2m459[0m |           color: #7f8c8d;
+ [2m460[0m |           font-weight: 300;
+ [2m461[0m |         `;
+ [2m462[0m |         date.textContent = new Date().toLocaleDateString('zh-CN', {
+ [2m463[0m |           year: 'numeric',
+ [2m464[0m |           month: '2-digit', 
+ [2m465[0m |           day: '2-digit'
+ [2m466[0m |         }).replace(/\//g, '/');
+ [2m467[0m |         
+ [2m468[0m |         header.appendChild(title);
+ [2m469[0m |         header.appendChild(date);
+ [2m470[0m |         container.appendChild(header);
+ [2m471[0m |       
+ [2m472[0m |       // Create card container with paper-like background
+ [2m473[0m |       const cardContainer = document.createElement('div');
+ [2m474[0m |       cardContainer.style.cssText = `
+ [2m475[0m |         background: linear-gradient(145deg, #fefefe 0%, #f8f8f8 50%, #f0f0f0 100%);
+ [2m476[0m |         border: 1px solid #e8e8e8;
+ [2m477[0m |         border-radius: 16px;
+ [2m478[0m |         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+ [2m479[0m |         padding: 40px;
+ [2m480[0m |         position: relative;
+ [2m481[0m |         overflow: hidden;
+ [2m482[0m |       `;
+ [2m483[0m |       
+ [2m484[0m |       // Add subtle paper texture overlay
+ [2m485[0m |       const textureOverlay = document.createElement('div');
+ [2m486[0m |       textureOverlay.style.cssText = `
+ [2m487[0m |         position: absolute;
+ [2m488[0m |         top: 0;
+ [2m489[0m |         left: 0;
+ [2m490[0m |         right: 0;
+ [2m491[0m |         bottom: 0;
+ [2m492[0m |         background: 
+ [2m493[0m |           radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.3) 1px, transparent 1px),
+ [2m494[0m |           radial-gradient(circle at 80% 80%, rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+ [2m495[0m |           radial-gradient(circle at 40% 60%, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+ [2m496[0m |         background-size: 30px 30px, 50px 50px, 70px 70px;
+ [2m497[0m |         pointer-events: none;
+ [2m498[0m |         opacity: 0.6;
+ [2m499[0m |       `;
+ [2m500[0m |       cardContainer.appendChild(textureOverlay);
+ [2m501[0m |       
+ [2m502[0m |       // Add header with title and date
+ [2m503[0m |       const header = document.createElement('div');
+ [2m504[0m |       header.style.cssText = `
+ [2m505[0m |         display: flex;
+ [2m506[0m |         justify-content: space-between;
+ [2m507[0m |         align-items: center;
+ [2m508[0m |         margin-bottom: 30px;
+ [2m509[0m |         padding-bottom: 20px;
+ [2m510[0m |         border-bottom: 2px solid #e0e0e0;
+ [2m511[0m |         position: relative;
+ [2m512[0m |         z-index: 1;
+ [2m513[0m |       `;
+ [2m514[0m |       
+ [2m515[0m |       const title = document.createElement('div');
+     : [33;1m            ^^|^^[0m
+     :               [33;1m`-- [33;1m`title` redefined here[0m[0m
+ [2m516[0m |       title.style.cssText = `
+ [2m517[0m |         font-size: 32px;
+ [2m518[0m |         font-weight: 300;
+     `----
+
+  [31mx[0m the name `date` is defined multiple times
+     ,-[[36;1;4m/Users/xf/Downloads/gptoss_Blog/app/chat/page.tsx[0m:453:1]
+ [2m453[0m |         `;
+ [2m454[0m |         title.textContent = 'GPT-OSS';
+ [2m455[0m |         
+ [2m456[0m |         const date = document.createElement('div');
+     : [31;1m              ^^|^[0m
+     :                 [31;1m`-- [31;1mprevious definition of `date` here[0m[0m
+ [2m457[0m |         date.style.cssText = `
+ [2m458[0m |           font-size: 18px;
+ [2m459[0m |           color: #7f8c8d;
+ [2m460[0m |           font-weight: 300;
+ [2m461[0m |         `;
+ [2m462[0m |         date.textContent = new Date().toLocaleDateString('zh-CN', {
+ [2m463[0m |           year: 'numeric',
+ [2m464[0m |           month: '2-digit', 
+ [2m465[0m |           day: '2-digit'
+ [2m466[0m |         }).replace(/\//g, '/');
+ [2m467[0m |         
+ [2m468[0m |         header.appendChild(title);
+ [2m469[0m |         header.appendChild(date);
+ [2m470[0m |         container.appendChild(header);
+ [2m471[0m |       
+ [2m472[0m |       // Create card container with paper-like background
+ [2m473[0m |       const cardContainer = document.createElement('div');
+ [2m474[0m |       cardContainer.style.cssText = `
+ [2m475[0m |         background: linear-gradient(145deg, #fefefe 0%, #f8f8f8 50%, #f0f0f0 100%);
+ [2m476[0m |         border: 1px solid #e8e8e8;
+ [2m477[0m |         border-radius: 16px;
+ [2m478[0m |         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+ [2m479[0m |         padding: 40px;
+ [2m480[0m |         position: relative;
+ [2m481[0m |         overflow: hidden;
+ [2m482[0m |       `;
+ [2m483[0m |       
+ [2m484[0m |       // Add subtle paper texture overlay
+ [2m485[0m |       const textureOverlay = document.createElement('div');
+ [2m486[0m |       textureOverlay.style.cssText = `
+ [2m487[0m |         position: absolute;
+ [2m488[0m |         top: 0;
+ [2m489[0m |         left: 0;
+ [2m490[0m |         right: 0;
+ [2m491[0m |         bottom: 0;
+ [2m492[0m |         background: 
+ [2m493[0m |           radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.3) 1px, transparent 1px),
+ [2m494[0m |           radial-gradient(circle at 80% 80%, rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+ [2m495[0m |           radial-gradient(circle at 40% 60%, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+ [2m496[0m |         background-size: 30px 30px, 50px 50px, 70px 70px;
+ [2m497[0m |         pointer-events: none;
+ [2m498[0m |         opacity: 0.6;
+ [2m499[0m |       `;
+ [2m500[0m |       cardContainer.appendChild(textureOverlay);
+ [2m501[0m |       
+ [2m502[0m |       // Add header with title and date
+ [2m503[0m |       const header = document.createElement('div');
+ [2m504[0m |       header.style.cssText = `
+ [2m505[0m |         display: flex;
+ [2m506[0m |         justify-content: space-between;
+ [2m507[0m |         align-items: center;
+ [2m508[0m |         margin-bottom: 30px;
+ [2m509[0m |         padding-bottom: 20px;
+ [2m510[0m |         border-bottom: 2px solid #e0e0e0;
+ [2m511[0m |         position: relative;
+ [2m512[0m |         z-index: 1;
+ [2m513[0m |       `;
+ [2m514[0m |       
+ [2m515[0m |       const title = document.createElement('div');
+ [2m516[0m |       title.style.cssText = `
+ [2m517[0m |         font-size: 32px;
+ [2m518[0m |         font-weight: 300;
+ [2m519[0m |         color: #333;
+ [2m520[0m |         letter-spacing: 2px;
+ [2m521[0m |       `;
+ [2m522[0m |       title.textContent = 'GPT-OSS';
+ [2m523[0m |       
+ [2m524[0m |       const date = document.createElement('div');
+     : [33;1m            ^^|^[0m
+     :               [33;1m`-- [33;1m`date` redefined here[0m[0m
+ [2m525[0m |       date.style.cssText = `
+ [2m526[0m |         font-size: 16px;
+ [2m527[0m |         color: #888;
+     `----
+
+Import trace for requested module:
+./app/chat/page.tsx
+ X ./app/chat/page.tsx
+Error: 
+  [31mx[0m the name `header` is defined multiple times
+     ,-[[36;1;4m/Users/xf/Downloads/gptoss_Blog/app/chat/page.tsx[0m:431:1]
+ [2m431[0m |         container.appendChild(texture);
+ [2m432[0m |         
+ [2m433[0m |         // Header
+ [2m434[0m |         const header = document.createElement('div');
+     : [31;1m              ^^^|^^[0m
+     :                  [31;1m`-- [31;1mprevious definition of `header` here[0m[0m
+ [2m435[0m |         header.style.cssText = `
+ [2m436[0m |           display: flex;
+ [2m437[0m |           justify-content: space-between;
+ [2m438[0m |           align-items: center;
+ [2m439[0m |           margin-bottom: 40px;
+ [2m440[0m |           padding-bottom: 25px;
+ [2m441[0m |           border-bottom: 3px solid #e0e0e0;
+ [2m442[0m |           position: relative;
+ [2m443[0m |           z-index: 1;
+ [2m444[0m |         `;
+ [2m445[0m |         
+ [2m446[0m |         const title = document.createElement('h1');
+ [2m447[0m |         title.style.cssText = `
+ [2m448[0m |           font-size: 42px;
+ [2m449[0m |           font-weight: 200;
+ [2m450[0m |           color: #2c3e50;
+ [2m451[0m |           margin: 0;
+ [2m452[0m |           letter-spacing: 3px;
+ [2m453[0m |         `;
+ [2m454[0m |         title.textContent = 'GPT-OSS';
+ [2m455[0m |         
+ [2m456[0m |         const date = document.createElement('div');
+ [2m457[0m |         date.style.cssText = `
+ [2m458[0m |           font-size: 18px;
+ [2m459[0m |           color: #7f8c8d;
+ [2m460[0m |           font-weight: 300;
+ [2m461[0m |         `;
+ [2m462[0m |         date.textContent = new Date().toLocaleDateString('zh-CN', {
+ [2m463[0m |           year: 'numeric',
+ [2m464[0m |           month: '2-digit', 
+ [2m465[0m |           day: '2-digit'
+ [2m466[0m |         }).replace(/\//g, '/');
+ [2m467[0m |         
+ [2m468[0m |         header.appendChild(title);
+ [2m469[0m |         header.appendChild(date);
+ [2m470[0m |         container.appendChild(header);
+ [2m471[0m |         
+ [2m472[0m |         // Content area
+ [2m473[0m |         const contentArea = document.createElement('div');
+ [2m474[0m |       cardContainer.style.cssText = `
+ [2m475[0m |         background: linear-gradient(145deg, #fefefe 0%, #f8f8f8 50%, #f0f0f0 100%);
+ [2m476[0m |         border: 1px solid #e8e8e8;
+ [2m477[0m |         border-radius: 16px;
+ [2m478[0m |         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+ [2m479[0m |         padding: 40px;
+ [2m480[0m |         position: relative;
+ [2m481[0m |         overflow: hidden;
+ [2m482[0m |       `;
+ [2m483[0m |       
+ [2m484[0m |       // Add subtle paper texture overlay
+ [2m485[0m |       const textureOverlay = document.createElement('div');
+ [2m486[0m |       textureOverlay.style.cssText = `
+ [2m487[0m |         position: absolute;
+ [2m488[0m |         top: 0;
+ [2m489[0m |         left: 0;
+ [2m490[0m |         right: 0;
+ [2m491[0m |         bottom: 0;
+ [2m492[0m |         background: 
+ [2m493[0m |           radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.3) 1px, transparent 1px),
+ [2m494[0m |           radial-gradient(circle at 80% 80%, rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+ [2m495[0m |           radial-gradient(circle at 40% 60%, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+ [2m496[0m |         background-size: 30px 30px, 50px 50px, 70px 70px;
+ [2m497[0m |         pointer-events: none;
+ [2m498[0m |         opacity: 0.6;
+ [2m499[0m |       `;
+ [2m500[0m |       cardContainer.appendChild(textureOverlay);
+ [2m501[0m |       
+ [2m502[0m |       // Add header with title and date
+ [2m503[0m |       const header = document.createElement('div');
+     : [33;1m            ^^^|^^[0m
+     :                [33;1m`-- [33;1m`header` redefined here[0m[0m
+ [2m504[0m |       header.style.cssText = `
+ [2m505[0m |         display: flex;
+ [2m506[0m |         justify-content: space-between;
+     `----
+
+  [31mx[0m the name `title` is defined multiple times
+     ,-[[36;1;4m/Users/xf/Downloads/gptoss_Blog/app/chat/page.tsx[0m:443:1]
+ [2m443[0m |           z-index: 1;
+ [2m444[0m |         `;
+ [2m445[0m |         
+ [2m446[0m |         const title = document.createElement('h1');
+     : [31;1m              ^^|^^[0m
+     :                 [31;1m`-- [31;1mprevious definition of `title` here[0m[0m
+ [2m447[0m |         title.style.cssText = `
+ [2m448[0m |           font-size: 42px;
+ [2m449[0m |           font-weight: 200;
+ [2m450[0m |           color: #2c3e50;
+ [2m451[0m |           margin: 0;
+ [2m452[0m |           letter-spacing: 3px;
+ [2m453[0m |         `;
+ [2m454[0m |         title.textContent = 'GPT-OSS';
+ [2m455[0m |         
+ [2m456[0m |         const date = document.createElement('div');
+ [2m457[0m |         date.style.cssText = `
+ [2m458[0m |           font-size: 18px;
+ [2m459[0m |           color: #7f8c8d;
+ [2m460[0m |           font-weight: 300;
+ [2m461[0m |         `;
+ [2m462[0m |         date.textContent = new Date().toLocaleDateString('zh-CN', {
+ [2m463[0m |           year: 'numeric',
+ [2m464[0m |           month: '2-digit', 
+ [2m465[0m |           day: '2-digit'
+ [2m466[0m |         }).replace(/\//g, '/');
+ [2m467[0m |         
+ [2m468[0m |         header.appendChild(title);
+ [2m469[0m |         header.appendChild(date);
+ [2m470[0m |         container.appendChild(header);
+ [2m471[0m |         
+ [2m472[0m |         // Content area
+ [2m473[0m |         const contentArea = document.createElement('div');
+ [2m474[0m |       cardContainer.style.cssText = `
+ [2m475[0m |         background: linear-gradient(145deg, #fefefe 0%, #f8f8f8 50%, #f0f0f0 100%);
+ [2m476[0m |         border: 1px solid #e8e8e8;
+ [2m477[0m |         border-radius: 16px;
+ [2m478[0m |         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+ [2m479[0m |         padding: 40px;
+ [2m480[0m |         position: relative;
+ [2m481[0m |         overflow: hidden;
+ [2m482[0m |       `;
+ [2m483[0m |       
+ [2m484[0m |       // Add subtle paper texture overlay
+ [2m485[0m |       const textureOverlay = document.createElement('div');
+ [2m486[0m |       textureOverlay.style.cssText = `
+ [2m487[0m |         position: absolute;
+ [2m488[0m |         top: 0;
+ [2m489[0m |         left: 0;
+ [2m490[0m |         right: 0;
+ [2m491[0m |         bottom: 0;
+ [2m492[0m |         background: 
+ [2m493[0m |           radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.3) 1px, transparent 1px),
+ [2m494[0m |           radial-gradient(circle at 80% 80%, rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+ [2m495[0m |           radial-gradient(circle at 40% 60%, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+ [2m496[0m |         background-size: 30px 30px, 50px 50px, 70px 70px;
+ [2m497[0m |         pointer-events: none;
+ [2m498[0m |         opacity: 0.6;
+ [2m499[0m |       `;
+ [2m500[0m |       cardContainer.appendChild(textureOverlay);
+ [2m501[0m |       
+ [2m502[0m |       // Add header with title and date
+ [2m503[0m |       const header = document.createElement('div');
+ [2m504[0m |       header.style.cssText = `
+ [2m505[0m |         display: flex;
+ [2m506[0m |         justify-content: space-between;
+ [2m507[0m |         align-items: center;
+ [2m508[0m |         margin-bottom: 30px;
+ [2m509[0m |         padding-bottom: 20px;
+ [2m510[0m |         border-bottom: 2px solid #e0e0e0;
+ [2m511[0m |         position: relative;
+ [2m512[0m |         z-index: 1;
+ [2m513[0m |       `;
+ [2m514[0m |       
+ [2m515[0m |       const title = document.createElement('div');
+     : [33;1m            ^^|^^[0m
+     :               [33;1m`-- [33;1m`title` redefined here[0m[0m
+ [2m516[0m |       title.style.cssText = `
+ [2m517[0m |         font-size: 32px;
+ [2m518[0m |         font-weight: 300;
+     `----
+
+  [31mx[0m the name `date` is defined multiple times
+     ,-[[36;1;4m/Users/xf/Downloads/gptoss_Blog/app/chat/page.tsx[0m:453:1]
+ [2m453[0m |         `;
+ [2m454[0m |         title.textContent = 'GPT-OSS';
+ [2m455[0m |         
+ [2m456[0m |         const date = document.createElement('div');
+     : [31;1m              ^^|^[0m
+     :                 [31;1m`-- [31;1mprevious definition of `date` here[0m[0m
+ [2m457[0m |         date.style.cssText = `
+ [2m458[0m |           font-size: 18px;
+ [2m459[0m |           color: #7f8c8d;
+ [2m460[0m |           font-weight: 300;
+ [2m461[0m |         `;
+ [2m462[0m |         date.textContent = new Date().toLocaleDateString('zh-CN', {
+ [2m463[0m |           year: 'numeric',
+ [2m464[0m |           month: '2-digit', 
+ [2m465[0m |           day: '2-digit'
+ [2m466[0m |         }).replace(/\//g, '/');
+ [2m467[0m |         
+ [2m468[0m |         header.appendChild(title);
+ [2m469[0m |         header.appendChild(date);
+ [2m470[0m |         container.appendChild(header);
+ [2m471[0m |         
+ [2m472[0m |         // Content area
+ [2m473[0m |         const contentArea = document.createElement('div');
+ [2m474[0m |       cardContainer.style.cssText = `
+ [2m475[0m |         background: linear-gradient(145deg, #fefefe 0%, #f8f8f8 50%, #f0f0f0 100%);
+ [2m476[0m |         border: 1px solid #e8e8e8;
+ [2m477[0m |         border-radius: 16px;
+ [2m478[0m |         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+ [2m479[0m |         padding: 40px;
+ [2m480[0m |         position: relative;
+ [2m481[0m |         overflow: hidden;
+ [2m482[0m |       `;
+ [2m483[0m |       
+ [2m484[0m |       // Add subtle paper texture overlay
+ [2m485[0m |       const textureOverlay = document.createElement('div');
+ [2m486[0m |       textureOverlay.style.cssText = `
+ [2m487[0m |         position: absolute;
+ [2m488[0m |         top: 0;
+ [2m489[0m |         left: 0;
+ [2m490[0m |         right: 0;
+ [2m491[0m |         bottom: 0;
+ [2m492[0m |         background: 
+ [2m493[0m |           radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.3) 1px, transparent 1px),
+ [2m494[0m |           radial-gradient(circle at 80% 80%, rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+ [2m495[0m |           radial-gradient(circle at 40% 60%, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+ [2m496[0m |         background-size: 30px 30px, 50px 50px, 70px 70px;
+ [2m497[0m |         pointer-events: none;
+ [2m498[0m |         opacity: 0.6;
+ [2m499[0m |       `;
+ [2m500[0m |       cardContainer.appendChild(textureOverlay);
+ [2m501[0m |       
+ [2m502[0m |       // Add header with title and date
+ [2m503[0m |       const header = document.createElement('div');
+ [2m504[0m |       header.style.cssText = `
+ [2m505[0m |         display: flex;
+ [2m506[0m |         justify-content: space-between;
+ [2m507[0m |         align-items: center;
+ [2m508[0m |         margin-bottom: 30px;
+ [2m509[0m |         padding-bottom: 20px;
+ [2m510[0m |         border-bottom: 2px solid #e0e0e0;
+ [2m511[0m |         position: relative;
+ [2m512[0m |         z-index: 1;
+ [2m513[0m |       `;
+ [2m514[0m |       
+ [2m515[0m |       const title = document.createElement('div');
+ [2m516[0m |       title.style.cssText = `
+ [2m517[0m |         font-size: 32px;
+ [2m518[0m |         font-weight: 300;
+ [2m519[0m |         color: #333;
+ [2m520[0m |         letter-spacing: 2px;
+ [2m521[0m |       `;
+ [2m522[0m |       title.textContent = 'GPT-OSS';
+ [2m523[0m |       
+ [2m524[0m |       const date = document.createElement('div');
+     : [33;1m            ^^|^[0m
+     :               [33;1m`-- [33;1m`date` redefined here[0m[0m
+ [2m525[0m |       date.style.cssText = `
+ [2m526[0m |         font-size: 16px;
+ [2m527[0m |         color: #888;
+     `----
+
+  [31mx[0m the name `contentArea` is defined multiple times
+     ,-[[36;1;4m/Users/xf/Downloads/gptoss_Blog/app/chat/page.tsx[0m:470:1]
+ [2m470[0m |         container.appendChild(header);
+ [2m471[0m |         
+ [2m472[0m |         // Content area
+ [2m473[0m |         const contentArea = document.createElement('div');
+     : [31;1m              ^^^^^|^^^^^[0m
+     :                    [31;1m`-- [31;1mprevious definition of `contentArea` here[0m[0m
+ [2m474[0m |       cardContainer.style.cssText = `
+ [2m475[0m |         background: linear-gradient(145deg, #fefefe 0%, #f8f8f8 50%, #f0f0f0 100%);
+ [2m476[0m |         border: 1px solid #e8e8e8;
+ [2m477[0m |         border-radius: 16px;
+ [2m478[0m |         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+ [2m479[0m |         padding: 40px;
+ [2m480[0m |         position: relative;
+ [2m481[0m |         overflow: hidden;
+ [2m482[0m |       `;
+ [2m483[0m |       
+ [2m484[0m |       // Add subtle paper texture overlay
+ [2m485[0m |       const textureOverlay = document.createElement('div');
+ [2m486[0m |       textureOverlay.style.cssText = `
+ [2m487[0m |         position: absolute;
+ [2m488[0m |         top: 0;
+ [2m489[0m |         left: 0;
+ [2m490[0m |         right: 0;
+ [2m491[0m |         bottom: 0;
+ [2m492[0m |         background: 
+ [2m493[0m |           radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.3) 1px, transparent 1px),
+ [2m494[0m |           radial-gradient(circle at 80% 80%, rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+ [2m495[0m |           radial-gradient(circle at 40% 60%, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+ [2m496[0m |         background-size: 30px 30px, 50px 50px, 70px 70px;
+ [2m497[0m |         pointer-events: none;
+ [2m498[0m |         opacity: 0.6;
+ [2m499[0m |       `;
+ [2m500[0m |       cardContainer.appendChild(textureOverlay);
+ [2m501[0m |       
+ [2m502[0m |       // Add header with title and date
+ [2m503[0m |       const header = document.createElement('div');
+ [2m504[0m |       header.style.cssText = `
+ [2m505[0m |         display: flex;
+ [2m506[0m |         justify-content: space-between;
+ [2m507[0m |         align-items: center;
+ [2m508[0m |         margin-bottom: 30px;
+ [2m509[0m |         padding-bottom: 20px;
+ [2m510[0m |         border-bottom: 2px solid #e0e0e0;
+ [2m511[0m |         position: relative;
+ [2m512[0m |         z-index: 1;
+ [2m513[0m |       `;
+ [2m514[0m |       
+ [2m515[0m |       const title = document.createElement('div');
+ [2m516[0m |       title.style.cssText = `
+ [2m517[0m |         font-size: 32px;
+ [2m518[0m |         font-weight: 300;
+ [2m519[0m |         color: #333;
+ [2m520[0m |         letter-spacing: 2px;
+ [2m521[0m |       `;
+ [2m522[0m |       title.textContent = 'GPT-OSS';
+ [2m523[0m |       
+ [2m524[0m |       const date = document.createElement('div');
+ [2m525[0m |       date.style.cssText = `
+ [2m526[0m |         font-size: 16px;
+ [2m527[0m |         color: #888;
+ [2m528[0m |         font-weight: 300;
+ [2m529[0m |       `;
+ [2m530[0m |       date.textContent = new Date().toLocaleDateString('zh-CN', {
+ [2m531[0m |         year: 'numeric',
+ [2m532[0m |         month: '2-digit',
+ [2m533[0m |         day: '2-digit'
+ [2m534[0m |       }).replace(/\//g, '/');
+ [2m535[0m |       
+ [2m536[0m |       header.appendChild(title);
+ [2m537[0m |       header.appendChild(date);
+ [2m538[0m |       cardContainer.appendChild(header);
+ [2m539[0m |       
+ [2m540[0m |       // Create content area with elegant styling
+ [2m541[0m |       const contentArea = document.createElement('div');
+     : [33;1m            ^^^^^|^^^^^[0m
+     :                  [33;1m`-- [33;1m`contentArea` redefined here[0m[0m
+ [2m542[0m |       contentArea.style.cssText = `
+ [2m543[0m |         position: relative;
+ [2m544[0m |         z-index: 1;
+     `----
+
+Import trace for requested module:
+./app/chat/page.tsx
+ X ./app/chat/page.tsx
+Error: 
+  [31mx[0m the name `html2canvas` is defined multiple times
+     ,-[[36;1;4m/Users/xf/Downloads/gptoss_Blog/app/chat/page.tsx[0m:469:1]
+ [2m469[0m |         document.body.appendChild(cardDiv);
+ [2m470[0m |         
+ [2m471[0m |         // Use html2canvas to generate image
+ [2m472[0m |         const html2canvas = await import('html2canvas');
+     : [31;1m              ^^^^^|^^^^^[0m
+     :                    [31;1m`-- [31;1mprevious definition of `html2canvas` here[0m[0m
+ [2m473[0m |         const canvas = await html2canvas.default(cardDiv, {
+ [2m474[0m |           backgroundColor: '#f5f5f5',
+ [2m475[0m |           scale: 2,
+ [2m476[0m |           useCORS: true,
+ [2m477[0m |           allowTaint: true,
+ [2m478[0m |           width: 800,
+ [2m479[0m |           height: Math.max(600, cardDiv.scrollHeight),
+ [2m480[0m |           logging: false,
+ [2m481[0m |         });
+ [2m482[0m |         
+ [2m483[0m |         document.body.removeChild(cardDiv);
+ [2m484[0m |         
+ [2m485[0m |         // Download image
+ [2m486[0m |         canvas.toBlob((blob) => {
+ [2m487[0m |           if (blob) {
+ [2m488[0m |             const url = URL.createObjectURL(blob);
+ [2m489[0m |             const a = document.createElement('a');
+ [2m490[0m |             a.href = url;
+ [2m491[0m |             a.download = `gpt-oss-elegant-card-${Date.now()}.png`;
+ [2m492[0m |             document.body.appendChild(a);
+ [2m493[0m |             a.click();
+ [2m494[0m |             document.body.removeChild(a);
+ [2m495[0m |             URL.revokeObjectURL(url);
+ [2m496[0m |             
+ [2m497[0m |             alert('🎉 精美卡片图片已生成！\n\n✨ 优雅的纸质纹理背景\n📝 完美的内容排版\n🎨 专业的视觉设计');
+ [2m498[0m |           }
+ [2m499[0m |         }, 'image/png');
+ [2m500[0m |       cardContainer.style.cssText = `
+ [2m501[0m |         background: linear-gradient(145deg, #fefefe 0%, #f8f8f8 50%, #f0f0f0 100%);
+ [2m502[0m |         border: 1px solid #e8e8e8;
+ [2m503[0m |         border-radius: 16px;
+ [2m504[0m |         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+ [2m505[0m |         padding: 40px;
+ [2m506[0m |         position: relative;
+ [2m507[0m |         overflow: hidden;
+ [2m508[0m |       `;
+ [2m509[0m |       
+ [2m510[0m |       // Add subtle paper texture overlay
+ [2m511[0m |       const textureOverlay = document.createElement('div');
+ [2m512[0m |       textureOverlay.style.cssText = `
+ [2m513[0m |         position: absolute;
+ [2m514[0m |         top: 0;
+ [2m515[0m |         left: 0;
+ [2m516[0m |         right: 0;
+ [2m517[0m |         bottom: 0;
+ [2m518[0m |         background: 
+ [2m519[0m |           radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.3) 1px, transparent 1px),
+ [2m520[0m |           radial-gradient(circle at 80% 80%, rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+ [2m521[0m |           radial-gradient(circle at 40% 60%, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+ [2m522[0m |         background-size: 30px 30px, 50px 50px, 70px 70px;
+ [2m523[0m |         pointer-events: none;
+ [2m524[0m |         opacity: 0.6;
+ [2m525[0m |       `;
+ [2m526[0m |       cardContainer.appendChild(textureOverlay);
+ [2m527[0m |       
+ [2m528[0m |       // Add header with title and date
+ [2m529[0m |       const header = document.createElement('div');
+ [2m530[0m |       header.style.cssText = `
+ [2m531[0m |         display: flex;
+ [2m532[0m |         justify-content: space-between;
+ [2m533[0m |         align-items: center;
+ [2m534[0m |         margin-bottom: 30px;
+ [2m535[0m |         padding-bottom: 20px;
+ [2m536[0m |         border-bottom: 2px solid #e0e0e0;
+ [2m537[0m |         position: relative;
+ [2m538[0m |         z-index: 1;
+ [2m539[0m |       `;
+ [2m540[0m |       
+ [2m541[0m |       const title = document.createElement('div');
+ [2m542[0m |       title.style.cssText = `
+ [2m543[0m |         font-size: 32px;
+ [2m544[0m |         font-weight: 300;
+ [2m545[0m |         color: #333;
+ [2m546[0m |         letter-spacing: 2px;
+ [2m547[0m |       `;
+ [2m548[0m |       title.textContent = 'GPT-OSS';
+ [2m549[0m |       
+ [2m550[0m |       const date = document.createElement('div');
+ [2m551[0m |       date.style.cssText = `
+ [2m552[0m |         font-size: 16px;
+ [2m553[0m |         color: #888;
+ [2m554[0m |         font-weight: 300;
+ [2m555[0m |       `;
+ [2m556[0m |       date.textContent = new Date().toLocaleDateString('zh-CN', {
+ [2m557[0m |         year: 'numeric',
+ [2m558[0m |         month: '2-digit',
+ [2m559[0m |         day: '2-digit'
+ [2m560[0m |       }).replace(/\//g, '/');
+ [2m561[0m |       
+ [2m562[0m |       header.appendChild(title);
+ [2m563[0m |       header.appendChild(date);
+ [2m564[0m |       cardContainer.appendChild(header);
+ [2m565[0m |       
+ [2m566[0m |       // Create content area with elegant styling
+ [2m567[0m |       const contentArea = document.createElement('div');
+ [2m568[0m |       contentArea.style.cssText = `
+ [2m569[0m |         position: relative;
+ [2m570[0m |         z-index: 1;
+ [2m571[0m |         line-height: 1.8;
+ [2m572[0m |         color: #333;
+ [2m573[0m |         font-size: 16px;
+ [2m574[0m |       `;
+ [2m575[0m |       
+ [2m576[0m |       // Clone the entire message container to preserve the chat bubble style
+ [2m577[0m |       const clonedMessage = messageContainer.cloneNode(true) as HTMLElement;
+ [2m578[0m |       
+ [2m579[0m |       // Remove action buttons from the cloned content
+ [2m580[0m |       const actionButtons = clonedMessage.querySelector('.flex.items-center.gap-2');
+ [2m581[0m |       if (actionButtons) {
+ [2m582[0m |         actionButtons.remove();
+ [2m583[0m |       }
+ [2m584[0m |       
+ [2m585[0m |       // Ensure the cloned message has proper styling
+ [2m586[0m |       clonedMessage.style.marginBottom = '20px';
+ [2m587[0m |       
+ [2m588[0m |       // Extract clean content from the AI message for elegant display
+ [2m589[0m |       const messageTextElement = clonedMessage.querySelector('.text-sm');
+ [2m590[0m |       let cleanContent = '';
+ [2m591[0m |       
+ [2m592[0m |       if (messageTextElement) {
+ [2m593[0m |         // Get the rendered HTML content and clean it up for elegant display
+ [2m594[0m |         const tempContentDiv = messageTextElement.cloneNode(true) as HTMLElement;
+ [2m595[0m |         
+ [2m596[0m |         // Remove action buttons
+ [2m597[0m |         const actionButtons = tempContentDiv.querySelector('.flex.items-center.gap-2');
+ [2m598[0m |         if (actionButtons) {
+ [2m599[0m |           actionButtons.remove();
+ [2m600[0m |         }
+ [2m601[0m |         
+ [2m602[0m |         // Style the content for elegant card display
+ [2m603[0m |         tempContentDiv.style.cssText = `
+ [2m604[0m |           font-size: 16px;
+ [2m605[0m |           line-height: 1.8;
+ [2m606[0m |           color: #333;
+ [2m607[0m |           margin: 0;
+ [2m608[0m |         `;
+ [2m609[0m |         
+ [2m610[0m |         // Style headers in the content
+ [2m611[0m |         const headers = tempContentDiv.querySelectorAll('h1, h2, h3, h4, h5, h6');
+ [2m612[0m |         headers.forEach(h => {
+ [2m613[0m |           (h as HTMLElement).style.cssText = `
+ [2m614[0m |             color: #222;
+ [2m615[0m |             margin: 24px 0 16px 0;
+ [2m616[0m |             font-weight: 600;
+ [2m617[0m |             line-height: 1.4;
+ [2m618[0m |           `;
+ [2m619[0m |         });
+ [2m620[0m |         
+ [2m621[0m |         // Style tables
+ [2m622[0m |         const tables = tempContentDiv.querySelectorAll('table');
+ [2m623[0m |         tables.forEach(table => {
+ [2m624[0m |           (table as HTMLElement).style.cssText = `
+ [2m625[0m |             border-collapse: collapse;
+ [2m626[0m |             width: 100%;
+ [2m627[0m |             margin: 20px 0;
+ [2m628[0m |             border: 1px solid #ddd;
+ [2m629[0m |             border-radius: 8px;
+ [2m630[0m |             overflow: hidden;
+ [2m631[0m |           `;
+ [2m632[0m |         });
+ [2m633[0m |         
+ [2m634[0m |         const tableCells = tempContentDiv.querySelectorAll('td, th');
+ [2m635[0m |         tableCells.forEach(cell => {
+ [2m636[0m |           (cell as HTMLElement).style.cssText = `
+ [2m637[0m |             border: 1px solid #ddd;
+ [2m638[0m |             padding: 12px 16px;
+ [2m639[0m |             text-align: left;
+ [2m640[0m |           `;
+ [2m641[0m |         });
+ [2m642[0m |         
+ [2m643[0m |         const tableHeaders = tempContentDiv.querySelectorAll('th');
+ [2m644[0m |         tableHeaders.forEach(th => {
+ [2m645[0m |           (th as HTMLElement).style.backgroundColor = '#f8f8f8';
+ [2m646[0m |           (th as HTMLElement).style.fontWeight = '600';
+ [2m647[0m |         });
+ [2m648[0m |         
+ [2m649[0m |         // Style code blocks
+ [2m650[0m |         const codeBlocks = tempContentDiv.querySelectorAll('pre, code');
+ [2m651[0m |         codeBlocks.forEach(code => {
+ [2m652[0m |           (code as HTMLElement).style.cssText = `
+ [2m653[0m |             background-color: #f5f5f5;
+ [2m654[0m |             padding: 8px 12px;
+ [2m655[0m |             border-radius: 6px;
+ [2m656[0m |             font-family: 'SFMono-Regular', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+ [2m657[0m |             font-size: 14px;
+ [2m658[0m |             border: 1px solid #e0e0e0;
+ [2m659[0m |           `;
+ [2m660[0m |         });
+ [2m661[0m |         
+ [2m662[0m |         // Style paragraphs
+ [2m663[0m |         const paragraphs = tempContentDiv.querySelectorAll('p');
+ [2m664[0m |         paragraphs.forEach(p => {
+ [2m665[0m |           (p as HTMLElement).style.cssText = `
+ [2m666[0m |             margin: 16px 0;
+ [2m667[0m |             line-height: 1.8;
+ [2m668[0m |           `;
+ [2m669[0m |         });
+ [2m670[0m |         
+ [2m671[0m |         contentArea.appendChild(tempContentDiv);
+ [2m672[0m |       } else {
+ [2m673[0m |         // Fallback to raw content
+ [2m674[0m |         contentArea.innerHTML = content
+ [2m675[0m |           .replace(/\n/g, '<br>')
+ [2m676[0m |           .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+ [2m677[0m |           .replace(/\*(.*?)\*/g, '<em>$1</em>');
+ [2m678[0m |       }
+ [2m679[0m |       
+ [2m680[0m |       cardContainer.appendChild(contentArea);
+ [2m681[0m |       
+ [2m682[0m |       // Add elegant footer
+ [2m683[0m |       const footer = document.createElement('div');
+ [2m684[0m |       footer.style.cssText = `
+ [2m685[0m |         margin-top: 40px;
+ [2m686[0m |         padding-top: 20px;
+ [2m687[0m |         border-top: 1px solid #e0e0e0;
+ [2m688[0m |         position: relative;
+ [2m689[0m |         z-index: 1;
+ [2m690[0m |       `;
+ [2m691[0m |       
+ [2m692[0m |       // Add reference info in the style of the original card
+ [2m693[0m |       const refInfo = document.createElement('div');
+ [2m694[0m |       refInfo.style.cssText = `
+ [2m695[0m |         font-size: 14px;
+ [2m696[0m |         color: #666;
+ [2m697[0m |         margin-bottom: 12px;
+ [2m698[0m |       `;
+ [2m699[0m |       refInfo.innerHTML = `Ref : GPT-OSS Blog AI对话`;
+ [2m700[0m |       
+ [2m701[0m |       const urlInfo = document.createElement('div');
+ [2m702[0m |       urlInfo.style.cssText = `
+ [2m703[0m |         font-size: 14px;
+ [2m704[0m |         color: #4285f4;
+ [2m705[0m |         margin-bottom: 16px;
+ [2m706[0m |         word-break: break-all;
+ [2m707[0m |       `;
+ [2m708[0m |       urlInfo.textContent = 'https://gptoss.blog/chat';
+ [2m709[0m |       
+ [2m710[0m |       const bottomInfo = document.createElement('div');
+ [2m711[0m |       bottomInfo.style.cssText = `
+ [2m712[0m |         font-size: 12px;
+ [2m713[0m |         color: #999;
+ [2m714[0m |         text-align: center;
+ [2m715[0m |         padding: 16px;
+ [2m716[0m |         background: rgba(255, 255, 255, 0.5);
+ [2m717[0m |         border-radius: 8px;
+ [2m718[0m |         margin-top: 20px;
+ [2m719[0m |       `;
+ [2m720[0m |       bottomInfo.innerHTML = `
+ [2m721[0m |         <div style="margin-bottom: 8px;">🤖 GPT-OSS Blog • AI模型对话平台</div>
+ [2m722[0m |         <div>生成时间：${new Date().toLocaleString()}</div>
+ [2m723[0m |       `;
+ [2m724[0m |       
+ [2m725[0m |       footer.appendChild(refInfo);
+ [2m726[0m |       footer.appendChild(urlInfo);
+ [2m727[0m |       footer.appendChild(bottomInfo);
+ [2m728[0m |       cardContainer.appendChild(footer);
+ [2m729[0m |       
+ [2m730[0m |       tempDiv.appendChild(cardContainer);
+ [2m731[0m |       
+ [2m732[0m |       document.body.appendChild(tempDiv);
+ [2m733[0m |       
+ [2m734[0m |       // Use html2canvas to convert the div to canvas
+ [2m735[0m |       const html2canvas = await import('html2canvas');
+     : [33;1m            ^^^^^|^^^^^[0m
+     :                  [33;1m`-- [33;1m`html2canvas` redefined here[0m[0m
+ [2m736[0m |       
+ [2m737[0m |       const canvas = await html2canvas.default(tempDiv, {
+ [2m738[0m |         backgroundColor: '#f5f5f5', // Light background to complement the card
+     `----
+
+  [31mx[0m the name `canvas` is defined multiple times
+     ,-[[36;1;4m/Users/xf/Downloads/gptoss_Blog/app/chat/page.tsx[0m:470:1]
+ [2m470[0m |         
+ [2m471[0m |         // Use html2canvas to generate image
+ [2m472[0m |         const html2canvas = await import('html2canvas');
+ [2m473[0m |         const canvas = await html2canvas.default(cardDiv, {
+     : [31;1m              ^^^|^^[0m
+     :                  [31;1m`-- [31;1mprevious definition of `canvas` here[0m[0m
+ [2m474[0m |           backgroundColor: '#f5f5f5',
+ [2m475[0m |           scale: 2,
+ [2m476[0m |           useCORS: true,
+ [2m477[0m |           allowTaint: true,
+ [2m478[0m |           width: 800,
+ [2m479[0m |           height: Math.max(600, cardDiv.scrollHeight),
+ [2m480[0m |           logging: false,
+ [2m481[0m |         });
+ [2m482[0m |         
+ [2m483[0m |         document.body.removeChild(cardDiv);
+ [2m484[0m |         
+ [2m485[0m |         // Download image
+ [2m486[0m |         canvas.toBlob((blob) => {
+ [2m487[0m |           if (blob) {
+ [2m488[0m |             const url = URL.createObjectURL(blob);
+ [2m489[0m |             const a = document.createElement('a');
+ [2m490[0m |             a.href = url;
+ [2m491[0m |             a.download = `gpt-oss-elegant-card-${Date.now()}.png`;
+ [2m492[0m |             document.body.appendChild(a);
+ [2m493[0m |             a.click();
+ [2m494[0m |             document.body.removeChild(a);
+ [2m495[0m |             URL.revokeObjectURL(url);
+ [2m496[0m |             
+ [2m497[0m |             alert('🎉 精美卡片图片已生成！\n\n✨ 优雅的纸质纹理背景\n📝 完美的内容排版\n🎨 专业的视觉设计');
+ [2m498[0m |           }
+ [2m499[0m |         }, 'image/png');
+ [2m500[0m |       cardContainer.style.cssText = `
+ [2m501[0m |         background: linear-gradient(145deg, #fefefe 0%, #f8f8f8 50%, #f0f0f0 100%);
+ [2m502[0m |         border: 1px solid #e8e8e8;
+ [2m503[0m |         border-radius: 16px;
+ [2m504[0m |         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+ [2m505[0m |         padding: 40px;
+ [2m506[0m |         position: relative;
+ [2m507[0m |         overflow: hidden;
+ [2m508[0m |       `;
+ [2m509[0m |       
+ [2m510[0m |       // Add subtle paper texture overlay
+ [2m511[0m |       const textureOverlay = document.createElement('div');
+ [2m512[0m |       textureOverlay.style.cssText = `
+ [2m513[0m |         position: absolute;
+ [2m514[0m |         top: 0;
+ [2m515[0m |         left: 0;
+ [2m516[0m |         right: 0;
+ [2m517[0m |         bottom: 0;
+ [2m518[0m |         background: 
+ [2m519[0m |           radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.3) 1px, transparent 1px),
+ [2m520[0m |           radial-gradient(circle at 80% 80%, rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+ [2m521[0m |           radial-gradient(circle at 40% 60%, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+ [2m522[0m |         background-size: 30px 30px, 50px 50px, 70px 70px;
+ [2m523[0m |         pointer-events: none;
+ [2m524[0m |         opacity: 0.6;
+ [2m525[0m |       `;
+ [2m526[0m |       cardContainer.appendChild(textureOverlay);
+ [2m527[0m |       
+ [2m528[0m |       // Add header with title and date
+ [2m529[0m |       const header = document.createElement('div');
+ [2m530[0m |       header.style.cssText = `
+ [2m531[0m |         display: flex;
+ [2m532[0m |         justify-content: space-between;
+ [2m533[0m |         align-items: center;
+ [2m534[0m |         margin-bottom: 30px;
+ [2m535[0m |         padding-bottom: 20px;
+ [2m536[0m |         border-bottom: 2px solid #e0e0e0;
+ [2m537[0m |         position: relative;
+ [2m538[0m |         z-index: 1;
+ [2m539[0m |       `;
+ [2m540[0m |       
+ [2m541[0m |       const title = document.createElement('div');
+ [2m542[0m |       title.style.cssText = `
+ [2m543[0m |         font-size: 32px;
+ [2m544[0m |         font-weight: 300;
+ [2m545[0m |         color: #333;
+ [2m546[0m |         letter-spacing: 2px;
+ [2m547[0m |       `;
+ [2m548[0m |       title.textContent = 'GPT-OSS';
+ [2m549[0m |       
+ [2m550[0m |       const date = document.createElement('div');
+ [2m551[0m |       date.style.cssText = `
+ [2m552[0m |         font-size: 16px;
+ [2m553[0m |         color: #888;
+ [2m554[0m |         font-weight: 300;
+ [2m555[0m |       `;
+ [2m556[0m |       date.textContent = new Date().toLocaleDateString('zh-CN', {
+ [2m557[0m |         year: 'numeric',
+ [2m558[0m |         month: '2-digit',
+ [2m559[0m |         day: '2-digit'
+ [2m560[0m |       }).replace(/\//g, '/');
+ [2m561[0m |       
+ [2m562[0m |       header.appendChild(title);
+ [2m563[0m |       header.appendChild(date);
+ [2m564[0m |       cardContainer.appendChild(header);
+ [2m565[0m |       
+ [2m566[0m |       // Create content area with elegant styling
+ [2m567[0m |       const contentArea = document.createElement('div');
+ [2m568[0m |       contentArea.style.cssText = `
+ [2m569[0m |         position: relative;
+ [2m570[0m |         z-index: 1;
+ [2m571[0m |         line-height: 1.8;
+ [2m572[0m |         color: #333;
+ [2m573[0m |         font-size: 16px;
+ [2m574[0m |       `;
+ [2m575[0m |       
+ [2m576[0m |       // Clone the entire message container to preserve the chat bubble style
+ [2m577[0m |       const clonedMessage = messageContainer.cloneNode(true) as HTMLElement;
+ [2m578[0m |       
+ [2m579[0m |       // Remove action buttons from the cloned content
+ [2m580[0m |       const actionButtons = clonedMessage.querySelector('.flex.items-center.gap-2');
+ [2m581[0m |       if (actionButtons) {
+ [2m582[0m |         actionButtons.remove();
+ [2m583[0m |       }
+ [2m584[0m |       
+ [2m585[0m |       // Ensure the cloned message has proper styling
+ [2m586[0m |       clonedMessage.style.marginBottom = '20px';
+ [2m587[0m |       
+ [2m588[0m |       // Extract clean content from the AI message for elegant display
+ [2m589[0m |       const messageTextElement = clonedMessage.querySelector('.text-sm');
+ [2m590[0m |       let cleanContent = '';
+ [2m591[0m |       
+ [2m592[0m |       if (messageTextElement) {
+ [2m593[0m |         // Get the rendered HTML content and clean it up for elegant display
+ [2m594[0m |         const tempContentDiv = messageTextElement.cloneNode(true) as HTMLElement;
+ [2m595[0m |         
+ [2m596[0m |         // Remove action buttons
+ [2m597[0m |         const actionButtons = tempContentDiv.querySelector('.flex.items-center.gap-2');
+ [2m598[0m |         if (actionButtons) {
+ [2m599[0m |           actionButtons.remove();
+ [2m600[0m |         }
+ [2m601[0m |         
+ [2m602[0m |         // Style the content for elegant card display
+ [2m603[0m |         tempContentDiv.style.cssText = `
+ [2m604[0m |           font-size: 16px;
+ [2m605[0m |           line-height: 1.8;
+ [2m606[0m |           color: #333;
+ [2m607[0m |           margin: 0;
+ [2m608[0m |         `;
+ [2m609[0m |         
+ [2m610[0m |         // Style headers in the content
+ [2m611[0m |         const headers = tempContentDiv.querySelectorAll('h1, h2, h3, h4, h5, h6');
+ [2m612[0m |         headers.forEach(h => {
+ [2m613[0m |           (h as HTMLElement).style.cssText = `
+ [2m614[0m |             color: #222;
+ [2m615[0m |             margin: 24px 0 16px 0;
+ [2m616[0m |             font-weight: 600;
+ [2m617[0m |             line-height: 1.4;
+ [2m618[0m |           `;
+ [2m619[0m |         });
+ [2m620[0m |         
+ [2m621[0m |         // Style tables
+ [2m622[0m |         const tables = tempContentDiv.querySelectorAll('table');
+ [2m623[0m |         tables.forEach(table => {
+ [2m624[0m |           (table as HTMLElement).style.cssText = `
+ [2m625[0m |             border-collapse: collapse;
+ [2m626[0m |             width: 100%;
+ [2m627[0m |             margin: 20px 0;
+ [2m628[0m |             border: 1px solid #ddd;
+ [2m629[0m |             border-radius: 8px;
+ [2m630[0m |             overflow: hidden;
+ [2m631[0m |           `;
+ [2m632[0m |         });
+ [2m633[0m |         
+ [2m634[0m |         const tableCells = tempContentDiv.querySelectorAll('td, th');
+ [2m635[0m |         tableCells.forEach(cell => {
+ [2m636[0m |           (cell as HTMLElement).style.cssText = `
+ [2m637[0m |             border: 1px solid #ddd;
+ [2m638[0m |             padding: 12px 16px;
+ [2m639[0m |             text-align: left;
+ [2m640[0m |           `;
+ [2m641[0m |         });
+ [2m642[0m |         
+ [2m643[0m |         const tableHeaders = tempContentDiv.querySelectorAll('th');
+ [2m644[0m |         tableHeaders.forEach(th => {
+ [2m645[0m |           (th as HTMLElement).style.backgroundColor = '#f8f8f8';
+ [2m646[0m |           (th as HTMLElement).style.fontWeight = '600';
+ [2m647[0m |         });
+ [2m648[0m |         
+ [2m649[0m |         // Style code blocks
+ [2m650[0m |         const codeBlocks = tempContentDiv.querySelectorAll('pre, code');
+ [2m651[0m |         codeBlocks.forEach(code => {
+ [2m652[0m |           (code as HTMLElement).style.cssText = `
+ [2m653[0m |             background-color: #f5f5f5;
+ [2m654[0m |             padding: 8px 12px;
+ [2m655[0m |             border-radius: 6px;
+ [2m656[0m |             font-family: 'SFMono-Regular', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+ [2m657[0m |             font-size: 14px;
+ [2m658[0m |             border: 1px solid #e0e0e0;
+ [2m659[0m |           `;
+ [2m660[0m |         });
+ [2m661[0m |         
+ [2m662[0m |         // Style paragraphs
+ [2m663[0m |         const paragraphs = tempContentDiv.querySelectorAll('p');
+ [2m664[0m |         paragraphs.forEach(p => {
+ [2m665[0m |           (p as HTMLElement).style.cssText = `
+ [2m666[0m |             margin: 16px 0;
+ [2m667[0m |             line-height: 1.8;
+ [2m668[0m |           `;
+ [2m669[0m |         });
+ [2m670[0m |         
+ [2m671[0m |         contentArea.appendChild(tempContentDiv);
+ [2m672[0m |       } else {
+ [2m673[0m |         // Fallback to raw content
+ [2m674[0m |         contentArea.innerHTML = content
+ [2m675[0m |           .replace(/\n/g, '<br>')
+ [2m676[0m |           .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+ [2m677[0m |           .replace(/\*(.*?)\*/g, '<em>$1</em>');
+ [2m678[0m |       }
+ [2m679[0m |       
+ [2m680[0m |       cardContainer.appendChild(contentArea);
+ [2m681[0m |       
+ [2m682[0m |       // Add elegant footer
+ [2m683[0m |       const footer = document.createElement('div');
+ [2m684[0m |       footer.style.cssText = `
+ [2m685[0m |         margin-top: 40px;
+ [2m686[0m |         padding-top: 20px;
+ [2m687[0m |         border-top: 1px solid #e0e0e0;
+ [2m688[0m |         position: relative;
+ [2m689[0m |         z-index: 1;
+ [2m690[0m |       `;
+ [2m691[0m |       
+ [2m692[0m |       // Add reference info in the style of the original card
+ [2m693[0m |       const refInfo = document.createElement('div');
+ [2m694[0m |       refInfo.style.cssText = `
+ [2m695[0m |         font-size: 14px;
+ [2m696[0m |         color: #666;
+ [2m697[0m |         margin-bottom: 12px;
+ [2m698[0m |       `;
+ [2m699[0m |       refInfo.innerHTML = `Ref : GPT-OSS Blog AI对话`;
+ [2m700[0m |       
+ [2m701[0m |       const urlInfo = document.createElement('div');
+ [2m702[0m |       urlInfo.style.cssText = `
+ [2m703[0m |         font-size: 14px;
+ [2m704[0m |         color: #4285f4;
+ [2m705[0m |         margin-bottom: 16px;
+ [2m706[0m |         word-break: break-all;
+ [2m707[0m |       `;
+ [2m708[0m |       urlInfo.textContent = 'https://gptoss.blog/chat';
+ [2m709[0m |       
+ [2m710[0m |       const bottomInfo = document.createElement('div');
+ [2m711[0m |       bottomInfo.style.cssText = `
+ [2m712[0m |         font-size: 12px;
+ [2m713[0m |         color: #999;
+ [2m714[0m |         text-align: center;
+ [2m715[0m |         padding: 16px;
+ [2m716[0m |         background: rgba(255, 255, 255, 0.5);
+ [2m717[0m |         border-radius: 8px;
+ [2m718[0m |         margin-top: 20px;
+ [2m719[0m |       `;
+ [2m720[0m |       bottomInfo.innerHTML = `
+ [2m721[0m |         <div style="margin-bottom: 8px;">🤖 GPT-OSS Blog • AI模型对话平台</div>
+ [2m722[0m |         <div>生成时间：${new Date().toLocaleString()}</div>
+ [2m723[0m |       `;
+ [2m724[0m |       
+ [2m725[0m |       footer.appendChild(refInfo);
+ [2m726[0m |       footer.appendChild(urlInfo);
+ [2m727[0m |       footer.appendChild(bottomInfo);
+ [2m728[0m |       cardContainer.appendChild(footer);
+ [2m729[0m |       
+ [2m730[0m |       tempDiv.appendChild(cardContainer);
+ [2m731[0m |       
+ [2m732[0m |       document.body.appendChild(tempDiv);
+ [2m733[0m |       
+ [2m734[0m |       // Use html2canvas to convert the div to canvas
+ [2m735[0m |       const html2canvas = await import('html2canvas');
+ [2m736[0m |       
+ [2m737[0m |       const canvas = await html2canvas.default(tempDiv, {
+     : [33;1m            ^^^|^^[0m
+     :                [33;1m`-- [33;1m`canvas` redefined here[0m[0m
+ [2m738[0m |         backgroundColor: '#f5f5f5', // Light background to complement the card
+ [2m739[0m |         scale: 2, // Higher quality
+ [2m740[0m |         useCORS: true,
+     `----
+
+Import trace for requested module:
+./app/chat/page.tsx
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ X ./app/chat/page.tsx
+Error: 
+  [31mx[0m the name `html2canvas` is defined multiple times
+     ,-[[36;1;4m/Users/xf/Downloads/gptoss_Blog/app/chat/page.tsx[0m:469:1]
+ [2m469[0m |         document.body.appendChild(cardDiv);
+ [2m470[0m |         
+ [2m471[0m |         // Use html2canvas to generate image
+ [2m472[0m |         const html2canvas = await import('html2canvas');
+     : [31;1m              ^^^^^|^^^^^[0m
+     :                    [31;1m`-- [31;1mprevious definition of `html2canvas` here[0m[0m
+ [2m473[0m |         const canvas = await html2canvas.default(cardDiv, {
+ [2m474[0m |           backgroundColor: '#f5f5f5',
+ [2m475[0m |           scale: 2,
+ [2m476[0m |           useCORS: true,
+ [2m477[0m |           allowTaint: true,
+ [2m478[0m |           width: 800,
+ [2m479[0m |           height: Math.max(600, cardDiv.scrollHeight),
+ [2m480[0m |           logging: false,
+ [2m481[0m |         });
+ [2m482[0m |         
+ [2m483[0m |         document.body.removeChild(cardDiv);
+ [2m484[0m |         
+ [2m485[0m |         // Download image
+ [2m486[0m |         canvas.toBlob((blob) => {
+ [2m487[0m |           if (blob) {
+ [2m488[0m |             const url = URL.createObjectURL(blob);
+ [2m489[0m |             const a = document.createElement('a');
+ [2m490[0m |             a.href = url;
+ [2m491[0m |             a.download = `gpt-oss-elegant-card-${Date.now()}.png`;
+ [2m492[0m |             document.body.appendChild(a);
+ [2m493[0m |             a.click();
+ [2m494[0m |             document.body.removeChild(a);
+ [2m495[0m |             URL.revokeObjectURL(url);
+ [2m496[0m |             
+ [2m497[0m |             alert('🎉 精美卡片图片已生成！\n\n✨ 优雅的纸质纹理背景\n📝 完美的内容排版\n🎨 专业的视觉设计');
+ [2m498[0m |           }
+ [2m499[0m |         }, 'image/png');
+ [2m500[0m |       cardContainer.style.cssText = `
+ [2m501[0m |         background: linear-gradient(145deg, #fefefe 0%, #f8f8f8 50%, #f0f0f0 100%);
+ [2m502[0m |         border: 1px solid #e8e8e8;
+ [2m503[0m |         border-radius: 16px;
+ [2m504[0m |         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+ [2m505[0m |         padding: 40px;
+ [2m506[0m |         position: relative;
+ [2m507[0m |         overflow: hidden;
+ [2m508[0m |       `;
+ [2m509[0m |       
+ [2m510[0m |       // Add subtle paper texture overlay
+ [2m511[0m |       const textureOverlay = document.createElement('div');
+ [2m512[0m |       textureOverlay.style.cssText = `
+ [2m513[0m |         position: absolute;
+ [2m514[0m |         top: 0;
+ [2m515[0m |         left: 0;
+ [2m516[0m |         right: 0;
+ [2m517[0m |         bottom: 0;
+ [2m518[0m |         background: 
+ [2m519[0m |           radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.3) 1px, transparent 1px),
+ [2m520[0m |           radial-gradient(circle at 80% 80%, rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+ [2m521[0m |           radial-gradient(circle at 40% 60%, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+ [2m522[0m |         background-size: 30px 30px, 50px 50px, 70px 70px;
+ [2m523[0m |         pointer-events: none;
+ [2m524[0m |         opacity: 0.6;
+ [2m525[0m |       `;
+ [2m526[0m |       cardContainer.appendChild(textureOverlay);
+ [2m527[0m |       
+ [2m528[0m |       // Add header with title and date
+ [2m529[0m |       const header = document.createElement('div');
+ [2m530[0m |       header.style.cssText = `
+ [2m531[0m |         display: flex;
+ [2m532[0m |         justify-content: space-between;
+ [2m533[0m |         align-items: center;
+ [2m534[0m |         margin-bottom: 30px;
+ [2m535[0m |         padding-bottom: 20px;
+ [2m536[0m |         border-bottom: 2px solid #e0e0e0;
+ [2m537[0m |         position: relative;
+ [2m538[0m |         z-index: 1;
+ [2m539[0m |       `;
+ [2m540[0m |       
+ [2m541[0m |       const title = document.createElement('div');
+ [2m542[0m |       title.style.cssText = `
+ [2m543[0m |         font-size: 32px;
+ [2m544[0m |         font-weight: 300;
+ [2m545[0m |         color: #333;
+ [2m546[0m |         letter-spacing: 2px;
+ [2m547[0m |       `;
+ [2m548[0m |       title.textContent = 'GPT-OSS';
+ [2m549[0m |       
+ [2m550[0m |       const date = document.createElement('div');
+ [2m551[0m |       date.style.cssText = `
+ [2m552[0m |         font-size: 16px;
+ [2m553[0m |         color: #888;
+ [2m554[0m |         font-weight: 300;
+ [2m555[0m |       `;
+ [2m556[0m |       date.textContent = new Date().toLocaleDateString('zh-CN', {
+ [2m557[0m |         year: 'numeric',
+ [2m558[0m |         month: '2-digit',
+ [2m559[0m |         day: '2-digit'
+ [2m560[0m |       }).replace(/\//g, '/');
+ [2m561[0m |       
+ [2m562[0m |       header.appendChild(title);
+ [2m563[0m |       header.appendChild(date);
+ [2m564[0m |       cardContainer.appendChild(header);
+ [2m565[0m |       
+ [2m566[0m |       // Create content area with elegant styling
+ [2m567[0m |       const contentArea = document.createElement('div');
+ [2m568[0m |       contentArea.style.cssText = `
+ [2m569[0m |         position: relative;
+ [2m570[0m |         z-index: 1;
+ [2m571[0m |         line-height: 1.8;
+ [2m572[0m |         color: #333;
+ [2m573[0m |         font-size: 16px;
+ [2m574[0m |       `;
+ [2m575[0m |       
+ [2m576[0m |       // Clone the entire message container to preserve the chat bubble style
+ [2m577[0m |       const clonedMessage = messageContainer.cloneNode(true) as HTMLElement;
+ [2m578[0m |       
+ [2m579[0m |       // Remove action buttons from the cloned content
+ [2m580[0m |       const actionButtons = clonedMessage.querySelector('.flex.items-center.gap-2');
+ [2m581[0m |       if (actionButtons) {
+ [2m582[0m |         actionButtons.remove();
+ [2m583[0m |       }
+ [2m584[0m |       
+ [2m585[0m |       // Ensure the cloned message has proper styling
+ [2m586[0m |       clonedMessage.style.marginBottom = '20px';
+ [2m587[0m |       
+ [2m588[0m |       // Extract clean content from the AI message for elegant display
+ [2m589[0m |       const messageTextElement = clonedMessage.querySelector('.text-sm');
+ [2m590[0m |       let cleanContent = '';
+ [2m591[0m |       
+ [2m592[0m |       if (messageTextElement) {
+ [2m593[0m |         // Get the rendered HTML content and clean it up for elegant display
+ [2m594[0m |         const tempContentDiv = messageTextElement.cloneNode(true) as HTMLElement;
+ [2m595[0m |         
+ [2m596[0m |         // Remove action buttons
+ [2m597[0m |         const actionButtons = tempContentDiv.querySelector('.flex.items-center.gap-2');
+ [2m598[0m |         if (actionButtons) {
+ [2m599[0m |           actionButtons.remove();
+ [2m600[0m |         }
+ [2m601[0m |         
+ [2m602[0m |         // Style the content for elegant card display
+ [2m603[0m |         tempContentDiv.style.cssText = `
+ [2m604[0m |           font-size: 16px;
+ [2m605[0m |           line-height: 1.8;
+ [2m606[0m |           color: #333;
+ [2m607[0m |           margin: 0;
+ [2m608[0m |         `;
+ [2m609[0m |         
+ [2m610[0m |         // Style headers in the content
+ [2m611[0m |         const headers = tempContentDiv.querySelectorAll('h1, h2, h3, h4, h5, h6');
+ [2m612[0m |         headers.forEach(h => {
+ [2m613[0m |           (h as HTMLElement).style.cssText = `
+ [2m614[0m |             color: #222;
+ [2m615[0m |             margin: 24px 0 16px 0;
+ [2m616[0m |             font-weight: 600;
+ [2m617[0m |             line-height: 1.4;
+ [2m618[0m |           `;
+ [2m619[0m |         });
+ [2m620[0m |         
+ [2m621[0m |         // Style tables
+ [2m622[0m |         const tables = tempContentDiv.querySelectorAll('table');
+ [2m623[0m |         tables.forEach(table => {
+ [2m624[0m |           (table as HTMLElement).style.cssText = `
+ [2m625[0m |             border-collapse: collapse;
+ [2m626[0m |             width: 100%;
+ [2m627[0m |             margin: 20px 0;
+ [2m628[0m |             border: 1px solid #ddd;
+ [2m629[0m |             border-radius: 8px;
+ [2m630[0m |             overflow: hidden;
+ [2m631[0m |           `;
+ [2m632[0m |         });
+ [2m633[0m |         
+ [2m634[0m |         const tableCells = tempContentDiv.querySelectorAll('td, th');
+ [2m635[0m |         tableCells.forEach(cell => {
+ [2m636[0m |           (cell as HTMLElement).style.cssText = `
+ [2m637[0m |             border: 1px solid #ddd;
+ [2m638[0m |             padding: 12px 16px;
+ [2m639[0m |             text-align: left;
+ [2m640[0m |           `;
+ [2m641[0m |         });
+ [2m642[0m |         
+ [2m643[0m |         const tableHeaders = tempContentDiv.querySelectorAll('th');
+ [2m644[0m |         tableHeaders.forEach(th => {
+ [2m645[0m |           (th as HTMLElement).style.backgroundColor = '#f8f8f8';
+ [2m646[0m |           (th as HTMLElement).style.fontWeight = '600';
+ [2m647[0m |         });
+ [2m648[0m |         
+ [2m649[0m |         // Style code blocks
+ [2m650[0m |         const codeBlocks = tempContentDiv.querySelectorAll('pre, code');
+ [2m651[0m |         codeBlocks.forEach(code => {
+ [2m652[0m |           (code as HTMLElement).style.cssText = `
+ [2m653[0m |             background-color: #f5f5f5;
+ [2m654[0m |             padding: 8px 12px;
+ [2m655[0m |             border-radius: 6px;
+ [2m656[0m |             font-family: 'SFMono-Regular', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+ [2m657[0m |             font-size: 14px;
+ [2m658[0m |             border: 1px solid #e0e0e0;
+ [2m659[0m |           `;
+ [2m660[0m |         });
+ [2m661[0m |         
+ [2m662[0m |         // Style paragraphs
+ [2m663[0m |         const paragraphs = tempContentDiv.querySelectorAll('p');
+ [2m664[0m |         paragraphs.forEach(p => {
+ [2m665[0m |           (p as HTMLElement).style.cssText = `
+ [2m666[0m |             margin: 16px 0;
+ [2m667[0m |             line-height: 1.8;
+ [2m668[0m |           `;
+ [2m669[0m |         });
+ [2m670[0m |         
+ [2m671[0m |         contentArea.appendChild(tempContentDiv);
+ [2m672[0m |       } else {
+ [2m673[0m |         // Fallback to raw content
+ [2m674[0m |         contentArea.innerHTML = content
+ [2m675[0m |           .replace(/\n/g, '<br>')
+ [2m676[0m |           .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+ [2m677[0m |           .replace(/\*(.*?)\*/g, '<em>$1</em>');
+ [2m678[0m |       }
+ [2m679[0m |       
+ [2m680[0m |       cardContainer.appendChild(contentArea);
+ [2m681[0m |       
+ [2m682[0m |       // Add elegant footer
+ [2m683[0m |       const footer = document.createElement('div');
+ [2m684[0m |       footer.style.cssText = `
+ [2m685[0m |         margin-top: 40px;
+ [2m686[0m |         padding-top: 20px;
+ [2m687[0m |         border-top: 1px solid #e0e0e0;
+ [2m688[0m |         position: relative;
+ [2m689[0m |         z-index: 1;
+ [2m690[0m |       `;
+ [2m691[0m |       
+ [2m692[0m |       // Add reference info in the style of the original card
+ [2m693[0m |       const refInfo = document.createElement('div');
+ [2m694[0m |       refInfo.style.cssText = `
+ [2m695[0m |         font-size: 14px;
+ [2m696[0m |         color: #666;
+ [2m697[0m |         margin-bottom: 12px;
+ [2m698[0m |       `;
+ [2m699[0m |       refInfo.innerHTML = `Ref : GPT-OSS Blog AI对话`;
+ [2m700[0m |       
+ [2m701[0m |       const urlInfo = document.createElement('div');
+ [2m702[0m |       urlInfo.style.cssText = `
+ [2m703[0m |         font-size: 14px;
+ [2m704[0m |         color: #4285f4;
+ [2m705[0m |         margin-bottom: 16px;
+ [2m706[0m |         word-break: break-all;
+ [2m707[0m |       `;
+ [2m708[0m |       urlInfo.textContent = 'https://gptoss.blog/chat';
+ [2m709[0m |       
+ [2m710[0m |       const bottomInfo = document.createElement('div');
+ [2m711[0m |       bottomInfo.style.cssText = `
+ [2m712[0m |         font-size: 12px;
+ [2m713[0m |         color: #999;
+ [2m714[0m |         text-align: center;
+ [2m715[0m |         padding: 16px;
+ [2m716[0m |         background: rgba(255, 255, 255, 0.5);
+ [2m717[0m |         border-radius: 8px;
+ [2m718[0m |         margin-top: 20px;
+ [2m719[0m |       `;
+ [2m720[0m |       bottomInfo.innerHTML = `
+ [2m721[0m |         <div style="margin-bottom: 8px;">🤖 GPT-OSS Blog • AI模型对话平台</div>
+ [2m722[0m |         <div>生成时间：${new Date().toLocaleString()}</div>
+ [2m723[0m |       `;
+ [2m724[0m |       
+ [2m725[0m |       footer.appendChild(refInfo);
+ [2m726[0m |       footer.appendChild(urlInfo);
+ [2m727[0m |       footer.appendChild(bottomInfo);
+ [2m728[0m |       cardContainer.appendChild(footer);
+ [2m729[0m |       
+ [2m730[0m |       tempDiv.appendChild(cardContainer);
+ [2m731[0m |       
+ [2m732[0m |       document.body.appendChild(tempDiv);
+ [2m733[0m |       
+ [2m734[0m |       // Use html2canvas to convert the div to canvas
+ [2m735[0m |       const html2canvas = await import('html2canvas');
+     : [33;1m            ^^^^^|^^^^^[0m
+     :                  [33;1m`-- [33;1m`html2canvas` redefined here[0m[0m
+ [2m736[0m |       
+ [2m737[0m |       const canvas = await html2canvas.default(tempDiv, {
+ [2m738[0m |         backgroundColor: '#f5f5f5', // Light background to complement the card
+     `----
+
+  [31mx[0m the name `canvas` is defined multiple times
+     ,-[[36;1;4m/Users/xf/Downloads/gptoss_Blog/app/chat/page.tsx[0m:470:1]
+ [2m470[0m |         
+ [2m471[0m |         // Use html2canvas to generate image
+ [2m472[0m |         const html2canvas = await import('html2canvas');
+ [2m473[0m |         const canvas = await html2canvas.default(cardDiv, {
+     : [31;1m              ^^^|^^[0m
+     :                  [31;1m`-- [31;1mprevious definition of `canvas` here[0m[0m
+ [2m474[0m |           backgroundColor: '#f5f5f5',
+ [2m475[0m |           scale: 2,
+ [2m476[0m |           useCORS: true,
+ [2m477[0m |           allowTaint: true,
+ [2m478[0m |           width: 800,
+ [2m479[0m |           height: Math.max(600, cardDiv.scrollHeight),
+ [2m480[0m |           logging: false,
+ [2m481[0m |         });
+ [2m482[0m |         
+ [2m483[0m |         document.body.removeChild(cardDiv);
+ [2m484[0m |         
+ [2m485[0m |         // Download image
+ [2m486[0m |         canvas.toBlob((blob) => {
+ [2m487[0m |           if (blob) {
+ [2m488[0m |             const url = URL.createObjectURL(blob);
+ [2m489[0m |             const a = document.createElement('a');
+ [2m490[0m |             a.href = url;
+ [2m491[0m |             a.download = `gpt-oss-elegant-card-${Date.now()}.png`;
+ [2m492[0m |             document.body.appendChild(a);
+ [2m493[0m |             a.click();
+ [2m494[0m |             document.body.removeChild(a);
+ [2m495[0m |             URL.revokeObjectURL(url);
+ [2m496[0m |             
+ [2m497[0m |             alert('🎉 精美卡片图片已生成！\n\n✨ 优雅的纸质纹理背景\n📝 完美的内容排版\n🎨 专业的视觉设计');
+ [2m498[0m |           }
+ [2m499[0m |         }, 'image/png');
+ [2m500[0m |       cardContainer.style.cssText = `
+ [2m501[0m |         background: linear-gradient(145deg, #fefefe 0%, #f8f8f8 50%, #f0f0f0 100%);
+ [2m502[0m |         border: 1px solid #e8e8e8;
+ [2m503[0m |         border-radius: 16px;
+ [2m504[0m |         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+ [2m505[0m |         padding: 40px;
+ [2m506[0m |         position: relative;
+ [2m507[0m |         overflow: hidden;
+ [2m508[0m |       `;
+ [2m509[0m |       
+ [2m510[0m |       // Add subtle paper texture overlay
+ [2m511[0m |       const textureOverlay = document.createElement('div');
+ [2m512[0m |       textureOverlay.style.cssText = `
+ [2m513[0m |         position: absolute;
+ [2m514[0m |         top: 0;
+ [2m515[0m |         left: 0;
+ [2m516[0m |         right: 0;
+ [2m517[0m |         bottom: 0;
+ [2m518[0m |         background: 
+ [2m519[0m |           radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.3) 1px, transparent 1px),
+ [2m520[0m |           radial-gradient(circle at 80% 80%, rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+ [2m521[0m |           radial-gradient(circle at 40% 60%, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+ [2m522[0m |         background-size: 30px 30px, 50px 50px, 70px 70px;
+ [2m523[0m |         pointer-events: none;
+ [2m524[0m |         opacity: 0.6;
+ [2m525[0m |       `;
+ [2m526[0m |       cardContainer.appendChild(textureOverlay);
+ [2m527[0m |       
+ [2m528[0m |       // Add header with title and date
+ [2m529[0m |       const header = document.createElement('div');
+ [2m530[0m |       header.style.cssText = `
+ [2m531[0m |         display: flex;
+ [2m532[0m |         justify-content: space-between;
+ [2m533[0m |         align-items: center;
+ [2m534[0m |         margin-bottom: 30px;
+ [2m535[0m |         padding-bottom: 20px;
+ [2m536[0m |         border-bottom: 2px solid #e0e0e0;
+ [2m537[0m |         position: relative;
+ [2m538[0m |         z-index: 1;
+ [2m539[0m |       `;
+ [2m540[0m |       
+ [2m541[0m |       const title = document.createElement('div');
+ [2m542[0m |       title.style.cssText = `
+ [2m543[0m |         font-size: 32px;
+ [2m544[0m |         font-weight: 300;
+ [2m545[0m |         color: #333;
+ [2m546[0m |         letter-spacing: 2px;
+ [2m547[0m |       `;
+ [2m548[0m |       title.textContent = 'GPT-OSS';
+ [2m549[0m |       
+ [2m550[0m |       const date = document.createElement('div');
+ [2m551[0m |       date.style.cssText = `
+ [2m552[0m |         font-size: 16px;
+ [2m553[0m |         color: #888;
+ [2m554[0m |         font-weight: 300;
+ [2m555[0m |       `;
+ [2m556[0m |       date.textContent = new Date().toLocaleDateString('zh-CN', {
+ [2m557[0m |         year: 'numeric',
+ [2m558[0m |         month: '2-digit',
+ [2m559[0m |         day: '2-digit'
+ [2m560[0m |       }).replace(/\//g, '/');
+ [2m561[0m |       
+ [2m562[0m |       header.appendChild(title);
+ [2m563[0m |       header.appendChild(date);
+ [2m564[0m |       cardContainer.appendChild(header);
+ [2m565[0m |       
+ [2m566[0m |       // Create content area with elegant styling
+ [2m567[0m |       const contentArea = document.createElement('div');
+ [2m568[0m |       contentArea.style.cssText = `
+ [2m569[0m |         position: relative;
+ [2m570[0m |         z-index: 1;
+ [2m571[0m |         line-height: 1.8;
+ [2m572[0m |         color: #333;
+ [2m573[0m |         font-size: 16px;
+ [2m574[0m |       `;
+ [2m575[0m |       
+ [2m576[0m |       // Clone the entire message container to preserve the chat bubble style
+ [2m577[0m |       const clonedMessage = messageContainer.cloneNode(true) as HTMLElement;
+ [2m578[0m |       
+ [2m579[0m |       // Remove action buttons from the cloned content
+ [2m580[0m |       const actionButtons = clonedMessage.querySelector('.flex.items-center.gap-2');
+ [2m581[0m |       if (actionButtons) {
+ [2m582[0m |         actionButtons.remove();
+ [2m583[0m |       }
+ [2m584[0m |       
+ [2m585[0m |       // Ensure the cloned message has proper styling
+ [2m586[0m |       clonedMessage.style.marginBottom = '20px';
+ [2m587[0m |       
+ [2m588[0m |       // Extract clean content from the AI message for elegant display
+ [2m589[0m |       const messageTextElement = clonedMessage.querySelector('.text-sm');
+ [2m590[0m |       let cleanContent = '';
+ [2m591[0m |       
+ [2m592[0m |       if (messageTextElement) {
+ [2m593[0m |         // Get the rendered HTML content and clean it up for elegant display
+ [2m594[0m |         const tempContentDiv = messageTextElement.cloneNode(true) as HTMLElement;
+ [2m595[0m |         
+ [2m596[0m |         // Remove action buttons
+ [2m597[0m |         const actionButtons = tempContentDiv.querySelector('.flex.items-center.gap-2');
+ [2m598[0m |         if (actionButtons) {
+ [2m599[0m |           actionButtons.remove();
+ [2m600[0m |         }
+ [2m601[0m |         
+ [2m602[0m |         // Style the content for elegant card display
+ [2m603[0m |         tempContentDiv.style.cssText = `
+ [2m604[0m |           font-size: 16px;
+ [2m605[0m |           line-height: 1.8;
+ [2m606[0m |           color: #333;
+ [2m607[0m |           margin: 0;
+ [2m608[0m |         `;
+ [2m609[0m |         
+ [2m610[0m |         // Style headers in the content
+ [2m611[0m |         const headers = tempContentDiv.querySelectorAll('h1, h2, h3, h4, h5, h6');
+ [2m612[0m |         headers.forEach(h => {
+ [2m613[0m |           (h as HTMLElement).style.cssText = `
+ [2m614[0m |             color: #222;
+ [2m615[0m |             margin: 24px 0 16px 0;
+ [2m616[0m |             font-weight: 600;
+ [2m617[0m |             line-height: 1.4;
+ [2m618[0m |           `;
+ [2m619[0m |         });
+ [2m620[0m |         
+ [2m621[0m |         // Style tables
+ [2m622[0m |         const tables = tempContentDiv.querySelectorAll('table');
+ [2m623[0m |         tables.forEach(table => {
+ [2m624[0m |           (table as HTMLElement).style.cssText = `
+ [2m625[0m |             border-collapse: collapse;
+ [2m626[0m |             width: 100%;
+ [2m627[0m |             margin: 20px 0;
+ [2m628[0m |             border: 1px solid #ddd;
+ [2m629[0m |             border-radius: 8px;
+ [2m630[0m |             overflow: hidden;
+ [2m631[0m |           `;
+ [2m632[0m |         });
+ [2m633[0m |         
+ [2m634[0m |         const tableCells = tempContentDiv.querySelectorAll('td, th');
+ [2m635[0m |         tableCells.forEach(cell => {
+ [2m636[0m |           (cell as HTMLElement).style.cssText = `
+ [2m637[0m |             border: 1px solid #ddd;
+ [2m638[0m |             padding: 12px 16px;
+ [2m639[0m |             text-align: left;
+ [2m640[0m |           `;
+ [2m641[0m |         });
+ [2m642[0m |         
+ [2m643[0m |         const tableHeaders = tempContentDiv.querySelectorAll('th');
+ [2m644[0m |         tableHeaders.forEach(th => {
+ [2m645[0m |           (th as HTMLElement).style.backgroundColor = '#f8f8f8';
+ [2m646[0m |           (th as HTMLElement).style.fontWeight = '600';
+ [2m647[0m |         });
+ [2m648[0m |         
+ [2m649[0m |         // Style code blocks
+ [2m650[0m |         const codeBlocks = tempContentDiv.querySelectorAll('pre, code');
+ [2m651[0m |         codeBlocks.forEach(code => {
+ [2m652[0m |           (code as HTMLElement).style.cssText = `
+ [2m653[0m |             background-color: #f5f5f5;
+ [2m654[0m |             padding: 8px 12px;
+ [2m655[0m |             border-radius: 6px;
+ [2m656[0m |             font-family: 'SFMono-Regular', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+ [2m657[0m |             font-size: 14px;
+ [2m658[0m |             border: 1px solid #e0e0e0;
+ [2m659[0m |           `;
+ [2m660[0m |         });
+ [2m661[0m |         
+ [2m662[0m |         // Style paragraphs
+ [2m663[0m |         const paragraphs = tempContentDiv.querySelectorAll('p');
+ [2m664[0m |         paragraphs.forEach(p => {
+ [2m665[0m |           (p as HTMLElement).style.cssText = `
+ [2m666[0m |             margin: 16px 0;
+ [2m667[0m |             line-height: 1.8;
+ [2m668[0m |           `;
+ [2m669[0m |         });
+ [2m670[0m |         
+ [2m671[0m |         contentArea.appendChild(tempContentDiv);
+ [2m672[0m |       } else {
+ [2m673[0m |         // Fallback to raw content
+ [2m674[0m |         contentArea.innerHTML = content
+ [2m675[0m |           .replace(/\n/g, '<br>')
+ [2m676[0m |           .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+ [2m677[0m |           .replace(/\*(.*?)\*/g, '<em>$1</em>');
+ [2m678[0m |       }
+ [2m679[0m |       
+ [2m680[0m |       cardContainer.appendChild(contentArea);
+ [2m681[0m |       
+ [2m682[0m |       // Add elegant footer
+ [2m683[0m |       const footer = document.createElement('div');
+ [2m684[0m |       footer.style.cssText = `
+ [2m685[0m |         margin-top: 40px;
+ [2m686[0m |         padding-top: 20px;
+ [2m687[0m |         border-top: 1px solid #e0e0e0;
+ [2m688[0m |         position: relative;
+ [2m689[0m |         z-index: 1;
+ [2m690[0m |       `;
+ [2m691[0m |       
+ [2m692[0m |       // Add reference info in the style of the original card
+ [2m693[0m |       const refInfo = document.createElement('div');
+ [2m694[0m |       refInfo.style.cssText = `
+ [2m695[0m |         font-size: 14px;
+ [2m696[0m |         color: #666;
+ [2m697[0m |         margin-bottom: 12px;
+ [2m698[0m |       `;
+ [2m699[0m |       refInfo.innerHTML = `Ref : GPT-OSS Blog AI对话`;
+ [2m700[0m |       
+ [2m701[0m |       const urlInfo = document.createElement('div');
+ [2m702[0m |       urlInfo.style.cssText = `
+ [2m703[0m |         font-size: 14px;
+ [2m704[0m |         color: #4285f4;
+ [2m705[0m |         margin-bottom: 16px;
+ [2m706[0m |         word-break: break-all;
+ [2m707[0m |       `;
+ [2m708[0m |       urlInfo.textContent = 'https://gptoss.blog/chat';
+ [2m709[0m |       
+ [2m710[0m |       const bottomInfo = document.createElement('div');
+ [2m711[0m |       bottomInfo.style.cssText = `
+ [2m712[0m |         font-size: 12px;
+ [2m713[0m |         color: #999;
+ [2m714[0m |         text-align: center;
+ [2m715[0m |         padding: 16px;
+ [2m716[0m |         background: rgba(255, 255, 255, 0.5);
+ [2m717[0m |         border-radius: 8px;
+ [2m718[0m |         margin-top: 20px;
+ [2m719[0m |       `;
+ [2m720[0m |       bottomInfo.innerHTML = `
+ [2m721[0m |         <div style="margin-bottom: 8px;">🤖 GPT-OSS Blog • AI模型对话平台</div>
+ [2m722[0m |         <div>生成时间：${new Date().toLocaleString()}</div>
+ [2m723[0m |       `;
+ [2m724[0m |       
+ [2m725[0m |       footer.appendChild(refInfo);
+ [2m726[0m |       footer.appendChild(urlInfo);
+ [2m727[0m |       footer.appendChild(bottomInfo);
+ [2m728[0m |       cardContainer.appendChild(footer);
+ [2m729[0m |       
+ [2m730[0m |       tempDiv.appendChild(cardContainer);
+ [2m731[0m |       
+ [2m732[0m |       document.body.appendChild(tempDiv);
+ [2m733[0m |       
+ [2m734[0m |       // Use html2canvas to convert the div to canvas
+ [2m735[0m |       const html2canvas = await import('html2canvas');
+ [2m736[0m |       
+ [2m737[0m |       const canvas = await html2canvas.default(tempDiv, {
+     : [33;1m            ^^^|^^[0m
+     :                [33;1m`-- [33;1m`canvas` redefined here[0m[0m
+ [2m738[0m |         backgroundColor: '#f5f5f5', // Light background to complement the card
+ [2m739[0m |         scale: 2, // Higher quality
+ [2m740[0m |         useCORS: true,
+     `----
+
+Import trace for requested module:
+./app/chat/page.tsx
+ X ./app/chat/page.tsx
+Error: 
+  [31mx[0m Identifier cannot follow number
+     ,-[[36;1;4m/Users/xf/Downloads/gptoss_Blog/app/chat/page.tsx[0m:503:1]
+ [2m503[0m |         generateSimpleImage(content);
+ [2m504[0m |       }
+ [2m505[0m |     };
+ [2m506[0m |         background: linear-gradient(145deg, #fefefe 0%, #f8f8f8 50%, #f0f0f0 100%);
+     : [31;1m                                       ^[0m
+ [2m507[0m |         border: 1px solid #e8e8e8;
+ [2m508[0m |         border-radius: 16px;
+ [2m509[0m |         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./app/chat/page.tsx
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ X ./app/chat/page.tsx
+Error: 
+  [31mx[0m Identifier cannot follow number
+     ,-[[36;1;4m/Users/xf/Downloads/gptoss_Blog/app/chat/page.tsx[0m:503:1]
+ [2m503[0m |         generateSimpleImage(content);
+ [2m504[0m |       }
+ [2m505[0m |     };
+ [2m506[0m |         background: linear-gradient(145deg, #fefefe 0%, #f8f8f8 50%, #f0f0f0 100%);
+     : [31;1m                                       ^[0m
+ [2m507[0m |         border: 1px solid #e8e8e8;
+ [2m508[0m |         border-radius: 16px;
+ [2m509[0m |         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./app/chat/page.tsx
+ X ./app/chat/page.tsx
+Error: 
+  [31mx[0m Identifier cannot follow number
+     ,-[[36;1;4m/Users/xf/Downloads/gptoss_Blog/app/chat/page.tsx[0m:503:1]
+ [2m503[0m |         generateSimpleImage(content);
+ [2m504[0m |       }
+ [2m505[0m |     };
+ [2m506[0m |         border: 1px solid #e8e8e8;
+     : [31;1m                 ^[0m
+ [2m507[0m |         border-radius: 16px;
+ [2m508[0m |         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+ [2m509[0m |         padding: 40px;
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./app/chat/page.tsx
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ X ./app/chat/page.tsx
+Error: 
+  [31mx[0m Identifier cannot follow number
+     ,-[[36;1;4m/Users/xf/Downloads/gptoss_Blog/app/chat/page.tsx[0m:503:1]
+ [2m503[0m |         generateSimpleImage(content);
+ [2m504[0m |       }
+ [2m505[0m |     };
+ [2m506[0m |         border: 1px solid #e8e8e8;
+     : [31;1m                 ^[0m
+ [2m507[0m |         border-radius: 16px;
+ [2m508[0m |         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+ [2m509[0m |         padding: 40px;
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./app/chat/page.tsx
+ X ./app/chat/page.tsx
+Error: 
+  [31mx[0m Expected ';', '}' or <eof>
+     ,-[[36;1;4m/Users/xf/Downloads/gptoss_Blog/app/chat/page.tsx[0m:505:1]
+ [2m505[0m |     };
+ [2m506[0m |     
+ [2m507[0m |     // Fallback simple image generation
+ [2m508[0m |         border-radius: 16px;
+     : [31;1m        ^^^^^^|^^^^^^[0m[33;1m^[0m
+     :               [31;1m`-- [31;1mThis is the expression part of an expression statement[0m[0m
+ [2m509[0m |         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+ [2m510[0m |         padding: 40px;
+ [2m511[0m |         position: relative;
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./app/chat/page.tsx
+ X ./app/chat/page.tsx
+Error: 
+  [31mx[0m Expected ';', '}' or <eof>
+     ,-[[36;1;4m/Users/xf/Downloads/gptoss_Blog/app/chat/page.tsx[0m:505:1]
+ [2m505[0m |     };
+ [2m506[0m |     
+ [2m507[0m |     // Fallback simple image generation
+ [2m508[0m |         border-radius: 16px;
+     : [31;1m        ^^^^^^|^^^^^^[0m[33;1m^[0m
+     :               [31;1m`-- [31;1mThis is the expression part of an expression statement[0m[0m
+ [2m509[0m |         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+ [2m510[0m |         padding: 40px;
+ [2m511[0m |         position: relative;
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./app/chat/page.tsx
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ X ./app/chat/page.tsx
+Error: 
+  [31mx[0m Expected ';', '}' or <eof>
+     ,-[[36;1;4m/Users/xf/Downloads/gptoss_Blog/app/chat/page.tsx[0m:505:1]
+ [2m505[0m |     };
+ [2m506[0m |     
+ [2m507[0m |     // Fallback simple image generation
+ [2m508[0m |         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+     : [31;1m        ^^^^^|^^^^[0m[33;1m^[0m
+     :              [31;1m`-- [31;1mThis is the expression part of an expression statement[0m[0m
+ [2m509[0m |         padding: 40px;
+ [2m510[0m |         position: relative;
+ [2m511[0m |         overflow: hidden;
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./app/chat/page.tsx
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ X ./app/chat/page.tsx
+Error: 
+  [31mx[0m Expected ';', '}' or <eof>
+     ,-[[36;1;4m/Users/xf/Downloads/gptoss_Blog/app/chat/page.tsx[0m:505:1]
+ [2m505[0m |     };
+ [2m506[0m |     
+ [2m507[0m |     // Fallback simple image generation
+ [2m508[0m |         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+     : [31;1m        ^^^^^|^^^^[0m[33;1m^[0m
+     :              [31;1m`-- [31;1mThis is the expression part of an expression statement[0m[0m
+ [2m509[0m |         padding: 40px;
+ [2m510[0m |         position: relative;
+ [2m511[0m |         overflow: hidden;
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./app/chat/page.tsx
+ X ./app/chat/page.tsx
+Error: 
+  [31mx[0m Identifier cannot follow number
+     ,-[[36;1;4m/Users/xf/Downloads/gptoss_Blog/app/chat/page.tsx[0m:506:1]
+ [2m506[0m |     
+ [2m507[0m |     // Fallback simple image generation
+ [2m508[0m |     const generateSimpleImage = async (content: string) => {
+ [2m509[0m |         padding: 40px;
+     : [31;1m                   ^[0m
+ [2m510[0m |         position: relative;
+ [2m511[0m |         overflow: hidden;
+ [2m512[0m |       `;
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./app/chat/page.tsx
+ X ./app/chat/page.tsx
+Error: 
+  [31mx[0m Identifier cannot follow number
+     ,-[[36;1;4m/Users/xf/Downloads/gptoss_Blog/app/chat/page.tsx[0m:506:1]
+ [2m506[0m |     
+ [2m507[0m |     // Fallback simple image generation
+ [2m508[0m |     const generateSimpleImage = async (content: string) => {
+ [2m509[0m |         padding: 40px;
+     : [31;1m                   ^[0m
+ [2m510[0m |         position: relative;
+ [2m511[0m |         overflow: hidden;
+ [2m512[0m |       `;
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./app/chat/page.tsx
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ X ./app/chat/page.tsx
+Error: 
+  [31mx[0m Expected ',', got 'at'
+     ,-[[36;1;4m/Users/xf/Downloads/gptoss_Blog/app/chat/page.tsx[0m:520:1]
+ [2m520[0m |         right: 0;
+ [2m521[0m |         bottom: 0;
+ [2m522[0m |         background: 
+ [2m523[0m |           radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.3) 1px, transparent 1px),
+     : [31;1m                                 ^^[0m
+ [2m524[0m |           radial-gradient(circle at 80% 80%, rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+ [2m525[0m |           radial-gradient(circle at 40% 60%, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+ [2m526[0m |         background-size: 30px 30px, 50px 50px, 70px 70px;
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./app/chat/page.tsx
+ X ./app/chat/page.tsx
+Error: 
+  [31mx[0m Expected ',', got 'at'
+     ,-[[36;1;4m/Users/xf/Downloads/gptoss_Blog/app/chat/page.tsx[0m:520:1]
+ [2m520[0m |         right: 0;
+ [2m521[0m |         bottom: 0;
+ [2m522[0m |         background: 
+ [2m523[0m |           radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.3) 1px, transparent 1px),
+     : [31;1m                                 ^^[0m
+ [2m524[0m |           radial-gradient(circle at 80% 80%, rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+ [2m525[0m |           radial-gradient(circle at 40% 60%, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+ [2m526[0m |         background-size: 30px 30px, 50px 50px, 70px 70px;
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./app/chat/page.tsx
+ X ./app/chat/page.tsx
+Error: 
+  [31mx[0m Expected ',', got 'at'
+     ,-[[36;1;4m/Users/xf/Downloads/gptoss_Blog/app/chat/page.tsx[0m:520:1]
+ [2m520[0m |         right: 0;
+ [2m521[0m |         bottom: 0;
+ [2m522[0m |         background: 
+ [2m523[0m |           radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.3) 1px, transparent 1px),
+     : [31;1m                                 ^^[0m
+ [2m524[0m |           radial-gradient(circle at 80% 80%, rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+ [2m525[0m |           radial-gradient(circle at 40% 60%, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+ [2m526[0m |         background-size: 30px 30px, 50px 50px, 70px 70px;
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./app/chat/page.tsx
+ X ./app/chat/page.tsx
+Error: 
+  [31mx[0m Expected ',', got 'at'
+     ,-[[36;1;4m/Users/xf/Downloads/gptoss_Blog/app/chat/page.tsx[0m:520:1]
+ [2m520[0m |         right: 0;
+ [2m521[0m |         bottom: 0;
+ [2m522[0m |         background: 
+ [2m523[0m |           radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.3) 1px, transparent 1px),
+     : [31;1m                                 ^^[0m
+ [2m524[0m |           radial-gradient(circle at 80% 80%, rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+ [2m525[0m |           radial-gradient(circle at 40% 60%, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+ [2m526[0m |         background-size: 30px 30px, 50px 50px, 70px 70px;
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./app/chat/page.tsx
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ X ./app/chat/page.tsx
+Error: 
+  [31mx[0m Expected ',', got 'at'
+     ,-[[36;1;4m/Users/xf/Downloads/gptoss_Blog/app/chat/page.tsx[0m:520:1]
+ [2m520[0m |         right: 0;
+ [2m521[0m |         bottom: 0;
+ [2m522[0m |         background: 
+ [2m523[0m |           radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.3) 1px, transparent 1px),
+     : [31;1m                                 ^^[0m
+ [2m524[0m |           radial-gradient(circle at 80% 80%, rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+ [2m525[0m |           radial-gradient(circle at 40% 60%, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+ [2m526[0m |         background-size: 30px 30px, 50px 50px, 70px 70px;
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./app/chat/page.tsx
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ X ./app/chat/page.tsx
+Error: 
+  [31mx[0m await isn't allowed in non-async function
+     ,-[[36;1;4m/Users/xf/Downloads/gptoss_Blog/app/chat/page.tsx[0m:825:1]
+ [2m825[0m |       document.body.appendChild(tempDiv);
+ [2m826[0m |       
+ [2m827[0m |       // Use html2canvas to convert the div to canvas
+ [2m828[0m |       const html2canvas = await import('html2canvas');
+     : [31;1m                                ^^^^^^[0m
+ [2m829[0m |       
+ [2m830[0m |       const canvas = await html2canvas.default(tempDiv, {
+ [2m831[0m |         backgroundColor: '#f5f5f5', // Light background to complement the card
+     `----
+
+  [31mx[0m await isn't allowed in non-async function
+     ,-[[36;1;4m/Users/xf/Downloads/gptoss_Blog/app/chat/page.tsx[0m:827:1]
+ [2m827[0m |       // Use html2canvas to convert the div to canvas
+ [2m828[0m |       const html2canvas = await import('html2canvas');
+ [2m829[0m |       
+ [2m830[0m |       const canvas = await html2canvas.default(tempDiv, {
+     : [31;1m                           ^^^^^^^^^^^[0m
+ [2m831[0m |         backgroundColor: '#f5f5f5', // Light background to complement the card
+ [2m832[0m |         scale: 2, // Higher quality
+ [2m833[0m |         useCORS: true,
+     `----
+
+  [31mx[0m Expected a semicolon
+     ,-[[36;1;4m/Users/xf/Downloads/gptoss_Blog/app/chat/page.tsx[0m:859:1]
+ [2m859[0m |         }
+ [2m860[0m |       }, 'image/png');
+ [2m861[0m |       
+ [2m862[0m |     } catch (err) {
+     : [31;1m      ^^^^^[0m
+ [2m863[0m |       console.error('生成图片失败:', err);
+ [2m864[0m |       // Fallback to simple canvas method
+ [2m865[0m |       generateSimpleImage(content);
+     `----
+
+  [31mx[0m Expression expected
+     ,-[[36;1;4m/Users/xf/Downloads/gptoss_Blog/app/chat/page.tsx[0m:864:1]
+ [2m864[0m |       // Fallback to simple canvas method
+ [2m865[0m |       generateSimpleImage(content);
+ [2m866[0m |     }
+ [2m867[0m |   };
+     : [31;1m  ^[0m
+ [2m868[0m | 
+ [2m869[0m |   // Fallback simple image generation
+ [2m870[0m |   const generateSimpleImage = async (content: string) => {
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./app/chat/page.tsx
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ X ./app/chat/page.tsx
+Error: 
+  [31mx[0m await isn't allowed in non-async function
+     ,-[[36;1;4m/Users/xf/Downloads/gptoss_Blog/app/chat/page.tsx[0m:825:1]
+ [2m825[0m |       document.body.appendChild(tempDiv);
+ [2m826[0m |       
+ [2m827[0m |       // Use html2canvas to convert the div to canvas
+ [2m828[0m |       const html2canvas = await import('html2canvas');
+     : [31;1m                                ^^^^^^[0m
+ [2m829[0m |       
+ [2m830[0m |       const canvas = await html2canvas.default(tempDiv, {
+ [2m831[0m |         backgroundColor: '#f5f5f5', // Light background to complement the card
+     `----
+
+  [31mx[0m await isn't allowed in non-async function
+     ,-[[36;1;4m/Users/xf/Downloads/gptoss_Blog/app/chat/page.tsx[0m:827:1]
+ [2m827[0m |       // Use html2canvas to convert the div to canvas
+ [2m828[0m |       const html2canvas = await import('html2canvas');
+ [2m829[0m |       
+ [2m830[0m |       const canvas = await html2canvas.default(tempDiv, {
+     : [31;1m                           ^^^^^^^^^^^[0m
+ [2m831[0m |         backgroundColor: '#f5f5f5', // Light background to complement the card
+ [2m832[0m |         scale: 2, // Higher quality
+ [2m833[0m |         useCORS: true,
+     `----
+
+  [31mx[0m Expected a semicolon
+     ,-[[36;1;4m/Users/xf/Downloads/gptoss_Blog/app/chat/page.tsx[0m:859:1]
+ [2m859[0m |         }
+ [2m860[0m |       }, 'image/png');
+ [2m861[0m |       
+ [2m862[0m |     } catch (err) {
+     : [31;1m      ^^^^^[0m
+ [2m863[0m |       console.error('生成图片失败:', err);
+ [2m864[0m |       // Fallback to simple canvas method
+ [2m865[0m |       generateSimpleImage(content);
+     `----
+
+  [31mx[0m Expression expected
+     ,-[[36;1;4m/Users/xf/Downloads/gptoss_Blog/app/chat/page.tsx[0m:864:1]
+ [2m864[0m |       // Fallback to simple canvas method
+ [2m865[0m |       generateSimpleImage(content);
+ [2m866[0m |     }
+ [2m867[0m |   };
+     : [31;1m  ^[0m
+ [2m868[0m | 
+ [2m869[0m |   // Fallback simple image generation
+ [2m870[0m |   const generateSimpleImage = async (content: string) => {
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./app/chat/page.tsx
+ X ./app/chat/page.tsx
+Error: 
+  [31mx[0m Expected ',', got ';'
+     ,-[[36;1;4m/Users/xf/Downloads/gptoss_Blog/app/chat/page.tsx[0m:604:1]
+ [2m604[0m |     };
+ [2m605[0m | 
+ [2m606[0m |   return (
+ [2m607[0m |         position: absolute;
+     : [31;1m                          ^[0m
+ [2m608[0m |         top: 0;
+ [2m609[0m |         left: 0;
+ [2m610[0m |         right: 0;
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./app/chat/page.tsx
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ X ./app/chat/page.tsx
+Error: 
+  [31mx[0m Expected ',', got ';'
+     ,-[[36;1;4m/Users/xf/Downloads/gptoss_Blog/app/chat/page.tsx[0m:604:1]
+ [2m604[0m |     };
+ [2m605[0m | 
+ [2m606[0m |   return (
+ [2m607[0m |         position: absolute;
+     : [31;1m                          ^[0m
+ [2m608[0m |         top: 0;
+ [2m609[0m |         left: 0;
+ [2m610[0m |         right: 0;
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./app/chat/page.tsx
+ X ./app/chat/page.tsx
+Error: 
+  [31mx[0m Expected ',', got ';'
+     ,-[[36;1;4m/Users/xf/Downloads/gptoss_Blog/app/chat/page.tsx[0m:604:1]
+ [2m604[0m |     };
+ [2m605[0m | 
+ [2m606[0m |   return (
+ [2m607[0m |         top: 0;
+     : [31;1m              ^[0m
+ [2m608[0m |         left: 0;
+ [2m609[0m |         right: 0;
+ [2m610[0m |         bottom: 0;
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./app/chat/page.tsx
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ X ./app/chat/page.tsx
+Error: 
+  [31mx[0m Expected ',', got ';'
+     ,-[[36;1;4m/Users/xf/Downloads/gptoss_Blog/app/chat/page.tsx[0m:604:1]
+ [2m604[0m |     };
+ [2m605[0m | 
+ [2m606[0m |   return (
+ [2m607[0m |         top: 0;
+     : [31;1m              ^[0m
+ [2m608[0m |         left: 0;
+ [2m609[0m |         right: 0;
+ [2m610[0m |         bottom: 0;
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./app/chat/page.tsx
+ X ./app/chat/page.tsx
+Error: 
+  [31mx[0m Unexpected token `div`. Expected jsx identifier
+     ,-[[36;1;4m/Users/xf/Downloads/gptoss_Blog/app/chat/page.tsx[0m:604:1]
+ [2m604[0m |     };
+ [2m605[0m | 
+ [2m606[0m |   return (
+ [2m607[0m |     <div className="flex h-screen bg-gray-50">
+     : [31;1m     ^^^[0m
+ [2m608[0m |         left: 0;
+ [2m609[0m |         right: 0;
+ [2m610[0m |         bottom: 0;
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./app/chat/page.tsx
+ X ./app/chat/page.tsx
+Error: 
+  [31mx[0m Unexpected token `div`. Expected jsx identifier
+     ,-[[36;1;4m/Users/xf/Downloads/gptoss_Blog/app/chat/page.tsx[0m:604:1]
+ [2m604[0m |     };
+ [2m605[0m | 
+ [2m606[0m |   return (
+ [2m607[0m |     <div className="flex h-screen bg-gray-50">
+     : [31;1m     ^^^[0m
+ [2m608[0m |         left: 0;
+ [2m609[0m |         right: 0;
+ [2m610[0m |         bottom: 0;
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./app/chat/page.tsx
+ X ./app/chat/page.tsx
+Error: 
+  [31mx[0m Unexpected token `div`. Expected jsx identifier
+     ,-[[36;1;4m/Users/xf/Downloads/gptoss_Blog/app/chat/page.tsx[0m:604:1]
+ [2m604[0m |     };
+ [2m605[0m | 
+ [2m606[0m |   return (
+ [2m607[0m |     <div className="flex h-screen bg-gray-50">
+     : [31;1m     ^^^[0m
+ [2m608[0m |       {/* Left Sidebar - Increased width for full display and added responsive design */}
+ [2m609[0m |       <div className="w-96 lg:w-96 md:w-80 sm:w-72 bg-white border-r flex flex-col h-full">
+ [2m610[0m |         right: 0;
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./app/chat/page.tsx
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ X ./app/chat/page.tsx
+Error: 
+  [31mx[0m Unexpected token `div`. Expected jsx identifier
+     ,-[[36;1;4m/Users/xf/Downloads/gptoss_Blog/app/chat/page.tsx[0m:604:1]
+ [2m604[0m |     };
+ [2m605[0m | 
+ [2m606[0m |   return (
+ [2m607[0m |     <div className="flex h-screen bg-gray-50">
+     : [31;1m     ^^^[0m
+ [2m608[0m |       {/* Left Sidebar - Increased width for full display and added responsive design */}
+ [2m609[0m |       <div className="w-96 lg:w-96 md:w-80 sm:w-72 bg-white border-r flex flex-col h-full">
+ [2m610[0m |         right: 0;
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./app/chat/page.tsx
+ X ./app/chat/page.tsx
+Error: 
+  [31mx[0m Unexpected token `div`. Expected jsx identifier
+     ,-[[36;1;4m/Users/xf/Downloads/gptoss_Blog/app/chat/page.tsx[0m:604:1]
+ [2m604[0m |     };
+ [2m605[0m | 
+ [2m606[0m |   return (
+ [2m607[0m |     <div className="flex h-screen bg-gray-50">
+     : [31;1m     ^^^[0m
+ [2m608[0m |       {/* Left Sidebar - Increased width for full display and added responsive design */}
+ [2m609[0m |       <div className="w-96 lg:w-96 md:w-80 sm:w-72 bg-white border-r flex flex-col h-full">
+ [2m610[0m |         {/* Header */}
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./app/chat/page.tsx
+ X ./app/chat/page.tsx
+Error: 
+  [31mx[0m Unexpected token `div`. Expected jsx identifier
+     ,-[[36;1;4m/Users/xf/Downloads/gptoss_Blog/app/chat/page.tsx[0m:604:1]
+ [2m604[0m |     };
+ [2m605[0m | 
+ [2m606[0m |   return (
+ [2m607[0m |     <div className="flex h-screen bg-gray-50">
+     : [31;1m     ^^^[0m
+ [2m608[0m |       {/* Left Sidebar - Increased width for full display and added responsive design */}
+ [2m609[0m |       <div className="w-96 lg:w-96 md:w-80 sm:w-72 bg-white border-r flex flex-col h-full">
+ [2m610[0m |         {/* Header */}
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./app/chat/page.tsx
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 278ms (215 modules)
+ ✓ Compiled in 1719ms (1045 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 292ms (1029 modules)
+ ✓ Compiled in 107ms (1029 modules)
+ ✓ Compiled in 499ms (1043 modules)
+ ✓ Compiled in 334ms (1043 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 399ms (1043 modules)
+ ✓ Compiled in 372ms (1043 modules)
+ ✓ Compiled in 440ms (1043 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 454ms (1043 modules)
+ ✓ Compiled in 218ms (1043 modules)
+ ✓ Compiled in 594ms (1043 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 582ms (1043 modules)
+ ✓ Compiled in 494ms (1043 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 532ms (1043 modules)
+ ✓ Compiled in 211ms (1043 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 278ms (1043 modules)
+ ✓ Compiled in 355ms (1043 modules)
+ ✓ Compiled in 449ms (1043 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 411ms (1043 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 811ms (1043 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 506ms (1043 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 838ms (1043 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 549ms (1043 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 635ms (1043 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 616ms (1043 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 617ms (1043 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 940ms (1043 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 487ms (1043 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 533ms (1043 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 664ms (1043 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 536ms (1043 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 872ms (1043 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 558ms (1043 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 601ms (1043 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 600ms (1029 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 160ms (1029 modules)
+ ✓ Compiled in 722ms (1043 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 355ms (1043 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 220ms (1029 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ✓ Compiled in 514ms (1043 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+ ⚠ Found a change in next.config.js. Restarting the server to apply the changes...

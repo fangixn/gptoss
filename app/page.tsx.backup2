@@ -16,7 +16,7 @@ import { ApiStatusIndicator } from '@/components/ApiStatusIndicator';
 import { useChatSessions } from '@/hooks/useChatSessions';
 import { callChatApi } from '@/lib/chatApi';
 import MarkdownRenderer from '@/components/MarkdownRenderer';
-import { ImageGenerator } from '@/components/ImageGenerator';
+import html2canvas from 'html2canvas';
 
 
 interface ApiSettings {
@@ -31,11 +31,6 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const [showChat, setShowChat] = useState(false);
   const [historyOpen, setHistoryOpen] = useState(false);
-  const [imageGeneratorData, setImageGeneratorData] = useState<{
-    userQuestion: string;
-    assistantResponse: string;
-    timestamp: string;
-  } | null>(null);
 
   // Use custom hook to manage API settings
   const { 
@@ -362,10 +357,12 @@ export default function Home() {
               <h2 className="text-2xl font-bold text-slate-800">
                 {showChat ? `Chat with ${API_CONFIGS[selectedModel].name}` : 'Start Chatting'}
               </h2>
-              <div className="flex flex-col items-center justify-center space-y-2 mt-2">
-                <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full border border-amber-200">
-                  ⚠️ Each IP is limited to 2 uses
-                </div>
+              <div className="flex items-center justify-center space-x-2 mt-2">
+                {showChat && (
+                  <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full border border-amber-200">
+                    ⚠️ 每个IP限制使用2次
+                  </div>
+                )}
                 {!showChat && (
                   <p className="text-base text-slate-600">Select your preferred AI model and begin your GPT-OSS exploration</p>
                 )}
@@ -476,85 +473,222 @@ export default function Home() {
                                   size="sm"
                                   onClick={() => {
                                     navigator.clipboard.writeText(message.content).then(() => {
-                                      alert('AI reply copied to clipboard!');
+                                      alert('AI回复已复制到剪贴板！');
                                     }).catch(() => {
-                                      alert('Copy failed, please select and copy manually');
+                                      alert('复制失败，请手动选择复制');
                                     });
                                   }}
                                   className="h-6 w-6 p-0 text-slate-400 hover:text-slate-600"
-                                  title="Copy Content"
+                                  title="复制内容"
                                 >
                                   <Copy className="w-3 h-3" />
                                 </Button>
                                 <Button
                                   variant="ghost"
                                   size="sm"
-                                  onClick={() => {
-                                    // 获取用户问题（从聊天历史中找到对应的用户消息）
-                                    const rawUserQuestion = messages.find(m => m.type === 'user' && messages.indexOf(m) === messages.indexOf(message) - 1)?.content || 'User Question';
-                                    
-                                    setImageGeneratorData({
-                                      userQuestion: rawUserQuestion,
-                                      assistantResponse: message.content,
-                                      timestamp: new Date().toLocaleDateString('zh-CN', { year: 'numeric', month: '2-digit', day: '2-digit' }).replace(/\//g, '/')
-                                    });
+                                  onClick={async () => {
+                                    const messageElement = document.getElementById(`message-${message.id}`);
+                                    if (messageElement) {
+                                      try {
+                                        // 创建一个包装容器，完全按照您的卡片样式
+                                        const wrapper = document.createElement('div');
+                                        wrapper.style.cssText = `
+                                          position: absolute;
+                                          left: -9999px;
+                                          top: -9999px;
+                                          background: #ffffff;
+                                          padding: 20px;
+                                          width: 450px;
+                                          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+                                          border: 1px solid #e5e5e5;
+                                        `;
+                                        
+                                        // 获取用户问题（从聊天历史中找到对应的用户消息）
+                                        const rawUserQuestion = messages.find(m => m.type === 'user' && messages.indexOf(m) === messages.indexOf(message) - 1)?.content || '用户提问';
+                                        
+                                        // 智能提取标题，去掉指令性后缀
+                                        const cleanTitle = (question: string) => {
+                                          // 去掉常见的指令性后缀
+                                          const instructionPatterns = [
+                                            /[，,]?\s*用一句话回答[。.]?$/,
+                                            /[，,]?\s*简单回答[。.]?$/,
+                                            /[，,]?\s*详细说明[。.]?$/,
+                                            /[，,]?\s*请解释[。.]?$/,
+                                            /[，,]?\s*解释一下[。.]?$/,
+                                            /[，,]?\s*说明一下[。.]?$/,
+                                            /[，,]?\s*回答一下[。.]?$/,
+                                            /[，,]?\s*告诉我[。.]?$/
+                                          ];
+                                          
+                                          let cleanedQuestion = question;
+                                          instructionPatterns.forEach(pattern => {
+                                            cleanedQuestion = cleanedQuestion.replace(pattern, '');
+                                          });
+                                          
+                                          return cleanedQuestion.trim();
+                                        };
+                                        
+                                        const userQuestion = cleanTitle(rawUserQuestion);
+                                        
+                                        // 添加标题区域（左侧用户问题，右侧日期）
+                                        const header = document.createElement('div');
+                                        header.innerHTML = `
+                                          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                                            <div style="font-size: 16px; font-weight: 500; color: #333333; max-width: 350px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${userQuestion}</div>
+                                            <div style="font-size: 14px; color: #999999; flex-shrink: 0;">${new Date().toLocaleDateString('zh-CN', { year: 'numeric', month: '2-digit', day: '2-digit' }).replace(/\//g, '/')}</div>
+                                          </div>
+                                          <div style="width: 100%; height: 1px; background: #e5e5e5; margin-bottom: 16px;"></div>
+                                        `;
+                                        
+                                        // 创建渲染后的消息内容
+                                        const messageClone = document.createElement('div');
+                                        messageClone.style.cssText = `
+                                          background: transparent;
+                                          padding: 0;
+                                          margin-bottom: 16px;
+                                          line-height: 1.6;
+                                          font-size: 14px;
+                                          color: #333333;
+                                          word-wrap: break-word;
+                                        `;
+                                        
+                                        // 使用与MarkdownRenderer相同的渲染逻辑
+                                        const renderMarkdownForImage = (content: string) => {
+                                          // 创建临时容器来渲染Markdown
+                                          const tempContainer = document.createElement('div');
+                                          tempContainer.style.cssText = `
+                                            position: absolute;
+                                            left: -9999px;
+                                            top: -9999px;
+                                            width: 400px;
+                                            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+                                            font-size: 14px;
+                                            line-height: 1.6;
+                                            color: #333333;
+                                          `;
+                                          
+                                          // 简化的Markdown渲染，模拟MarkdownRenderer的样式
+                                          let html = content
+                                            // 标题处理
+                                            .replace(/^### (.*$)/gim, '<h3 style="font-size: 16px; font-weight: 600; margin: 12px 0 8px 0; color: #333; line-height: 1.4;">$1</h3>')
+                                            .replace(/^## (.*$)/gim, '<h2 style="font-size: 18px; font-weight: 600; margin: 16px 0 10px 0; color: #333; line-height: 1.4;">$1</h2>')
+                                            .replace(/^# (.*$)/gim, '<h1 style="font-size: 20px; font-weight: 600; margin: 20px 0 12px 0; color: #333; line-height: 1.4;">$1</h1>')
+                                            // 表格处理
+                                            .replace(/\|(.+)\|/g, (match, content) => {
+                                              const cells = content.split('|').map((cell: string) => cell.trim());
+                                              return '<tr>' + cells.map((cell: string) => `<td style="border: 1px solid #e5e5e5; padding: 8px 12px; font-size: 13px;">${cell}</td>`).join('') + '</tr>';
+                                            })
+                                            .replace(/(<tr>.*<\/tr>)/g, '<table style="width: 100%; border-collapse: collapse; margin: 12px 0; border: 1px solid #e5e5e5; border-radius: 6px; overflow: hidden;">$1</table>')
+                                            // 粗体和斜体
+                                            .replace(/\*\*(.*?)\*\*/g, '<strong style="font-weight: 600; color: #d97706;">$1</strong>')
+                                            .replace(/\*(.*?)\*/g, '<em style="font-style: italic; color: #64748b;">$1</em>')
+                                            // 代码块
+                                            .replace(/```([\s\S]*?)```/g, '<pre style="background: #1e293b; color: #e2e8f0; padding: 12px; border-radius: 6px; margin: 12px 0; font-family: \'SF Mono\', Consolas, monospace; font-size: 12px; overflow-x: auto; line-height: 1.5;"><code>$1</code></pre>')
+                                            // 行内代码
+                                            .replace(/`([^`]+)`/g, '<code style="background: #fef3c7; color: #d97706; padding: 2px 6px; border-radius: 4px; font-family: \'SF Mono\', Consolas, monospace; font-size: 12px; border: 1px solid #fde68a;">$1</code>')
+                                            // 引用块
+                                            .replace(/^> (.*$)/gim, '<blockquote style="border-left: 4px solid #f59e0b; background: linear-gradient(to right, #fef3c7, #fffbeb); padding: 12px 16px; margin: 12px 0; border-radius: 0 6px 6px 0; color: #92400e; font-style: italic;">$1</blockquote>')
+                                            // 无序列表
+                                            .replace(/^\* (.*$)/gim, '<li style="margin: 4px 0; padding-left: 8px; position: relative; color: #374151;"><span style="position: absolute; left: -16px; color: #d97706; font-weight: bold;">•</span>$1</li>')
+                                            .replace(/(<li[^>]*>[\s\S]*?<\/li>)/g, '<ul style="margin: 12px 0; padding-left: 20px; list-style: none;">$1</ul>')
+                                            // 有序列表
+                                            .replace(/^(\d+)\. (.*$)/gim, '<li style="margin: 4px 0; padding-left: 8px; color: #374151;">$2</li>')
+                                            // 链接
+                                            .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" style="color: #d97706; text-decoration: underline; text-decoration-color: #d97706;">$1</a>')
+                                            // 分隔线
+                                            .replace(/^---$/gim, '<hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #d1d5db, transparent); margin: 20px 0;" />')
+                                            // 段落和换行
+                                            .replace(/\n\n/g, '</p><p style="margin: 12px 0; color: #374151; line-height: 1.7;">')
+                                            .replace(/\n/g, '<br>');
+                                          
+                                          // 包装在段落中
+                                          if (!html.includes('<p') && !html.includes('<h') && !html.includes('<ul') && !html.includes('<table')) {
+                                            html = `<p style="margin: 12px 0; color: #374151; line-height: 1.7;">${html}</p>`;
+                                          } else if (html.includes('</p><p')) {
+                                            html = `<p style="margin: 12px 0; color: #374151; line-height: 1.7;">${html}</p>`;
+                                          }
+                                          
+                                          return html;
+                                        };
+                                        
+                                        // 渲染Markdown内容
+                                        const textContent = message.content;
+                                        messageClone.innerHTML = renderMarkdownForImage(textContent);
+                                        
+                                        // 添加底部信息区域（左侧logo，右侧网址）
+                                        const footer = document.createElement('div');
+                                        footer.innerHTML = `
+                                          <div style="margin-top: 20px; padding-top: 12px; border-top: 1px solid #e5e5e5; display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: #999999;">
+                                            <div style="display: flex; align-items: center;">
+                                              <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9InBhaW50MF9saW5lYXJfMTAwXzEwMCIgeDE9IjI1NiIgeTE9IjAiIHgyPSIyNTYiIHkyPSI1MTIiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KPHN0b3Agc3RvcC1jb2xvcj0iIzZBNTJGRiIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM0QjM1QzQiLz4KPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjEyOCIgZmlsbD0idXJsKCNwYWludDBfbGluZWFyXzEwMF8xMDApIi8+CjxyZWN0IHg9IjgwIiB5PSIxMTYiIHdpZHRoPSIzNTIiIGhlaWdodD0iMjgwIiByeD0iMzIiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik0yMDIgMTgwSDI3MkMyOTAuNzc3IDE4MCAzMDYgMTk1LjIyMyAzMDYgMjE0VjIyNkMzMDYgMjM2LjQ5MyAzMDEuNDkzIDI0NS44NjcgMjk0LjI0NCAyNTJDMzAxLjQ5MyAyNTguMTMzIDMwNiAyNjcuNTA3IDMwNiAyNzhWMjkwQzMwNiAzMDguNzc3IDI5MC43NzcgMzI0IDI3MiAzMjRIMjAyVjE4MFpNMjI4IDIwNFYyMzZIMjcyQzI3OC42MjcgMjM2IDI4MiAyMzIuNjI3IDI4MiAyMjZWMjE0QzI4MiAyMDcuMzczIDI3OC42MjcgMjA0IDI3MiAyMDRIMjI4Wk0yMjggMjYwVjMwMEgyNzJDMjc4LjYyNyAzMDAgMjgyIDI5Ni42MjcgMjgyIDI5MFYyNzhDMjgyIDI3MS4zNzMgMjc4LjYyNyAyNjggMjcyIDI2OEgyMjhaIiBmaWxsPSIjNkE1MkZGIi8+Cjwvc3ZnPgo=" style="width: 16px; height: 16px; margin-right: 6px; vertical-align: middle;" alt="GPT-OSS Logo" />
+                                              <span style="font-weight: 500; vertical-align: middle;">GPT-OSS</span>
+                                            </div>
+                                            <div style="color: #4a90e2;">
+                                              gptoss.blog
+                                            </div>
+                                          </div>
+                                        `;
+                                        
+                                        wrapper.appendChild(header);
+                                        wrapper.appendChild(messageClone);
+                                        wrapper.appendChild(footer);
+                                        
+                                        // 临时添加到页面
+                                        document.body.appendChild(wrapper);
+                                        
+                                        const canvas = await html2canvas(wrapper, {
+                                          background: '#ffffff',
+                                          useCORS: true,
+                                          allowTaint: true,
+                                          width: wrapper.offsetWidth,
+                                          height: wrapper.offsetHeight
+                                        });
+                                        
+                                        // 移除临时元素
+                                        document.body.removeChild(wrapper);
+                                        
+                                        // 创建下载链接
+                                        const link = document.createElement('a');
+                                        link.download = `gpt-oss-chat-${new Date().getTime()}.png`;
+                                        link.href = canvas.toDataURL('image/png', 1.0);
+                                        link.click();
+                                        
+                                        alert('AI对话图片已生成并下载！');
+                                      } catch (error) {
+                                        console.error('生成图片失败:', error);
+                                        alert('生成图片失败，请重试');
+                                      }
+                                    }
                                   }}
                                   className="h-6 w-6 p-0 text-slate-400 hover:text-slate-600"
-                                  title="Generate Image"
+                                  title="生成图片"
                                 >
                                   <Image className="w-3 h-3" />
                                 </Button>
-                                <div className="flex items-center space-x-2">
-                                  <span className="text-xs text-slate-500">Share:</span>
-                                  <button
-                                    onClick={() => {
-                                      const summary = message.content.length > 100 ? message.content.slice(0, 100) + '...' : message.content;
-                                      const text = encodeURIComponent(`🤖 GPT-OSS AI Assistant Reply:\n\n"${summary}"\n\n💡 Explore more AI content at: https://gptoss.blog/`);
-                                      window.open(`https://twitter.com/intent/tweet?text=${text}`, '_blank', 'width=600,height=400,scrollbars=yes,resizable=yes');
-                                    }}
-                                    className="p-1 hover:bg-gray-100 rounded transition-colors"
-                                    title="Share to X"
-                                  >
-                                    <img src="https://favicon.im/x.com" alt="x.com favicon" className="w-4 h-4" />
-                                  </button>
-                                  <button
-                                    onClick={() => {
-                                      const summary = message.content.length > 200 ? message.content.slice(0, 200) + '...' : message.content;
-                                      const title = encodeURIComponent(`GPT-OSS AI Assistant Reply Share`);
-                                      const text = encodeURIComponent(`${summary}\n\nSource: GPT-OSS Blog - Open Source GPT Models Technical Blog`);
-                                      const url = encodeURIComponent('https://gptoss.blog/');
-                                      window.open(`https://www.reddit.com/submit?title=${title}&text=${text}&url=${url}`, '_blank', 'width=600,height=500,scrollbars=yes,resizable=yes');
-                                    }}
-                                    className="p-1 hover:bg-gray-100 rounded transition-colors"
-                                    title="Share to Reddit"
-                                  >
-                                    <img src="https://favicon.im/Reddit.com?larger=true" alt="Reddit.com favicon (large)" className="w-4 h-4" />
-                                  </button>
-                                  <button
-                                    onClick={() => {
-                                      const summary = message.content.length > 150 ? message.content.slice(0, 150) + '...' : message.content;
-                                      const quote = encodeURIComponent(`🤖 GPT-OSS AI Assistant Reply: "${summary}" - Source: GPT-OSS Blog Open Source GPT Models Technical Blog`);
-                                      const url = encodeURIComponent('https://gptoss.blog/');
-                                      window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${quote}`, '_blank', 'width=600,height=400,scrollbars=yes,resizable=yes');
-                                    }}
-                                    className="p-1 hover:bg-gray-100 rounded transition-colors"
-                                    title="Share to Facebook"
-                                  >
-                                    <img src="https://favicon.im/facebook.com" alt="facebook.com favicon" className="w-4 h-4" />
-                                  </button>
-                                  <button
-                                    onClick={() => {
-                                      const summary = message.content.length > 180 ? message.content.slice(0, 180) + '...' : message.content;
-                                      const text = encodeURIComponent(`🤖 GPT-OSS AI Assistant Excellent Reply: "${summary}" 💡 Explore more AI technical content`);
-                                      const url = encodeURIComponent('https://gptoss.blog/');
-                                      window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}&summary=${text}`, '_blank', 'width=600,height=400,scrollbars=yes,resizable=yes');
-                                    }}
-                                    className="p-1 hover:bg-gray-100 rounded transition-colors"
-                                    title="Share to LinkedIn"
-                                  >
-                                    <img src="https://favicon.im/LinkedIn.com?larger=true" alt="LinkedIn.com favicon (large)" className="w-4 h-4" />
-                                  </button>
-                                </div>
+                                <Button
+                                  variant="ghost"
+                                  size="sm"
+                                  onClick={() => {
+                                    const shareText = `🤖 AI助手: ${message.content}\n\n🔗 来源：GPT-OSS Blog (https://gpt-oss.com)\n💡 开源GPT模型技术博客`;
+                                    if (navigator.share) {
+                                      navigator.share({
+                                        title: 'GPT-OSS Blog AI回复分享',
+                                        text: shareText,
+                                        url: 'https://gpt-oss.com'
+                                      }).catch(console.error);
+                                    } else {
+                                      navigator.clipboard.writeText(shareText).then(() => {
+                                        alert('AI回复已复制到剪贴板，可以粘贴到社交平台分享！');
+                                      }).catch(() => {
+                                        alert('分享失败，请手动复制内容');
+                                      });
+                                    }
+                                  }}
+                                  className="h-6 w-6 p-0 text-slate-400 hover:text-slate-600"
+                                  title="分享内容"
+                                >
+                                  <Share2 className="w-3 h-3" />
+                                </Button>
 
                               </div>
                             )}
@@ -621,7 +755,7 @@ export default function Home() {
                   className="econai-button-primary py-4 text-lg h-auto px-12 min-w-[200px]"
                 >
                   <MessageCircle className="h-5 w-5 mr-3" />
-                  {isLoading ? 'Sending...' : (showChat ? 'Send Message' : (question.trim() ? 'Start Analysis Chat' : 'Start Chat'))}
+                  {isLoading ? 'Sending...' : (showChat ? 'Send Message' : (question.trim() ? 'Start Analysis Chat' : '开始对话'))}
                   <ArrowRight className="h-5 w-5 ml-3" />
                 </Button>
               </div>
@@ -1042,17 +1176,17 @@ export default function Home() {
           <DialogHeader>
             <DialogTitle className="flex items-center">
               <History className="w-5 h-5 mr-2" />
-              Chat History
+              聊天历史记录
             </DialogTitle>
             <DialogDescription className="text-slate-700">
-              View and switch to previous chat sessions
+              查看和切换到之前的对话会话
             </DialogDescription>
           </DialogHeader>
           <div className="overflow-y-auto flex-1 space-y-3">
             {chatSessions.length === 0 ? (
               <div className="text-center py-8 text-slate-700">
                 <MessageCircle className="h-12 w-12 mx-auto mb-4 text-slate-400" />
-                <p>No chat history</p>
+                <p>暂无聊天记录</p>
               </div>
             ) : (
               chatSessions.map((session) => (
@@ -1072,16 +1206,16 @@ export default function Home() {
                   <div className="flex items-start justify-between">
                     <div className="flex-1">
                       <h4 className="font-medium text-slate-800 mb-1">
-                        {session.title || 'Untitled Chat'}
+                        {session.title || '未命名对话'}
                       </h4>
                       <div className="flex items-center space-x-4 text-xs text-slate-700">
                         <div className="flex items-center">
                           <Clock className="w-3 h-3 mr-1" />
-                          {new Date(session.createdAt).toLocaleString('en-US')}
+                          {new Date(session.createdAt).toLocaleString('zh-CN')}
                         </div>
                         <div className="flex items-center">
                           <MessageSquare className="w-3 h-3 mr-1" />
-                          {session.messages.length} messages
+                          {session.messages.length} 条消息
                         </div>
                       </div>
                       {session.messages.length > 0 && (
@@ -1093,7 +1227,7 @@ export default function Home() {
                     <div className="flex items-center space-x-2 ml-2">
                       {session.id === currentSessionId && (
                         <Badge variant="secondary">
-                          Current
+                          当前
                         </Badge>
                       )}
                       <Button
@@ -1101,7 +1235,7 @@ export default function Home() {
                         size="sm"
                         onClick={(e) => {
                           e.stopPropagation();
-                          if (confirm('Are you sure you want to delete this chat? This action cannot be undone.')) {
+                          if (confirm('确定要删除这个对话吗？此操作无法撤销。')) {
                             deleteSession(session.id);
                             // 如果删除的是当前会话，切换到第一个可用会话或创建新会话
                             if (session.id === currentSessionId) {
@@ -1115,7 +1249,7 @@ export default function Home() {
                           }
                         }}
                         className="text-slate-400 hover:text-red-500 hover:bg-red-50 p-1 h-auto"
-                        title="Delete Chat"
+                        title="删除对话"
                       >
                         <Trash2 className="w-4 h-4" />
                       </Button>
@@ -1131,7 +1265,7 @@ export default function Home() {
               onClick={() => setHistoryOpen(false)}
               className="px-4 py-2 text-slate-700 border-slate-300 hover:bg-slate-50 hover:border-slate-400 font-medium"
             >
-              Close
+              关闭
             </Button>
             <Button
               onClick={() => {
@@ -1141,30 +1275,11 @@ export default function Home() {
               }}
               className="px-4 py-2 bg-amber-900 hover:bg-amber-950 text-white font-medium"
             >
-              New Chat
+              新建对话
             </Button>
           </div>
         </DialogContent>
       </Dialog>
-
-      {/* Image Generator Modal */}
-      {imageGeneratorData && (
-        <Dialog open={!!imageGeneratorData} onOpenChange={() => setImageGeneratorData(null)}>
-          <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
-            <DialogHeader>
-              <DialogTitle>Generate Share Image</DialogTitle>
-              <DialogDescription className="text-gray-900">
-                Preview and generate share image for AI conversation
-              </DialogDescription>
-            </DialogHeader>
-            <ImageGenerator
-              userQuestion={imageGeneratorData.userQuestion}
-              assistantResponse={imageGeneratorData.assistantResponse}
-              timestamp={imageGeneratorData.timestamp}
-            />
-          </DialogContent>
-        </Dialog>
-      )}
     </div>
   );
 }

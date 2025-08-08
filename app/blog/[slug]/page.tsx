@@ -78,14 +78,28 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
                 className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium text-xs sm:text-sm px-2 sm:px-3"
                 asChild
               >
-                <Link href="/">Home</Link>
+                <Link href="/#features">Core Areas</Link>
               </Button>
               <Button 
                 variant="ghost" 
                 className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium text-xs sm:text-sm px-2 sm:px-3"
                 asChild
               >
-                <Link href="/blog">Blog</Link>
+                <Link href="/#how-it-works">Chat</Link>
+              </Button>
+              <Button 
+                variant="ghost" 
+                className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium text-xs sm:text-sm px-2 sm:px-3 hidden sm:inline-flex"
+                asChild
+              >
+                <Link href="/#try-now">Best Practices</Link>
+              </Button>
+              <Button 
+                variant="ghost" 
+                className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium text-xs sm:text-sm px-2 sm:px-3"
+                asChild
+              >
+                <Link href="/#blog-posts">Articles</Link>
               </Button>
               <Button 
                 variant="ghost" 
@@ -95,11 +109,10 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
                 <Link href="/#resources">Resources</Link>
               </Button>
               <Button 
-                variant="ghost" 
-                className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium text-xs sm:text-sm px-2 sm:px-3"
+                className="econai-button-primary px-3 sm:px-6 text-xs sm:text-sm"
                 asChild
               >
-                <Link href="/chat">AI Chat</Link>
+                <Link href="/blog">Blog</Link>
               </Button>
             </div>
           </div>
@@ -177,7 +190,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
               </Link>
               
               <Link 
-                href="/chat" 
+                href="/#how-it-works" 
                 className="inline-flex items-center px-6 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition-colors text-sm font-medium"
               >
                 <BookOpen className="mr-2 h-4 w-4" />
@@ -249,10 +262,11 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
               <div className="flex flex-col">
                 <h4 className="font-semibold mb-4 text-slate-200">Platform</h4>
                 <ul className="space-y-3 text-sm">
-                  <li><Link href="/" className="text-slate-300 hover:text-blue-400 transition-colors block">Home</Link></li>
-                  <li><Link href="/blog" className="text-slate-300 hover:text-blue-400 transition-colors block">Blog</Link></li>
-                  <li><Link href="/chat" className="text-slate-300 hover:text-blue-400 transition-colors block">AI Chat</Link></li>
-                  <li><a href="#blog-posts" className="text-slate-300 hover:text-blue-400 transition-colors block">Featured Articles</a></li>
+                  <li><a href="/#features" className="text-slate-300 hover:text-blue-400 transition-colors block">Core Areas</a></li>
+                  <li><a href="/#how-it-works" className="text-slate-300 hover:text-blue-400 transition-colors block">Chat</a></li>
+                  <li><a href="/#try-now" className="text-slate-300 hover:text-blue-400 transition-colors block">Best Practices</a></li>
+                  <li><a href="/#blog-posts" className="text-slate-300 hover:text-blue-400 transition-colors block">Articles</a></li>
+                  <li><a href="/#resources" className="text-slate-300 hover:text-blue-400 transition-colors block">Resources</a></li>
                 </ul>
               </div>
 

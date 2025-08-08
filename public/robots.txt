@@ -8,7 +8,7 @@ Disallow: /_next/
 Disallow: /admin/
 Disallow: /.git/
 Disallow: /node_modules/
-Disallow: /chat/
+
 
 # 允许常见的搜索引擎机器人
 User-agent: Googlebot
@@ -24,4 +24,4 @@ Allow: /
 Sitemap: https://gptoss.blog/sitemap.xml
 
 # 爬取延迟（可选）
-Crawl-delay: 1 
+Crawl-delay: 1

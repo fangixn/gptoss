@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'GPT-OSS Blog - Open Source GPT Models Technical Blog',
   description: 'GPT-OSS Blog is a technical blog focused on open-source GPT models, providing model comparisons, usage guides, technical analysis, and AI chat functionality.',
-  keywords: 'GPT-OSS, Open Source GPT, AI Models, Technical Blog, ChatGPT Alternative, Model Comparison, AI Technology',
+  keywords: '',
   authors: [{ name: 'GPT-OSS Blog', url: 'https://gptoss.blog' }],
   creator: 'GPT-OSS Blog',
   metadataBase: new URL('https://gptoss.blog'),
@@ -58,25 +58,22 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Google tag (gtag.js) - Exclude chat pages */}
+        {/* Google tag (gtag.js) */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
-              // Only load Google Analytics if not on chat page
-              if (!window.location.pathname.startsWith('/chat')) {
-                (function() {
-                  var script = document.createElement('script');
-                  script.async = true;
-                  script.src = 'https://www.googletagmanager.com/gtag/js?id=G-W67X9XGTLV';
-                  document.head.appendChild(script);
-                  
-                  window.dataLayer = window.dataLayer || [];
-                  function gtag(){dataLayer.push(arguments);}
-                  gtag('js', new Date());
-                  gtag('config', 'G-W67X9XGTLV');
-                  window.gtag = gtag;
-                })();
-              }
+              (function() {
+                var script = document.createElement('script');
+                script.async = true;
+                script.src = 'https://www.googletagmanager.com/gtag/js?id=G-W67X9XGTLV';
+                document.head.appendChild(script);
+                
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-W67X9XGTLV');
+                window.gtag = gtag;
+              })();
             `,
           }}
         />

@@ -6,7 +6,7 @@
     <loc>https://gptoss.blog/</loc>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
-    <lastmod>2025-08-06</lastmod>
+    <lastmod>2025-08-08</lastmod>
   </url>
   
   <!-- 博客页面 - 核心内容页面 -->
@@ -14,10 +14,49 @@
     <loc>https://gptoss.blog/blog</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <lastmod>2025-08-06</lastmod>
+    <lastmod>2025-08-08</lastmod>
   </url>
   
-  <!-- 博客文章页面 -->
+  
+  <!-- 博客文章页面 - 按发布时间倒序排列 -->
+  <!-- 2025-08-08 最新文章 -->
+  
+  <!-- The GPT-5 Aftershock: A Strategic Re-evaluation of the AI Ecosystem -->
+  <url>
+    <loc>https://gptoss.blog/blog/gpt-5-aftershock</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <lastmod>2025-08-08</lastmod>
+  </url>
+  
+  <!-- GPT-OSS-120B vs GPT-o4-mini: Is Open Source Really Closing the Gap? -->
+  <url>
+    <loc>https://gptoss.blog/blog/gpt-oss-120b-vs-o4-mini</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2025-08-08</lastmod>
+  </url>
+  
+  <!-- GPT-OSS-20B vs GPT-o3-mini: Is Open Source Really Closing the Gap? -->
+  <url>
+    <loc>https://gptoss.blog/blog/gpt-oss-20b-vs-o3-mini</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2025-08-08</lastmod>
+  </url>
+  
+  <!-- 2025-08-07 文章 -->
+  
+  <!-- GPT-OSS-20B/120B vs LLaMA: Which Open-Source Model Should You Bet On? -->
+  <url>
+    <loc>https://gptoss.blog/blog/gpt-oss-vs-llama-comparison</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2025-08-07</lastmod>
+  </url>
+  
+  <!-- 2025-08-06 文章 -->
+  
   <!-- GPT-OSS-120B ≈ o4-mini? Why Open-Source Models Are Catching Up with OpenAI -->
   <url>
     <loc>https://gptoss.blog/blog/gpt-oss-120b-vs-openai-o4-mini-comparison</loc>

@@ -27,6 +27,50 @@ const categories = ['All', 'Technical Analysis', 'Usage Guide', 'Technical Tutor
 // Simple blog data
 const allPosts: BlogPost[] = [
   {
+    id: 12,
+    slug: 'gpt-5-aftershock',
+    title: 'The GPT-5 Aftershock: A Strategic Re-evaluation of the AI Ecosystem',
+    description: 'Comprehensive analysis of how GPT-5 release reshapes the entire AI landscape, examining the impact on GPT-OSS-120B, GPT-OSS-20B, GPT-o4-mini, and GPT-o3-mini, and the new strategic positioning required for survival.',
+    author: 'AI Industry Analyst',
+    date: '2025-08-08',
+    readTime: '20 min read',
+    tags: ['GPT-5', 'AI Ecosystem', 'Strategic Analysis', 'Market Impact', 'Open Source AI', 'Competition'],
+    category: 'Technical Analysis'
+  },
+  {
+    id: 11,
+    slug: 'gpt-oss-120b-vs-o4-mini',
+    title: 'GPT-OSS-120B vs GPT-o4-mini: Is Open Source Really Closing the Gap?',
+    description: 'Strategic comparison between massive open-source GPT-OSS-120B and highly-optimized closed-source GPT-o4-mini, analyzing raw power vs polished precision, control vs simplicity, and the evolving AI landscape of 2025.',
+    author: 'AI Strategy Consultant',
+    date: '2025-08-08',
+    readTime: '17 min read',
+    tags: ['GPT-OSS', 'OpenAI', 'Open Source AI', 'Model Comparison', 'Enterprise AI', 'Sovereignty'],
+    category: 'Technical Analysis'
+  },
+  {
+    id: 10,
+    slug: 'gpt-oss-20b-vs-o3-mini',
+    title: 'GPT-OSS-20B vs GPT-o3-mini: Is Open Source Really Closing the Gap?',
+    description: 'In-depth analysis comparing GPT-OSS-20B with GPT-o3-mini, exploring whether open-source models can compete with closed-source efficiency in 2025, covering performance, cost, customization, and strategic implications.',
+    author: 'AI Research Analyst',
+    date: '2025-08-08',
+    readTime: '16 min read',
+    tags: ['GPT-OSS', 'OpenAI', 'Open Source AI', 'Model Comparison', 'Performance Analysis', 'Cost Efficiency'],
+    category: 'Technical Analysis'
+  },
+  {
+    id: 9,
+    slug: 'gpt-oss-vs-llama-comparison',
+    title: 'GPT-OSS-20B/120B vs LLaMA: Which Open-Source Model Should You Bet On?',
+    description: 'Comprehensive comparison between GPT-OSS-20B/120B and LLaMA open-source models, analyzing performance, ecosystem maturity, commercial licensing, deployment flexibility, and strategic considerations to help developers make informed decisions.',
+    author: 'AI Technology Strategist',
+    date: '2025-08-07',
+    readTime: '18 min read',
+    tags: ['GPT-OSS', 'LLaMA', 'Model Comparison', 'Open Source AI', 'Performance Analysis', 'Deployment Strategy'],
+    category: 'Technical Analysis'
+  },
+  {
     id: 6,
     slug: 'gpt-oss-120b-vs-openai-o4-mini-comparison',
     title: 'GPT-OSS-120B ≈ o4-mini? Why Open-Source Models Are Catching Up with OpenAI',
@@ -122,13 +166,21 @@ export default function BlogPage() {
                 className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium text-xs sm:text-sm px-2 sm:px-3"
                 onClick={() => handleNavigation('/#features')}
               >
-                Features
+                Core Areas
               </Button>
               <Button 
                 variant="ghost" 
-                className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium bg-slate-100"
+                className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium text-xs sm:text-sm px-2 sm:px-3"
+                onClick={() => handleNavigation('/#how-it-works')}
               >
-                Blog
+                Chat
+              </Button>
+              <Button 
+                variant="ghost" 
+                className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium text-xs sm:text-sm px-2 sm:px-3 hidden sm:inline-flex"
+                onClick={() => handleNavigation('/#try-now')}
+              >
+                Best Practices
               </Button>
               <Button 
                 variant="ghost" 
@@ -140,18 +192,18 @@ export default function BlogPage() {
               <Button 
                 variant="ghost" 
                 className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium text-xs sm:text-sm px-2 sm:px-3"
-                onClick={() => handleNavigation('/chat')}
+                onClick={() => handleNavigation('/#resources')}
               >
-                AI Chat
+                Resources
               </Button>
               <Button 
-                variant="ghost" 
-                className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium text-xs sm:text-sm px-2 sm:px-3"
-                onClick={() => handleNavigation('/')}
+                className="econai-button-primary px-3 sm:px-6 text-xs sm:text-sm"
+                onClick={() => handleNavigation('/blog')}
               >
-                Home
+                Blog
               </Button>
-            </div>
+
+          </div>
           </div>
         </div>
       </header>
@@ -304,10 +356,11 @@ export default function BlogPage() {
               <div className="flex flex-col">
                 <h4 className="font-semibold mb-4 text-slate-200">Platform</h4>
                 <ul className="space-y-3 text-sm">
-                  <li><a href="/" className="text-slate-300 hover:text-blue-400 transition-colors block">Home</a></li>
-                  <li><a href="/blog" className="text-slate-300 hover:text-blue-400 transition-colors block">Blog</a></li>
-                  <li><a href="/chat" className="text-slate-300 hover:text-blue-400 transition-colors block">AI Chat</a></li>
-                  <li><a href="/#blog-posts" className="text-slate-300 hover:text-blue-400 transition-colors block">Featured Articles</a></li>
+                  <li><a href="/#features" className="text-slate-300 hover:text-blue-400 transition-colors block">Core Areas</a></li>
+                  <li><a href="/#how-it-works" className="text-slate-300 hover:text-blue-400 transition-colors block">Chat</a></li>
+                  <li><a href="/#try-now" className="text-slate-300 hover:text-blue-400 transition-colors block">Best Practices</a></li>
+                  <li><a href="/#blog-posts" className="text-slate-300 hover:text-blue-400 transition-colors block">Articles</a></li>
+                  <li><a href="/#resources" className="text-slate-300 hover:text-blue-400 transition-colors block">Resources</a></li>
                 </ul>
               </div>
 
