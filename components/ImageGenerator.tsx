@@ -17,19 +17,19 @@ const ImageGenerator: React.FC<ImageGeneratorProps> = ({
 }) => {
   const imageRef = useRef<HTMLDivElement>(null);
 
-  // 智能提取标题，去除指令性后缀
+  // Smart title extraction, remove instructional suffixes
   const cleanTitle = (title: string): string => {
     const instructionPatterns = [
-      /[，,]?\s*用一句话回答[。.]?$/,
-      /[，,]?\s*请简要回答[。.]?$/,
-      /[，,]?\s*简单回答[。.]?$/,
-      /[，,]?\s*请回答[。.]?$/,
-      /[，,]?\s*回答一下[。.]?$/,
-      /[，,]?\s*解释一下[。.]?$/,
-      /[，,]?\s*说明一下[。.]?$/,
-      /[，,]?\s*介绍一下[。.]?$/,
-      /[，,]?\s*详细说明[。.]?$/,
-      /[，,]?\s*具体说明[。.]?$/
+      /[，,]?\s*answer in one sentence[。.]?$/i,
+    /[，,]?\s*please answer briefly[。.]?$/i,
+    /[，,]?\s*simple answer[。.]?$/i,
+    /[，,]?\s*please answer[。.]?$/i,
+    /[，,]?\s*answer this[。.]?$/i,
+    /[，,]?\s*explain this[。.]?$/i,
+    /[，,]?\s*describe this[。.]?$/i,
+    /[，,]?\s*introduce this[。.]?$/i,
+    /[，,]?\s*detailed explanation[。.]?$/i,
+    /[，,]?\s*specific explanation[。.]?$/i
     ];
     
     let cleanedTitle = title.trim();
@@ -44,10 +44,10 @@ const ImageGenerator: React.FC<ImageGeneratorProps> = ({
     if (!imageRef.current) return;
 
     try {
-      // 等待字体加载完成
+      // Wait for fonts to load
       await document.fonts.ready;
       
-      // 等待一小段时间确保所有样式都已应用
+      // Wait briefly to ensure all styles are applied
       await new Promise(resolve => setTimeout(resolve, 100));
 
       const canvas = await html2canvas(imageRef.current, {
@@ -246,7 +246,7 @@ const ImageGenerator: React.FC<ImageGeneratorProps> = ({
               font-weight: 500 !important;
             }
             
-            /* 顶部标题样式 */
+            /* Top title styles */
             .text-xl {
               font-size: 24px !important;
               line-height: 1.4 !important;
@@ -264,7 +264,7 @@ const ImageGenerator: React.FC<ImageGeneratorProps> = ({
         }
       } as any);
 
-      // 创建下载链接
+      // Create download link
       const link = document.createElement('a');
       link.download = `chat-${Date.now()}.png`;
       link.href = canvas.toDataURL('image/png', 1.0);
@@ -296,7 +296,7 @@ const ImageGenerator: React.FC<ImageGeneratorProps> = ({
           overflow: 'visible'
         }}
       >
-        {/* 标题区域 */}
+        {/* Title Area */}
         <div className="flex items-start justify-between mb-6 pb-4 border-b border-gray-200">
           <div className="flex-1 min-w-0" style={{ minHeight: 'auto', height: 'auto' }}>
             <h1 
@@ -324,7 +324,7 @@ const ImageGenerator: React.FC<ImageGeneratorProps> = ({
           </div>
         </div>
 
-        {/* 正文内容 */}
+        {/* Content */}
         <div 
           className="prose prose-slate max-w-none"
           style={{
@@ -337,7 +337,7 @@ const ImageGenerator: React.FC<ImageGeneratorProps> = ({
           <MarkdownRenderer content={assistantResponse} />
         </div>
 
-        {/* 底部网址 */}
+        {/* Footer URL */}
         <div className="flex justify-end mt-8 pt-6 border-t border-gray-200">
           <div 
             className="text-sm text-gray-600"

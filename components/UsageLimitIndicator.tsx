@@ -52,13 +52,13 @@ export function UsageLimitIndicator({ onUsageUpdate, className }: UsageLimitIndi
   useEffect(() => {
     fetchUsageData();
     
-    // 每30秒更新一次使用状态
+    // Update usage status every 30 seconds
     const interval = setInterval(fetchUsageData, 30000);
     
     return () => clearInterval(interval);
   }, []);
 
-  // 如果有冷却时间，每秒更新一次
+  // If there's cooldown time, update every second
   useEffect(() => {
     if (usageData?.remainingCooldown && usageData.remainingCooldown > 0) {
       const interval = setInterval(fetchUsageData, 1000);
@@ -85,7 +85,7 @@ export function UsageLimitIndicator({ onUsageUpdate, className }: UsageLimitIndi
       <Alert className={className}>
         <AlertTriangle className="h-4 w-4" />
         <AlertDescription>
-          无法获取使用状态: {error}
+          Unable to fetch usage status: {error}
         </AlertDescription>
       </Alert>
     );
@@ -97,10 +97,10 @@ export function UsageLimitIndicator({ onUsageUpdate, className }: UsageLimitIndi
   const hourlyProgress = Math.min(100, Math.max(0, (usageData.hourlyUsed / usageData.hourlyLimit) * 100 || 0));
 
   const formatTime = (seconds: number) => {
-    if (seconds < 60) return `${seconds}秒`;
+    if (seconds < 60) return `${seconds}s`;
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = seconds % 60;
-    return `${minutes}分${remainingSeconds}秒`;
+    return `${minutes}m ${remainingSeconds}s`;
   };
 
   return (
@@ -108,31 +108,31 @@ export function UsageLimitIndicator({ onUsageUpdate, className }: UsageLimitIndi
       <CardHeader className="pb-3">
         <CardTitle className="text-sm font-medium flex items-center gap-2">
           <MessageCircle className="h-4 w-4" />
-          免费使用额度
+          Free Usage Quota
           {!usageData.canSendMessage && (
             <Badge variant="destructive" className="text-xs">
-              已限制
+              Limited
             </Badge>
           )}
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-4">
-        {/* 冷却时间提醒 */}
+        {/* Cooldown reminder */}
         {usageData.remainingCooldown > 0 && (
           <Alert>
             <Clock className="h-4 w-4" />
             <AlertDescription>
-              请等待 {formatTime(usageData.remainingCooldown)} 后再发送消息
+              Please wait {formatTime(usageData.remainingCooldown)} before sending another message
             </AlertDescription>
           </Alert>
         )}
 
-        {/* 每日限制 */}
+        {/* Daily limit */}
         <div className="space-y-2">
           <div className="flex items-center justify-between text-sm">
             <div className="flex items-center gap-1">
               <Calendar className="h-3 w-3" />
-              <span>今日额度</span>
+              <span>Daily Quota</span>
             </div>
             <span className="font-medium">
               {usageData.remainingDaily}/{usageData.dailyLimit}
@@ -146,12 +146,12 @@ export function UsageLimitIndicator({ onUsageUpdate, className }: UsageLimitIndi
           </div>
         </div>
 
-        {/* 每小时限制 */}
+        {/* Hourly limit */}
         <div className="space-y-2">
           <div className="flex items-center justify-between text-sm">
             <div className="flex items-center gap-1">
               <Clock className="h-3 w-3" />
-              <span>本小时额度</span>
+              <span>Hourly Quota</span>
             </div>
             <span className="font-medium">
               {usageData.remainingHourly}/{usageData.hourlyLimit}
@@ -165,11 +165,11 @@ export function UsageLimitIndicator({ onUsageUpdate, className }: UsageLimitIndi
           </div>
         </div>
 
-        {/* 使用规则说明 */}
+        {/* Usage rules description */}
         <div className="text-xs text-gray-500 space-y-1">
-          <div>• 每天最多 {usageData.dailyLimit} 条消息</div>
-          <div>• 每小时最多 {usageData.hourlyLimit} 条消息</div>
-          <div>• 消息间隔 {usageData.cooldownMinutes} 分钟</div>
+          <div>• Maximum {usageData.dailyLimit} messages per day</div>
+          <div>• Maximum {usageData.hourlyLimit} messages per hour</div>
+          <div>• {usageData.cooldownMinutes} minute interval between messages</div>
         </div>
       </CardContent>
     </Card>

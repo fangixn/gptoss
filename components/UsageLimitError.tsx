@@ -32,7 +32,7 @@ export function UsageLimitError({
     const diffMs = resetDate.getTime() - now.getTime();
     
     if (diffMs <= 0) {
-      return '现在可以重试';
+      return 'Ready to retry';
     }
     
     const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
@@ -40,26 +40,26 @@ export function UsageLimitError({
     const diffSeconds = Math.floor((diffMs % (1000 * 60)) / 1000);
     
     if (diffHours > 0) {
-      return `${diffHours}小时${diffMinutes}分钟后重置`;
+      return `Resets in ${diffHours}h ${diffMinutes}m`;
     } else if (diffMinutes > 0) {
-      return `${diffMinutes}分钟${diffSeconds}秒后重置`;
+      return `Resets in ${diffMinutes}m ${diffSeconds}s`;
     } else {
-      return `${diffSeconds}秒后重置`;
+      return `Resets in ${diffSeconds}s`;
     }
   };
 
-  const isTemporaryLimit = message.includes('请等待') || message.includes('秒后');
-  const isDailyLimit = message.includes('今日免费额度');
-  const isHourlyLimit = message.includes('本小时免费额度');
+  const isTemporaryLimit = message.includes('wait') || message.includes('before');
+  const isDailyLimit = message.includes('daily') || message.includes('Daily');
+  const isHourlyLimit = message.includes('hourly') || message.includes('Hourly');
 
   return (
     <Card className={`border-orange-200 bg-orange-50 ${className}`}>
       <CardHeader className="pb-3">
         <CardTitle className="text-orange-800 flex items-center gap-2 text-base">
           <AlertTriangle className="h-5 w-5" />
-          使用限制提醒
+          Usage Limit Notice
           <Badge variant="outline" className="text-orange-700 border-orange-300">
-            {isTemporaryLimit ? '冷却中' : isDailyLimit ? '日限制' : isHourlyLimit ? '时限制' : '已限制'}
+            {isTemporaryLimit ? 'Cooldown' : isDailyLimit ? 'Daily Limit' : isHourlyLimit ? 'Hourly Limit' : 'Limited'}
           </Badge>
         </CardTitle>
       </CardHeader>
@@ -82,20 +82,20 @@ export function UsageLimitError({
           <div className="bg-white p-4 rounded-lg border border-orange-200">
             <h4 className="font-medium text-orange-800 mb-3 flex items-center gap-2">
               <Calendar className="h-4 w-4" />
-              免费使用规则
+              Free Usage Rules
             </h4>
             <div className="space-y-2 text-sm text-gray-600">
               <div className="flex justify-between">
-                <span>每日消息限制:</span>
-                <span className="font-medium">{limits.dailyLimit} 条</span>
+                <span>Daily message limit:</span>
+                <span className="font-medium">{limits.dailyLimit} messages</span>
               </div>
               <div className="flex justify-between">
-                <span>每小时消息限制:</span>
-                <span className="font-medium">{limits.hourlyLimit} 条</span>
+                <span>Hourly message limit:</span>
+                <span className="font-medium">{limits.hourlyLimit} messages</span>
               </div>
               <div className="flex justify-between">
-                <span>消息间隔时间:</span>
-                <span className="font-medium">{limits.cooldownMinutes} 分钟</span>
+                <span>Message interval:</span>
+                <span className="font-medium">{limits.cooldownMinutes} minutes</span>
               </div>
             </div>
           </div>
@@ -109,13 +109,13 @@ export function UsageLimitError({
               className="flex items-center gap-2 border-orange-300 text-orange-700 hover:bg-orange-100"
             >
               <RefreshCw className="h-4 w-4" />
-              重试
+              Retry
             </Button>
           )}
           
           <div className="text-xs text-gray-500 flex items-center gap-1">
             <span>💡</span>
-            <span>提示: 您可以使用自己的API密钥来绕过这些限制</span>
+            <span>Tip: You can use your own API key to bypass these limits</span>
           </div>
         </div>
       </CardContent>

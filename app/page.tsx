@@ -205,7 +205,7 @@ export default function Home() {
       } else if (result.error === 'Usage limit exceeded') {
         // Handle usage limit error
         setUsageLimitError({
-          message: result.message || '使用限制已达到',
+          message: result.message || 'Usage limit reached',
           resetTime: result.resetTime,
           limits: result.limits
         });
@@ -528,7 +528,7 @@ export default function Home() {
                                   variant="ghost"
                                   size="sm"
                                   onClick={() => {
-                                    // 获取用户问题（从聊天历史中找到对应的用户消息）
+                                    // Get user question (find corresponding user message from chat history)
                                     const rawUserQuestion = messages.find(m => m.type === 'user' && messages.indexOf(m) === messages.indexOf(message) - 1)?.content || 'User Question';
                                     
                                     setImageGeneratorData({
@@ -1163,7 +1163,7 @@ export default function Home() {
                           e.stopPropagation();
                           if (confirm('Are you sure you want to delete this chat? This action cannot be undone.')) {
                             deleteSession(session.id);
-                            // 如果删除的是当前会话，切换到第一个可用会话或创建新会话
+                            // If deleting current session, switch to first available session or create new one
                             if (session.id === currentSessionId) {
                               const remainingSessions = chatSessions.filter(s => s.id !== session.id);
                               if (remainingSessions.length > 0) {
