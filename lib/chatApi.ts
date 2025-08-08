@@ -1,4 +1,5 @@
 // Chat API 调用工具函数
+import { isStaticExport, getStaticExportLimitations } from './staticExportUtils';
 
 interface ChatApiRequest {
   model: string;
@@ -24,6 +25,15 @@ export async function callChatApi({
   userApiKey
 }: ChatApiRequest): Promise<ChatApiResponse> {
   try {
+    // 检查是否为静态导出模式
+    if (isStaticExport() && useBackendKey) {
+      const limitations = getStaticExportLimitations();
+      return {
+        success: false,
+        error: limitations.message
+      };
+    }
+
     if (useBackendKey) {
       // 使用后端代理模式
       const response = await fetch('/api/chat', {
@@ -111,6 +121,15 @@ export async function getBackendConfiguredModels(): Promise<{
   error?: string;
 }> {
   try {
+    // 检查是否为静态导出模式
+    if (isStaticExport()) {
+      return {
+        success: true,
+        availableModels: [],
+        totalConfigured: 0
+      };
+    }
+
     const response = await fetch('/api/chat', {
       method: 'GET',
     });

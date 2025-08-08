@@ -1,8 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { API_CONFIGS } from '@/lib/apiConfig';
 
-// 强制动态渲染
-export const dynamic = 'force-dynamic';
+// 根据部署环境决定是否使用动态渲染
+// 静态导出时不能使用 force-dynamic
+export const dynamic = process.env.DEPLOY_TARGET === 'static' ? 'auto' : 'force-dynamic';
 
 // 后端配置的API Keys - 只保留GPT-OSS模型
 const BACKEND_API_KEYS: Record<string, string> = {
