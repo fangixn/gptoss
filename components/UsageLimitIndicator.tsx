@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Progress } from '@/components/ui/progress';
 import { Badge } from '@/components/ui/badge';
 import { Clock, MessageCircle, Calendar, AlertTriangle } from 'lucide-react';
 import { Alert, AlertDescription } from '@/components/ui/alert';
@@ -94,8 +93,8 @@ export function UsageLimitIndicator({ onUsageUpdate, className }: UsageLimitIndi
 
   if (!usageData) return null;
 
-  const dailyProgress = (usageData.dailyUsed / usageData.dailyLimit) * 100;
-  const hourlyProgress = (usageData.hourlyUsed / usageData.hourlyLimit) * 100;
+  const dailyProgress = Math.min(100, Math.max(0, (usageData.dailyUsed / usageData.dailyLimit) * 100 || 0));
+  const hourlyProgress = Math.min(100, Math.max(0, (usageData.hourlyUsed / usageData.hourlyLimit) * 100 || 0));
 
   const formatTime = (seconds: number) => {
     if (seconds < 60) return `${seconds}秒`;
@@ -139,15 +138,12 @@ export function UsageLimitIndicator({ onUsageUpdate, className }: UsageLimitIndi
               {usageData.remainingDaily}/{usageData.dailyLimit}
             </span>
           </div>
-          <Progress 
-            value={dailyProgress} 
-            className="h-2"
-            // 根据使用情况改变颜色
-            style={{
-              '--progress-background': dailyProgress >= 80 ? '#ef4444' : 
-                                     dailyProgress >= 60 ? '#f59e0b' : '#10b981'
-            } as React.CSSProperties}
-          />
+          <div className="w-full bg-gray-200 rounded-full h-2">
+            <div 
+              className="bg-blue-600 h-2 rounded-full transition-all" 
+              style={{ width: `${dailyProgress}%` }}
+            ></div>
+          </div>
         </div>
 
         {/* 每小时限制 */}
@@ -161,14 +157,12 @@ export function UsageLimitIndicator({ onUsageUpdate, className }: UsageLimitIndi
               {usageData.remainingHourly}/{usageData.hourlyLimit}
             </span>
           </div>
-          <Progress 
-            value={hourlyProgress} 
-            className="h-2"
-            style={{
-              '--progress-background': hourlyProgress >= 80 ? '#ef4444' : 
-                                     hourlyProgress >= 60 ? '#f59e0b' : '#10b981'
-            } as React.CSSProperties}
-          />
+          <div className="w-full bg-gray-200 rounded-full h-2">
+            <div 
+              className="bg-green-600 h-2 rounded-full transition-all" 
+              style={{ width: `${hourlyProgress}%` }}
+            ></div>
+          </div>
         </div>
 
         {/* 使用规则说明 */}
