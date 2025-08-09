@@ -8,108 +8,24 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog'
 import { ArrowLeft, CalendarDays, Clock, Search, Tag, Brain, Globe, Shield, MessageCircle } from 'lucide-react'
-// Simple blog data definition
-interface BlogPost {
-  id: number
-  slug: string
-  title: string
-  description: string
-  author: string
-  date: string
-  readTime: string
-  tags: string[]
-  category: string
-}
+import { useAuth } from '@/components/AuthProvider'
+import AuthLogin from '@/components/AuthLogin'
+import UserAvatar from '@/components/UserAvatar'
+import BlogMobileNav from '@/components/BlogMobileNav'
+import { getAllBlogPosts, type BlogPost } from '@/lib/blogData'
 
 const categories = ['All', 'Technical Analysis', 'Usage Guide', 'Technical Tutorial']
 
-// Simple blog data
-const allPosts: BlogPost[] = [
-  {
-    id: 12,
-    slug: 'gpt-5-aftershock',
-    title: 'The GPT-5 Aftershock: A Strategic Re-evaluation of the AI Ecosystem',
-    description: 'Comprehensive analysis of how GPT-5 release reshapes the entire AI landscape, examining the impact on GPT-OSS-120B, GPT-OSS-20B, GPT-o4-mini, and GPT-o3-mini, and the new strategic positioning required for survival.',
-    author: 'AI Industry Analyst',
-    date: '2025-08-08',
-    readTime: '20 min read',
-    tags: ['GPT-5', 'AI Ecosystem', 'Strategic Analysis', 'Market Impact', 'Open Source AI', 'Competition'],
-    category: 'Technical Analysis'
-  },
-  {
-    id: 11,
-    slug: 'gpt-oss-120b-vs-o4-mini',
-    title: 'GPT-OSS-120B vs GPT-o4-mini: Is Open Source Really Closing the Gap?',
-    description: 'Strategic comparison between massive open-source GPT-OSS-120B and highly-optimized closed-source GPT-o4-mini, analyzing raw power vs polished precision, control vs simplicity, and the evolving AI landscape of 2025.',
-    author: 'AI Strategy Consultant',
-    date: '2025-08-08',
-    readTime: '17 min read',
-    tags: ['GPT-OSS', 'OpenAI', 'Open Source AI', 'Model Comparison', 'Enterprise AI', 'Sovereignty'],
-    category: 'Technical Analysis'
-  },
-  {
-    id: 10,
-    slug: 'gpt-oss-20b-vs-o3-mini',
-    title: 'GPT-OSS-20B vs GPT-o3-mini: Is Open Source Really Closing the Gap?',
-    description: 'In-depth analysis comparing GPT-OSS-20B with GPT-o3-mini, exploring whether open-source models can compete with closed-source efficiency in 2025, covering performance, cost, customization, and strategic implications.',
-    author: 'AI Research Analyst',
-    date: '2025-08-08',
-    readTime: '16 min read',
-    tags: ['GPT-OSS', 'OpenAI', 'Open Source AI', 'Model Comparison', 'Performance Analysis', 'Cost Efficiency'],
-    category: 'Technical Analysis'
-  },
-  {
-    id: 9,
-    slug: 'gpt-oss-vs-llama-comparison',
-    title: 'GPT-OSS-20B/120B vs LLaMA: Which Open-Source Model Should You Bet On?',
-    description: 'Comprehensive comparison between GPT-OSS-20B/120B and LLaMA open-source models, analyzing performance, ecosystem maturity, commercial licensing, deployment flexibility, and strategic considerations to help developers make informed decisions.',
-    author: 'AI Technology Strategist',
-    date: '2025-08-07',
-    readTime: '18 min read',
-    tags: ['GPT-OSS', 'LLaMA', 'Model Comparison', 'Open Source AI', 'Performance Analysis', 'Deployment Strategy'],
-    category: 'Technical Analysis'
-  },
-  {
-    id: 6,
-    slug: 'gpt-oss-120b-vs-openai-o4-mini-comparison',
-    title: 'GPT-OSS-120B ≈ o4-mini? Why Open-Source Models Are Catching Up with OpenAI',
-    description: 'Performance comparison analysis between GPT-OSS-120B and OpenAI o4-mini, open-source models are rapidly catching up with closed-source models, achieving similar levels in multiple key metrics.',
-    author: 'AI Technology Analyst',
-    date: '2025-08-06',
-    readTime: '15 min read',
-    tags: ['GPT-OSS', 'OpenAI', 'Open Source AI', 'Model Comparison', 'Technical Analysis'],
-    category: 'Technical Analysis'
-  },
-  {
-    id: 7,
-    slug: 'gpt-oss-120b-vs-20b-which-model-to-choose',
-    title: 'GPT-OSS-120B vs GPT-OSS-20B: Which One Should You Use?',
-    description: 'Detailed comparison analysis of GPT-OSS-120B and GPT-OSS-20B, helping developers choose the most suitable open-source language model based on specific requirements, including comprehensive evaluation of performance, cost, and hardware requirements.',
-    author: 'AI Product Manager',
-    date: '2025-08-06',
-    readTime: '12 min read',
-    tags: ['GPT-OSS', 'Model Selection', 'Performance Comparison', 'Cost Analysis'],
-    category: 'Usage Guide'
-  },
-  {
-    id: 8,
-    slug: 'what-is-gpt-oss',
-    title: 'What is GPT-OSS?',
-    description: 'Complete guide to GPT-OSS open-source GPT models, from basic concepts to practical applications, providing deep insights into the advantages, features, and usage methods of open-source GPT models.',
-    author: 'AI Technology Evangelist',
-    date: '2025-08-06',
-    readTime: '10 min read',
-    tags: ['GPT-OSS', 'Open Source AI', 'Technical Guide', 'AI Basics'],
-    category: 'Technical Tutorial'
-  }
-];
-
 export default function BlogPage() {
   const router = useRouter()
+  const { user } = useAuth()
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('All')
+  const allPosts = getAllBlogPosts()
   const [filteredPosts, setFilteredPosts] = useState<BlogPost[]>(allPosts)
+  const [loginOpen, setLoginOpen] = useState(false)
 
   const scrollToSection = (sectionId: string) => {
     // Navigate to home page with the section anchor
@@ -160,50 +76,70 @@ export default function BlogPage() {
                 <span className="text-base sm:text-lg font-semibold text-slate-800">GPT-OSS Blog</span>
               </div>
             </div>
-            <div className="flex items-center space-x-1 sm:space-x-3">
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center space-x-3">
               <Button 
                 variant="ghost" 
-                className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium text-xs sm:text-sm px-2 sm:px-3"
+                className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium"
                 onClick={() => handleNavigation('/#features')}
               >
                 Core Areas
               </Button>
               <Button 
                 variant="ghost" 
-                className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium text-xs sm:text-sm px-2 sm:px-3"
+                className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium"
                 onClick={() => handleNavigation('/#how-it-works')}
               >
                 Chat
               </Button>
               <Button 
                 variant="ghost" 
-                className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium text-xs sm:text-sm px-2 sm:px-3 hidden sm:inline-flex"
+                className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium"
                 onClick={() => handleNavigation('/#try-now')}
               >
                 Best Practices
               </Button>
               <Button 
                 variant="ghost" 
-                className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium text-xs sm:text-sm px-2 sm:px-3"
+                className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium"
                 onClick={() => handleNavigation('/#blog-posts')}
               >
                 Articles
               </Button>
               <Button 
                 variant="ghost" 
-                className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium text-xs sm:text-sm px-2 sm:px-3"
+                className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium"
                 onClick={() => handleNavigation('/#resources')}
               >
                 Resources
               </Button>
               <Button 
-                className="econai-button-primary px-3 sm:px-6 text-xs sm:text-sm"
+                className="econai-button-primary px-6"
                 onClick={() => handleNavigation('/blog')}
               >
                 Blog
               </Button>
-
-          </div>
+              
+              {/* Desktop Authentication */}
+              {user ? (
+                <UserAvatar />
+              ) : (
+                <Button 
+                  className="econai-button-primary px-4"
+                  onClick={() => setLoginOpen(true)}
+                >
+                  Sign In
+                </Button>
+              )}
+            </div>
+            
+            {/* Mobile Navigation */}
+            <div className="md:hidden">
+              <BlogMobileNav 
+                onNavigation={handleNavigation}
+                onLoginOpen={() => setLoginOpen(true)}
+              />
+            </div>
           </div>
         </div>
       </header>
@@ -411,6 +347,19 @@ export default function BlogPage() {
           </div>
         </div>
       </footer>
+      
+      {/* Login Dialog */}
+      <Dialog open={loginOpen} onOpenChange={setLoginOpen}>
+        <DialogContent className="max-w-lg border-0 shadow-2xl bg-white/95 backdrop-blur-sm">
+          <DialogHeader className="sr-only">
+            <DialogTitle>Sign In</DialogTitle>
+            <DialogDescription>Choose your sign-in method</DialogDescription>
+          </DialogHeader>
+          <div className="p-2">
+            <AuthLogin onClose={() => setLoginOpen(false)} />
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   )
 }

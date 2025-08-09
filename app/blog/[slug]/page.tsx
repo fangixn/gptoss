@@ -1,28 +1,52 @@
 import Link from 'next/link'
-import { redirect } from 'next/navigation'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 import { ArrowLeft, CalendarDays, Clock, Tag, BookOpen, Brain, Globe, Shield } from 'lucide-react'
-import { getBlogPostBySlug, getAllBlogPosts } from '@/lib/markdown'
+import { getBlogPostBySlug, getAllBlogPosts } from '@/lib/blogData'
 import MarkdownRenderer from '../../../components/MarkdownRenderer'
 import ScrollToTop from '../../../components/ScrollToTop'
+import BlogDetailMobileNav from '../../../components/BlogDetailMobileNav'
 
 // Generate static params for all blog posts
 export async function generateStaticParams() {
   const posts = getAllBlogPosts()
-  const currentSlugs = posts.map((post) => ({
+  return posts.map((post) => ({
     slug: post.slug,
   }))
-  
-  // Add legacy slug for backward compatibility
-  const legacySlugs = [
-    { slug: 'what-is-gpt-oss-complete-guide-open-source-gpt' }
-  ]
-  
-  return [...currentSlugs, ...legacySlugs]
+}
+
+// Function to read markdown file content
+const getMarkdownContent = async (slug: string): Promise<string> => {
+  try {
+    // Map slug to corresponding markdown file
+    const fileMap: { [key: string]: string } = {
+      'what-is-gpt-oss': '20250806_What is GPT-OSS？.md',
+      'gpt-oss-120b-vs-20b-which-model-to-choose': '20250806_GPT-OSS-120B vs GPT-OSS-20B Which One Should You Use.md',
+      'gpt-oss-120b-vs-o4-mini': '20250806_GPT-OSS-120B ≈ o4-mini Why Open-Source Models Are Catching Up with OpenAI.md',
+      'gpt-oss-vs-llama-comparison': '20250807_GPT-OSS-20B:120B vs LLaMA.md',
+      'gpt-oss-120b-vs-openai-o4-mini-comparison': '20250808_GPT-OSS-120B vs GPT-o4-mini.md',
+      'gpt-oss-20b-vs-o3-mini': '20250808_GPT-OSS-20B vs GPT-o3-mini.md',
+      'gpt-5-aftershock': '20250808_The GPT-5 Aftershock.md'
+    }
+    
+    const fileName = fileMap[slug]
+    if (!fileName) {
+      return 'Content not found.'
+    }
+    
+    const response = await fetch(`/content/${fileName}`)
+    if (!response.ok) {
+      return 'Content not found.'
+    }
+    
+    return await response.text()
+  } catch (error) {
+    console.error('Error loading markdown content:', error)
+    return 'Error loading content.'
+  }
 }
 
 interface BlogPostPageProps {
@@ -31,13 +55,9 @@ interface BlogPostPageProps {
   }
 }
 
-export default function BlogPostPage({ params }: BlogPostPageProps) {
-  // Handle legacy URL redirect
-  if (params.slug === 'what-is-gpt-oss-complete-guide-open-source-gpt') {
-    redirect('/blog/what-is-gpt-oss')
-  }
-  
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const post = getBlogPostBySlug(params.slug)
+  const markdownContent = await getMarkdownContent(params.slug)
 
   if (!post) {
     return (
@@ -72,48 +92,54 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
                 <span className="text-base sm:text-lg font-semibold">GPT-OSS Blog</span>
               </div>
             </div>
-            <div className="flex items-center space-x-1 sm:space-x-3">
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center space-x-3">
               <Button 
                 variant="ghost" 
-                className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium text-xs sm:text-sm px-2 sm:px-3"
+                className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium"
                 asChild
               >
                 <Link href="/#features">Core Areas</Link>
               </Button>
               <Button 
                 variant="ghost" 
-                className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium text-xs sm:text-sm px-2 sm:px-3"
+                className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium"
                 asChild
               >
                 <Link href="/#how-it-works">Chat</Link>
               </Button>
               <Button 
                 variant="ghost" 
-                className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium text-xs sm:text-sm px-2 sm:px-3 hidden sm:inline-flex"
+                className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium"
                 asChild
               >
                 <Link href="/#try-now">Best Practices</Link>
               </Button>
               <Button 
                 variant="ghost" 
-                className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium text-xs sm:text-sm px-2 sm:px-3"
+                className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium"
                 asChild
               >
                 <Link href="/#blog-posts">Articles</Link>
               </Button>
               <Button 
                 variant="ghost" 
-                className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium text-xs sm:text-sm px-2 sm:px-3"
+                className="text-slate-600 hover:text-slate-800 hover:bg-slate-50 transition-all duration-200 font-medium"
                 asChild
               >
                 <Link href="/#resources">Resources</Link>
               </Button>
               <Button 
-                className="econai-button-primary px-3 sm:px-6 text-xs sm:text-sm"
+                className="econai-button-primary px-6"
                 asChild
               >
                 <Link href="/blog">Blog</Link>
               </Button>
+            </div>
+            
+            {/* Mobile Navigation */}
+            <div className="md:hidden">
+              <BlogDetailMobileNav />
             </div>
           </div>
         </div>
@@ -175,8 +201,8 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
 
           {/* Article Content */}
           <div className="prose-container">
-            <MarkdownRenderer content={post.content} />
-                      </div>
+            <MarkdownRenderer content={markdownContent} />
+          </div>
 
           {/* Article Bottom Navigation */}
           <div className="mt-20 pt-12 border-t border-slate-200">
@@ -320,6 +346,8 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
 
       {/* Floating back to top button */}
       <ScrollToTop />
+      
+
     </div>
   )
 }

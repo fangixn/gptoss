@@ -1,8 +1,7 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-
-const inter = Inter({ subsets: ['latin'] });
+import AuthProvider from '@/components/AuthProvider';
+import { Toaster } from '@/components/ui/toaster';
 
 export const metadata: Metadata = {
   title: 'GPT-OSS Blog - Open Source GPT Models Technical Blog',
@@ -58,25 +57,27 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Google tag (gtag.js) */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                var script = document.createElement('script');
-                script.async = true;
-                script.src = 'https://www.googletagmanager.com/gtag/js?id=G-W67X9XGTLV';
-                document.head.appendChild(script);
-                
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', 'G-W67X9XGTLV');
-                window.gtag = gtag;
-              })();
-            `,
-          }}
-        />
+        {/* Google tag (gtag.js) - Disabled in development to prevent fetch errors */}
+        {process.env.NODE_ENV === 'production' && (
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                (function() {
+                  var script = document.createElement('script');
+                  script.async = true;
+                  script.src = 'https://www.googletagmanager.com/gtag/js?id=G-W67X9XGTLV';
+                  document.head.appendChild(script);
+                  
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', 'G-W67X9XGTLV');
+                  window.gtag = gtag;
+                })();
+              `,
+            }}
+          />
+        )}
         
         {/* Favicon */}
         <link rel="icon" href="/extension_icon.png?v=2" sizes="any" />
@@ -94,7 +95,12 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
 
       </head>
-      <body className={inter.className}>{children}</body>
+      <body>
+        <AuthProvider>
+          {children}
+          <Toaster />
+        </AuthProvider>
+      </body>
     </html>
   );
 }

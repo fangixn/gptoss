@@ -1,14 +1,20 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { API_CONFIGS } from '@/lib/apiConfig';
 
-// 使用限制配置
+// Usage limit configuration
 const USAGE_LIMITS = {
-  FREE_MESSAGES_PER_DAY: 2,     // 每天免费消息数量
-  FREE_MESSAGES_PER_HOUR: 2,    // 每小时免费消息数量
-  COOLDOWN_MINUTES: 5,          // 消息间隔冷却时间（分钟）
+  // Anonymous user limits
+  ANONYMOUS_MESSAGES_PER_DAY: 3,     // Anonymous user daily message limit
+  ANONYMOUS_MESSAGES_PER_HOUR: 2,    // Anonymous user hourly message limit
+  ANONYMOUS_COOLDOWN_MINUTES: 3,     // Anonymous user cooldown time between messages (minutes)
+  
+  // Authenticated user limits (more generous)
+  AUTHENTICATED_MESSAGES_PER_DAY: 7,   // Authenticated user daily message limit
+  AUTHENTICATED_MESSAGES_PER_HOUR: 3,  // Authenticated user hourly message limit
+  AUTHENTICATED_COOLDOWN_MINUTES: 0.5,    // Authenticated user cooldown time between messages (minutes)
 };
 
-// 内存存储用户使用记录（生产环境建议使用Redis或数据库）
+// In-memory storage for user usage records (Redis or database recommended for production)
 const userUsageMap = new Map<string, {
   dailyCount: number;
   hourlyCount: number;
@@ -17,28 +23,33 @@ const userUsageMap = new Map<string, {
   lastMessageTime: number;
 }>();
 
-// 获取客户端标识符（IP + User-Agent的简单hash）
+// Get client identifier (simple hash of IP + User-Agent)
 function getClientId(request: NextRequest): string {
   const ip = request.ip || request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'unknown';
   const userAgent = request.headers.get('user-agent') || 'unknown';
-  // 简单的hash函数
+  // Simple hash function
   const hash = (str: string) => {
     let hash = 0;
     for (let i = 0; i < str.length; i++) {
       const char = str.charCodeAt(i);
       hash = ((hash << 5) - hash) + char;
-      hash = hash & hash; // 转换为32位整数
+      hash = hash & hash; // Convert to 32-bit integer
     }
     return Math.abs(hash).toString();
   };
   return hash(ip + userAgent);
 }
 
-// 检查用户使用限制
-function checkUsageLimit(clientId: string): { allowed: boolean; reason?: string; resetTime?: number } {
+// Check user usage limits
+function checkUsageLimit(clientId: string, isAuthenticated: boolean = false): { allowed: boolean; reason?: string; resetTime?: number } {
   const now = Date.now();
   const today = new Date().toDateString();
   const currentHour = new Date().getHours();
+  
+  // Select limit parameters based on authentication status
+  const dailyLimit = isAuthenticated ? USAGE_LIMITS.AUTHENTICATED_MESSAGES_PER_DAY : USAGE_LIMITS.ANONYMOUS_MESSAGES_PER_DAY;
+  const hourlyLimit = isAuthenticated ? USAGE_LIMITS.AUTHENTICATED_MESSAGES_PER_HOUR : USAGE_LIMITS.ANONYMOUS_MESSAGES_PER_HOUR;
+  const cooldownMinutes = isAuthenticated ? USAGE_LIMITS.AUTHENTICATED_COOLDOWN_MINUTES : USAGE_LIMITS.ANONYMOUS_COOLDOWN_MINUTES;
   
   let usage = userUsageMap.get(clientId);
   
@@ -53,50 +64,53 @@ function checkUsageLimit(clientId: string): { allowed: boolean; reason?: string;
     userUsageMap.set(clientId, usage);
   }
   
-  // 重置每日计数
+  // Reset daily count
   const lastResetDate = new Date(usage.lastResetDaily).toDateString();
   if (lastResetDate !== today) {
     usage.dailyCount = 0;
     usage.lastResetDaily = now;
   }
   
-  // 重置每小时计数
+  // Reset hourly count
   const lastResetHour = new Date(usage.lastResetHourly).getHours();
   if (lastResetHour !== currentHour) {
     usage.hourlyCount = 0;
     usage.lastResetHourly = now;
   }
   
-  // 检查冷却时间
+  // Check cooldown time
   const timeSinceLastMessage = now - usage.lastMessageTime;
-  const cooldownMs = USAGE_LIMITS.COOLDOWN_MINUTES * 60 * 1000;
+  const cooldownMs = cooldownMinutes * 60 * 1000;
   if (timeSinceLastMessage < cooldownMs) {
     const remainingCooldown = Math.ceil((cooldownMs - timeSinceLastMessage) / 1000);
+    const userType = isAuthenticated ? 'Authenticated user' : 'Anonymous user';
     return {
       allowed: false,
-      reason: `请等待 ${remainingCooldown} 秒后再发送消息`,
+      reason: `${userType}: Please wait ${remainingCooldown} seconds before sending another message`,
     };
   }
   
-  // 检查每日限制
-  if (usage.dailyCount >= USAGE_LIMITS.FREE_MESSAGES_PER_DAY) {
+  // Check daily limit
+  if (usage.dailyCount >= dailyLimit) {
     const tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 1);
     tomorrow.setHours(0, 0, 0, 0);
+    const userType = isAuthenticated ? 'Authenticated user' : 'Anonymous user';
     return {
       allowed: false,
-      reason: `今日免费额度已用完（${USAGE_LIMITS.FREE_MESSAGES_PER_DAY}条），明日0点重置`,
+      reason: `${userType}: Daily quota exhausted (${dailyLimit} messages), resets at midnight`,
       resetTime: tomorrow.getTime(),
     };
   }
   
-  // 检查每小时限制
-  if (usage.hourlyCount >= USAGE_LIMITS.FREE_MESSAGES_PER_HOUR) {
+  // Check hourly limit
+  if (usage.hourlyCount >= hourlyLimit) {
     const nextHour = new Date();
     nextHour.setHours(nextHour.getHours() + 1, 0, 0, 0);
+    const userType = isAuthenticated ? 'Authenticated user' : 'Anonymous user';
     return {
       allowed: false,
-      reason: `本小时免费额度已用完（${USAGE_LIMITS.FREE_MESSAGES_PER_HOUR}条），下小时重置`,
+      reason: `${userType}: Hourly quota exhausted (${hourlyLimit} messages), resets next hour`,
       resetTime: nextHour.getTime(),
     };
   }
@@ -104,7 +118,7 @@ function checkUsageLimit(clientId: string): { allowed: boolean; reason?: string;
   return { allowed: true };
 }
 
-// 更新用户使用记录
+// Update user usage records
 function updateUsageCount(clientId: string) {
   const usage = userUsageMap.get(clientId);
   if (usage) {
@@ -114,11 +128,11 @@ function updateUsageCount(clientId: string) {
   }
 }
 
-// 根据部署环境决定是否使用动态渲染
-// 静态导出时不能使用 force-dynamic
+// Decide whether to use dynamic rendering based on deployment environment
+// Cannot use force-dynamic when static exporting
 export const dynamic = process.env.DEPLOY_TARGET === 'static' ? 'auto' : 'force-dynamic';
 
-// 后端配置的API Keys - 只保留GPT-OSS模型
+// Backend configured API Keys - only keep GPT-OSS models
 const BACKEND_API_KEYS: Record<string, string> = {
   'gpt-oss-120b': process.env.FIREWORKS_API_KEY || '',
   'gpt-oss-20b': process.env.FIREWORKS_API_KEY || '',
@@ -127,33 +141,39 @@ const BACKEND_API_KEYS: Record<string, string> = {
 interface ChatRequest {
   model: string;
   prompt: string;
-  useBackendKey?: boolean; // 新增字段：是否使用后端配置的key
-  userApiKey?: string; // 用户提供的API key（可选）
+  useBackendKey?: boolean; // New field: whether to use backend configured key
+  userApiKey?: string; // User provided API key (optional)
+  isAuthenticated?: boolean; // New field: whether user is authenticated
 }
 
 export async function POST(request: NextRequest) {
   try {
     const body: ChatRequest & { checkBackendModels?: boolean } = await request.json();
-    const { model, prompt, useBackendKey = false, userApiKey, checkBackendModels } = body;
+    const { model, prompt, useBackendKey = false, userApiKey, checkBackendModels, isAuthenticated = false } = body;
 
-    console.log('API Request:', { model, useBackendKey, hasUserApiKey: !!userApiKey, checkBackendModels });
+    console.log('API Request:', { model, useBackendKey, hasUserApiKey: !!userApiKey, checkBackendModels, isAuthenticated });
 
-    // 获取客户端标识符
+    // Get client identifier
     const clientId = getClientId(request);
     
-    // 如果不是检查后端模型，则检查使用限制
+    // If not checking backend models, check usage limits
     if (!checkBackendModels) {
-      const limitCheck = checkUsageLimit(clientId);
+      const limitCheck = checkUsageLimit(clientId, isAuthenticated);
       if (!limitCheck.allowed) {
+        // Return corresponding limit information based on authentication status
+        const dailyLimit = isAuthenticated ? USAGE_LIMITS.AUTHENTICATED_MESSAGES_PER_DAY : USAGE_LIMITS.ANONYMOUS_MESSAGES_PER_DAY;
+        const hourlyLimit = isAuthenticated ? USAGE_LIMITS.AUTHENTICATED_MESSAGES_PER_HOUR : USAGE_LIMITS.ANONYMOUS_MESSAGES_PER_HOUR;
+        const cooldownMinutes = isAuthenticated ? USAGE_LIMITS.AUTHENTICATED_COOLDOWN_MINUTES : USAGE_LIMITS.ANONYMOUS_COOLDOWN_MINUTES;
+        
         return NextResponse.json(
           { 
             error: 'Usage limit exceeded', 
             message: limitCheck.reason,
             resetTime: limitCheck.resetTime,
             limits: {
-              dailyLimit: USAGE_LIMITS.FREE_MESSAGES_PER_DAY,
-              hourlyLimit: USAGE_LIMITS.FREE_MESSAGES_PER_HOUR,
-              cooldownMinutes: USAGE_LIMITS.COOLDOWN_MINUTES
+              dailyLimit,
+              hourlyLimit,
+              cooldownMinutes
             }
           },
           { status: 429 }
@@ -161,7 +181,7 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    // 如果只是检查后端模型配置，返回模型列表
+    // If only checking backend model configuration, return model list
     if (checkBackendModels) {
       const availableModels = Object.entries(BACKEND_API_KEYS)
         .filter(([_, key]) => key && key.length > 0)
@@ -175,7 +195,7 @@ export async function POST(request: NextRequest) {
 
     console.log('Backend API Keys:', Object.keys(BACKEND_API_KEYS).map(k => ({ [k]: !!BACKEND_API_KEYS[k] })));
 
-    // 验证模型是否存在
+    // Validate if model exists
     if (!API_CONFIGS[model]) {
       console.log('Invalid model:', model);
       return NextResponse.json(
@@ -186,10 +206,10 @@ export async function POST(request: NextRequest) {
 
     const config = API_CONFIGS[model];
     
-    // 决定使用哪个API Key
+    // Decide which API Key to use
     let apiKey = '';
     if (useBackendKey) {
-      // 使用后端配置的API Key
+      // Use backend configured API Key
       apiKey = BACKEND_API_KEYS[model] || '';
       if (!apiKey) {
         return NextResponse.json(
@@ -198,7 +218,7 @@ export async function POST(request: NextRequest) {
         );
       }
     } else {
-      // 使用用户提供的API Key
+      // Use user provided API Key
       apiKey = userApiKey || '';
       if (!apiKey) {
         return NextResponse.json(
@@ -208,7 +228,7 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    // 构建请求
+    // Build request
     const headers = config.buildHeaders(apiKey);
     const requestBody = config.buildBody(prompt);
     const url = config.getApiUrl ? config.getApiUrl(apiKey) : config.apiUrl;
@@ -217,7 +237,7 @@ export async function POST(request: NextRequest) {
     console.log('Request headers:', headers);
     console.log('Request body:', JSON.stringify(requestBody));
 
-    // 调用第三方API
+    // Call third-party API
     const response = await fetch(url, {
       method: 'POST',
       headers,
@@ -242,13 +262,16 @@ export async function POST(request: NextRequest) {
     console.log('Response data:', data);
     const parsedResponse = config.parseResponse(data);
 
-    // 更新用户使用计数
+    // Update user usage count
     updateUsageCount(clientId);
     
-    // 获取当前用户剩余额度信息
+    // Get current user remaining quota information
     const usage = userUsageMap.get(clientId);
-    const remainingDaily = Math.max(0, USAGE_LIMITS.FREE_MESSAGES_PER_DAY - (usage?.dailyCount || 0));
-    const remainingHourly = Math.max(0, USAGE_LIMITS.FREE_MESSAGES_PER_HOUR - (usage?.hourlyCount || 0));
+    const dailyLimit = isAuthenticated ? USAGE_LIMITS.AUTHENTICATED_MESSAGES_PER_DAY : USAGE_LIMITS.ANONYMOUS_MESSAGES_PER_DAY;
+    const hourlyLimit = isAuthenticated ? USAGE_LIMITS.AUTHENTICATED_MESSAGES_PER_HOUR : USAGE_LIMITS.ANONYMOUS_MESSAGES_PER_HOUR;
+    const cooldownMinutes = isAuthenticated ? USAGE_LIMITS.AUTHENTICATED_COOLDOWN_MINUTES : USAGE_LIMITS.ANONYMOUS_COOLDOWN_MINUTES;
+    const remainingDaily = Math.max(0, dailyLimit - (usage?.dailyCount || 0));
+    const remainingHourly = Math.max(0, hourlyLimit - (usage?.hourlyCount || 0));
 
     return NextResponse.json({
       success: true,
@@ -257,9 +280,9 @@ export async function POST(request: NextRequest) {
       usage: {
         remainingDaily,
         remainingHourly,
-        dailyLimit: USAGE_LIMITS.FREE_MESSAGES_PER_DAY,
-        hourlyLimit: USAGE_LIMITS.FREE_MESSAGES_PER_HOUR,
-        cooldownMinutes: USAGE_LIMITS.COOLDOWN_MINUTES
+        dailyLimit,
+        hourlyLimit,
+        cooldownMinutes
       }
     });
 
@@ -273,14 +296,15 @@ export async function POST(request: NextRequest) {
   }
 }
 
-// 获取可用的后端配置模型列表和用户使用状态
+// Get available backend configured model list and user usage status
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const action = searchParams.get('action');
   
-  // 如果请求用户使用状态
+  // If requesting user usage status
   if (action === 'usage') {
     const clientId = getClientId(request);
+    const isAuthenticated = searchParams.get('isAuthenticated') === 'true';
     const usage = userUsageMap.get(clientId);
     
     const now = Date.now();
@@ -292,7 +316,7 @@ export async function GET(request: NextRequest) {
     let lastMessageTime = 0;
     
     if (usage) {
-      // 检查是否需要重置计数
+      // Check if counts need to be reset
       const lastResetDate = new Date(usage.lastResetDaily).toDateString();
       const lastResetHour = new Date(usage.lastResetHourly).getHours();
       
@@ -301,12 +325,17 @@ export async function GET(request: NextRequest) {
       lastMessageTime = usage.lastMessageTime;
     }
     
-    const remainingDaily = Math.max(0, USAGE_LIMITS.FREE_MESSAGES_PER_DAY - dailyCount);
-    const remainingHourly = Math.max(0, USAGE_LIMITS.FREE_MESSAGES_PER_HOUR - hourlyCount);
+    // Select corresponding limits based on authentication status
+    const dailyLimit = isAuthenticated ? USAGE_LIMITS.AUTHENTICATED_MESSAGES_PER_DAY : USAGE_LIMITS.ANONYMOUS_MESSAGES_PER_DAY;
+    const hourlyLimit = isAuthenticated ? USAGE_LIMITS.AUTHENTICATED_MESSAGES_PER_HOUR : USAGE_LIMITS.ANONYMOUS_MESSAGES_PER_HOUR;
+    const cooldownMinutes = isAuthenticated ? USAGE_LIMITS.AUTHENTICATED_COOLDOWN_MINUTES : USAGE_LIMITS.ANONYMOUS_COOLDOWN_MINUTES;
     
-    // 计算冷却时间
+    const remainingDaily = Math.max(0, dailyLimit - dailyCount);
+    const remainingHourly = Math.max(0, hourlyLimit - hourlyCount);
+    
+    // Calculate cooldown time
     const timeSinceLastMessage = now - lastMessageTime;
-    const cooldownMs = USAGE_LIMITS.COOLDOWN_MINUTES * 60 * 1000;
+    const cooldownMs = cooldownMinutes * 60 * 1000;
     const remainingCooldown = Math.max(0, Math.ceil((cooldownMs - timeSinceLastMessage) / 1000));
     
     return NextResponse.json({
@@ -316,16 +345,16 @@ export async function GET(request: NextRequest) {
         hourlyUsed: hourlyCount,
         remainingDaily,
         remainingHourly,
-        dailyLimit: USAGE_LIMITS.FREE_MESSAGES_PER_DAY,
-        hourlyLimit: USAGE_LIMITS.FREE_MESSAGES_PER_HOUR,
-        cooldownMinutes: USAGE_LIMITS.COOLDOWN_MINUTES,
+        dailyLimit,
+        hourlyLimit,
+        cooldownMinutes,
         remainingCooldown,
         canSendMessage: remainingDaily > 0 && remainingHourly > 0 && remainingCooldown === 0
       }
     });
   }
   
-  // 默认返回可用模型列表
+  // Default return available model list
   const availableModels = Object.entries(BACKEND_API_KEYS)
     .filter(([_, key]) => key && key.length > 0)
     .map(([model, _]) => ({

@@ -1,4 +1,4 @@
-// Chat API 调用工具函数
+// Chat API utility functions
 import { isStaticExport, getStaticExportLimitations } from './staticExportUtils';
 
 interface ChatApiRequest {
@@ -6,6 +6,7 @@ interface ChatApiRequest {
   prompt: string;
   useBackendKey?: boolean;
   userApiKey?: string;
+  isAuthenticated?: boolean;
 }
 
 interface UsageInfo {
@@ -48,16 +49,17 @@ interface UsageStatusResponse {
 }
 
 /**
- * 调用聊天API - 支持后端代理和前端直调两种模式
+ * Call chat API - supports both backend proxy and frontend direct call modes
  */
 export async function callChatApi({
   model,
   prompt,
   useBackendKey = false,
-  userApiKey
+  userApiKey,
+  isAuthenticated = false
 }: ChatApiRequest): Promise<ChatApiResponse> {
   try {
-    // 检查是否为静态导出模式
+    // Check if in static export mode
     if (isStaticExport() && useBackendKey) {
       const limitations = getStaticExportLimitations();
       return {
@@ -67,7 +69,7 @@ export async function callChatApi({
     }
 
     if (useBackendKey) {
-      // 使用后端代理模式
+      // Use backend proxy mode
       const response = await fetch('/api/chat', {
         method: 'POST',
         headers: {
@@ -76,14 +78,15 @@ export async function callChatApi({
         body: JSON.stringify({
           model,
           prompt,
-          useBackendKey: true
+          useBackendKey: true,
+          isAuthenticated
         }),
       });
 
       if (!response.ok) {
         const errorData = await response.json();
         
-        // 特殊处理使用限制错误 (429状态码)
+        // Special handling for usage limit errors (429 status code)
         if (response.status === 429) {
           return {
             success: false,
@@ -105,13 +108,13 @@ export async function callChatApi({
         usage: data.usage
       };
     } else {
-      // 使用前端直调模式（现有逻辑）
+      // Use frontend direct call mode (existing logic)
       if (!userApiKey) {
         throw new Error('API key is required for direct API calls');
       }
 
-      // 这里保持原有的前端直调逻辑
-      // 从 API_CONFIGS 导入配置
+      // Keep original frontend direct call logic here
+      // Import configuration from API_CONFIGS
       const { API_CONFIGS } = await import('@/lib/apiConfig');
       const config = API_CONFIGS[model];
       
@@ -153,11 +156,11 @@ export async function callChatApi({
 }
 
 /**
- * 获取用户当前的使用状态
+ * Get user's current usage status
  */
-export async function getUserUsageStatus(): Promise<UsageStatusResponse> {
+export async function getUserUsageStatus(isAuthenticated: boolean = false): Promise<UsageStatusResponse> {
   try {
-    // 检查是否为静态导出模式
+    // Check if in static export mode
     if (isStaticExport()) {
       return {
         success: true,
@@ -175,7 +178,7 @@ export async function getUserUsageStatus(): Promise<UsageStatusResponse> {
       };
     }
 
-    const response = await fetch('/api/chat?action=usage', {
+    const response = await fetch(`/api/chat?action=usage&isAuthenticated=${isAuthenticated}`, {
       method: 'GET',
     });
 
@@ -195,7 +198,7 @@ export async function getUserUsageStatus(): Promise<UsageStatusResponse> {
 }
 
 /**
- * 检查哪些模型在后端已配置
+ * Check which models are configured on the backend
  */
 export async function getBackendConfiguredModels(): Promise<{
   success: boolean;
@@ -208,7 +211,7 @@ export async function getBackendConfiguredModels(): Promise<{
   error?: string;
 }> {
   try {
-    // 检查是否为静态导出模式
+    // Check if in static export mode
     if (isStaticExport()) {
       return {
         success: true,

@@ -21,29 +21,85 @@ interface UsageData {
 interface UsageLimitIndicatorProps {
   onUsageUpdate?: (canSend: boolean) => void;
   className?: string;
+  isAuthenticated?: boolean;
 }
 
-export function UsageLimitIndicator({ onUsageUpdate, className }: UsageLimitIndicatorProps) {
+export function UsageLimitIndicator({ onUsageUpdate, className, isAuthenticated = false }: UsageLimitIndicatorProps) {
   const [usageData, setUsageData] = useState<UsageData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   const fetchUsageData = async () => {
     try {
-      const response = await fetch('/api/chat?action=usage');
+      const response = await fetch(`/api/chat?action=usage&isAuthenticated=${isAuthenticated}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      
       if (!response.ok) {
-        throw new Error('Failed to fetch usage data');
+        console.warn('Usage API response not ok:', response.status, response.statusText);
+        // Don't throw error for non-critical usage data
+        setError(null);
+        // Set default usage data when API fails
+        const defaultUsage = {
+          dailyUsed: 0,
+          hourlyUsed: 0,
+          remainingDaily: isAuthenticated ? 7 : 3,
+          remainingHourly: isAuthenticated ? 3 : 2,
+          dailyLimit: isAuthenticated ? 7 : 3,
+          hourlyLimit: isAuthenticated ? 3 : 2,
+          cooldownMinutes: isAuthenticated ? 0.5 : 3,
+          remainingCooldown: 0,
+          canSendMessage: true
+        };
+        setUsageData(defaultUsage);
+        onUsageUpdate?.(true);
+        return;
       }
+      
       const data = await response.json();
-      if (data.success) {
+      if (data.success && data.usage) {
         setUsageData(data.usage);
         onUsageUpdate?.(data.usage.canSendMessage);
         setError(null);
       } else {
-        throw new Error('Invalid response format');
+        console.warn('Invalid usage API response format:', data);
+        // Set default usage data when response format is invalid
+        const defaultUsage = {
+          dailyUsed: 0,
+          hourlyUsed: 0,
+          remainingDaily: isAuthenticated ? 7 : 3,
+          remainingHourly: isAuthenticated ? 3 : 2,
+          dailyLimit: isAuthenticated ? 7 : 3,
+          hourlyLimit: isAuthenticated ? 3 : 2,
+          cooldownMinutes: isAuthenticated ? 0.5 : 3,
+          remainingCooldown: 0,
+          canSendMessage: true
+        };
+        setUsageData(defaultUsage);
+        onUsageUpdate?.(true);
+        setError(null);
       }
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Unknown error');
+      console.warn('Usage API fetch error:', err);
+      // Don't show error to user for non-critical usage data
+      setError(null);
+      // Set default usage data when fetch fails
+      const defaultUsage = {
+        dailyUsed: 0,
+        hourlyUsed: 0,
+        remainingDaily: isAuthenticated ? 7 : 3,
+        remainingHourly: isAuthenticated ? 3 : 2,
+        dailyLimit: isAuthenticated ? 7 : 3,
+        hourlyLimit: isAuthenticated ? 3 : 2,
+        cooldownMinutes: isAuthenticated ? 0.5 : 3,
+        remainingCooldown: 0,
+        canSendMessage: true
+      };
+      setUsageData(defaultUsage);
+      onUsageUpdate?.(true);
     } finally {
       setLoading(false);
     }
@@ -56,7 +112,7 @@ export function UsageLimitIndicator({ onUsageUpdate, className }: UsageLimitIndi
     const interval = setInterval(fetchUsageData, 30000);
     
     return () => clearInterval(interval);
-  }, []);
+  }, [isAuthenticated]);
 
   // If there's cooldown time, update every second
   useEffect(() => {
