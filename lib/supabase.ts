@@ -4,7 +4,11 @@ const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || ''
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || ''
 
 // Create a dummy client if environment variables are not set
-export const supabase = supabaseUrl && supabaseAnonKey 
+// Check if the URL is a valid Supabase URL (not placeholder text)
+const isValidSupabaseUrl = supabaseUrl && supabaseUrl.startsWith('https://') && supabaseUrl.includes('.supabase.co')
+const isValidAnonKey = supabaseAnonKey && supabaseAnonKey.startsWith('eyJ') && supabaseAnonKey !== 'your_supabase_anon_key'
+
+export const supabase = isValidSupabaseUrl && isValidAnonKey
   ? createClient(supabaseUrl, supabaseAnonKey)
   : null
 

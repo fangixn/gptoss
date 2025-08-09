@@ -9,6 +9,8 @@ import { getBlogPostBySlug, getAllBlogPosts } from '@/lib/blogData'
 import MarkdownRenderer from '../../../components/MarkdownRenderer'
 import ScrollToTop from '../../../components/ScrollToTop'
 import BlogDetailMobileNav from '../../../components/BlogDetailMobileNav'
+import fs from 'fs'
+import path from 'path'
 
 // Generate static params for all blog posts
 export async function generateStaticParams() {
@@ -37,12 +39,15 @@ const getMarkdownContent = async (slug: string): Promise<string> => {
       return 'Content not found.'
     }
     
-    const response = await fetch(`/content/${fileName}`)
-    if (!response.ok) {
+    // Read file from the content directory
+    const filePath = path.join(process.cwd(), 'content', fileName)
+    
+    if (!fs.existsSync(filePath)) {
       return 'Content not found.'
     }
     
-    return await response.text()
+    const content = fs.readFileSync(filePath, 'utf8')
+    return content
   } catch (error) {
     console.error('Error loading markdown content:', error)
     return 'Error loading content.'
@@ -150,7 +155,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <div className="max-w-3xl mx-auto">
           {/* Navigation */}
           <div className="mb-8 sm:mb-12">
-            <Link href="/blog" className="inline-flex items-center text-slate-600 hover:text-amber-700 transition-colors text-xs sm:text-sm font-medium">
+            <Link href="/blog" className="inline-flex items-center text-slate-600 hover:text-slate-800 transition-colors text-xs sm:text-sm font-medium">
                 <ArrowLeft className="mr-2 h-3 w-3 sm:h-4 sm:w-4" />
               Back
               </Link>
@@ -159,7 +164,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           {/* Article Header */}
           <header className="mb-12 sm:mb-16">
             <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
-              <Badge variant="outline" className="text-xs text-amber-700 border-amber-200 bg-amber-50">
+              <Badge variant="outline" className="text-xs text-slate-700 border-slate-200 bg-slate-50">
                 {post.category}
               </Badge>
               <div className="flex items-center text-xs sm:text-sm text-slate-500">
@@ -209,7 +214,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             <div className="flex justify-center gap-6">
               <Link 
                 href="/blog" 
-                className="inline-flex items-center px-4 py-2 text-slate-600 hover:text-amber-700 transition-colors text-sm font-medium"
+                className="inline-flex items-center px-4 py-2 text-slate-600 hover:text-slate-800 transition-colors text-sm font-medium"
               >
                 <ArrowLeft className="mr-2 h-4 w-4" />
                 All Articles
@@ -217,7 +222,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               
               <Link 
                 href="/#how-it-works" 
-                className="inline-flex items-center px-6 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition-colors text-sm font-medium"
+                className="inline-flex items-center px-6 py-2 bg-slate-600 text-white rounded-lg hover:bg-slate-700 transition-colors text-sm font-medium"
               >
                 <BookOpen className="mr-2 h-4 w-4" />
                 Discuss with AI
@@ -239,11 +244,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                     className="group block p-6 rounded-xl border border-slate-200 hover:border-slate-300 hover:shadow-lg transition-all duration-200"
                   >
                     <div className="flex items-center gap-2 mb-3">
-                      <span className="text-xs text-amber-700 font-medium">{relatedPost.category}</span>
+                      <span className="text-xs text-slate-700 font-medium">{relatedPost.category}</span>
                       <span className="text-slate-300">•</span>
                       <span className="text-xs text-slate-500">{relatedPost.readTime}</span>
                     </div>
-                    <h4 className="font-semibold mb-3 hover:text-amber-700 transition-colors line-clamp-2 leading-tight">
+                    <h4 className="font-semibold mb-3 hover:text-slate-800 transition-colors line-clamp-2 leading-tight">
                         {relatedPost.title}
                       </h4>
                     <p className="text-sm text-slate-600 line-clamp-2 leading-relaxed mb-4">

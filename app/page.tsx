@@ -429,7 +429,7 @@ export default function Home() {
                 {showChat ? `Chat with ${API_CONFIGS[selectedModel].name}` : 'Start Chatting'}
               </h2>
               <div className="flex flex-col items-center justify-center space-y-2 mt-2">
-                <div className="text-xs md:text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full border border-amber-200 econai-mobile-text-sm">
+                <div className="text-xs md:text-sm text-slate-600 bg-slate-50 px-3 py-1 rounded-full border border-slate-200 econai-mobile-text-sm">
                   ⚠️ Free users: 3 messages/day, 2 messages/hour
                 </div>
                 {!showChat && (
@@ -1238,7 +1238,7 @@ export default function Home() {
                 setShowChat(true);
                 setHistoryOpen(false);
               }}
-              className="px-4 py-2 bg-amber-900 hover:bg-amber-950 text-white font-medium"
+              className="px-4 py-2 bg-slate-700 hover:bg-slate-800 text-white font-medium"
             >
               New Chat
             </Button>
